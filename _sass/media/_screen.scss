@@ -46,7 +46,7 @@ svg {
     width: 100%;
     background-color:white;
     @include background-image(
-        linear-gradient(top, rgba(70,50,80,.9), rgba(55,30,85, .9)),
+        linear-gradient(top, rgba(darken($link-color, 12%), .9), rgba($link-color, .8)),
         url('../images/bg-large.jpg')
     );
     background-size: cover;
@@ -85,7 +85,7 @@ svg {
 
     :last-child {
         background: white;
-        color: rgba(70,50,80, .9);
+        color: rgba($link-color, .9);
         @include adjust-font-size-to(30px);
         font-weight: 400;
         @include padding-leader(1,30px);
@@ -134,7 +134,7 @@ svg {
 
     &:hover {
         path {
-            fill: #333;
+            fill: $link-color;
         }
     }
 
