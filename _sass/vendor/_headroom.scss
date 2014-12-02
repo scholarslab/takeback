@@ -1,0 +1,23 @@
+.headroom {
+    @include single-transition('transform', 200ms, linear);
+}
+
+.headroom--pinned {
+    @include translateY(0);
+}
+.headroom--unpinned {
+    @include translateY(-100%);
+}
+
+.headroom--not-top {
+    position:fixed;
+    top:0;
+    z-index:10000;
+
+    .admin-bar & {
+        top:32px;
+    }
+
+    width: 100%;
+    max-width: 1200px;
+}

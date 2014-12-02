@@ -1,0 +1,25 @@
+/* 
+Theme Name: Lab Notes
+Theme URI: http://github.com/scholarslab/labnotes
+Description: 
+Version: 1.0 
+Author: Jeremy Boggs 
+Author URI: http://scholarslab.org 
+License: Apache License, version 2.0
+*/
+
+// Compass - http://compass-style.org/
+@import "compass";
+@import "compass/reset";
+
+// Susy - http://susy.oddbird.net
+@import "susy";
+
+// Breakpoint - http://breakpoint-sass.com/
+@import "breakpoint";
+
+// Custom
+@import "variables";
+@import "mixins";
+@import "media/screen";
+@import "media/print";

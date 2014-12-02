@@ -1,0 +1,43 @@
+a {
+    @include link-colors(
+        $link-color,
+        $link-hover-color,
+        $link-active-color,
+        $link-visited-color,
+        $link-focus-color
+    );
+
+    @include link-colors(
+        rgba($link-color, .8),
+        rgba($link-hover-color, .8),
+        rgba($link-active-color, .8),
+        rgba($link-visited-color, .8),
+        rgba($link-focus-color, .8)
+    );
+
+    @include transition(
+        color $default-transition-duration,
+        background-color $default-transition-duration
+    );
+
+    &:before {
+        @include single-transition(color);
+    }
+
+    img {
+        @include single-transition(opacity);
+    }
+
+    i,
+    input[type=submit] {
+        @include single-transition(background-color);
+    }
+
+}
+
+#{headings()} {
+    a, a:link {
+        text-decoration:none;
+    }
+}
+

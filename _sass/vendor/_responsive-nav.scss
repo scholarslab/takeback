@@ -1,0 +1,67 @@
+/* Button to activate the navigation */
+.nav-toggle {
+    position:relative;
+    text-decoration:none;
+    float:right;
+    display:none;
+    @include adjust-font-size-to(16px);
+    @include adjust-leading-to(2,16px);
+    -webkit-tap-highlight-color: rgba(0,0,0,0);
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    -o-user-select: none;
+    user-select: none;
+    vertical-align:middle;
+    background: transparent;
+
+    &:hover {
+        color: #333;
+        background: rgba(black,.0125);
+    }
+
+    &:active,
+    &.active {
+        background: rgba(black,.025);
+    }
+
+    @include susy-breakpoint(1px 800px, 16) {
+        display:block;
+    }
+}
+
+@include susy-breakpoint(1px 800px, 16) {
+
+.js .nav-collapse {
+    float:none;
+    clear:both;
+    width:100%;
+    text-align:left;
+    @include fullbleed;
+    margin-top:0;
+    margin-bottom:0;
+    padding-top:0;
+    padding-bottom:0;
+
+    &.closed {
+        clip: rect(0 0 0 0);
+        max-height: 0;
+        display: block;
+        overflow: hidden;
+        zoom: 1;
+        clear:both;
+    }
+
+    &.opened {
+        max-height: 9999px;
+    }
+
+}
+    
+}
+
+.disable-pointer-events {
+    pointer-events: none !important;
+}
+

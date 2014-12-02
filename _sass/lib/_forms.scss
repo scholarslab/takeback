@@ -1,0 +1,37 @@
+input[type=text],
+input[type=email],
+textarea,
+input[type=submit] {
+    border: 1px solid #999;
+    border-color: rgba(black,.25);
+    font-family: $default-font !important;
+    @include adjust-font-size-to(16px);
+    padding-left: rhythm(.25, 16px);
+    padding-right: rhythm(.25, 16px);
+    @include adjust-leading-to(1,16px);
+    min-height: rhythm(1, 16px);
+}
+
+input[type=submit] {
+    @include background-image(
+        linear-gradient(top, rgba(white,.25), transparent),
+        linear-gradient(bottom, rgba(black,.075), transparent)
+        );
+    background-color: #900;
+    color: #fff;
+
+    @include border-radius(5px);
+
+    &:hover,
+    &:focus,
+    &:active {
+        background-color: #b00;
+        cursor:pointer;
+    }
+
+}
+
+textarea {
+    width: 100%;
+}
+

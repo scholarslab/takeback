@@ -1,0 +1,164 @@
+$grid: hide;
+
+@import url('//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css');
+
+@media screen {
+
+@include establish-baseline;
+@include border-box-sizing;
+
+html {
+    margin: 0 auto;
+    padding:0;
+    background-color: #f9f9f9;
+    @include box-shadow(0 0 20px rgba(black,.125));
+}
+
+body {
+    @include container($grid);
+    position:relative;
+    margin:0;
+    padding:0;
+
+    &#home {
+        @include display-flex(flex);
+        @include flex-flow(row wrap);
+        height: 100vh;
+
+        #banner {
+            min-height: 400px;
+            @include display-flex(flex);
+            @include align-items(flex-end);
+        }
+    }
+}
+
+#admin-bar {
+    display:none;
+}
+
+img,
+svg {
+    max-width:100%;
+    max-height:100%;
+    height:auto;
+}
+
+#main,
+#contentinfo {
+    padding-left: span(1 of 14 wide);
+    padding-right: span(1 of 14 wide);
+}
+
+#banner {
+    width: 100%;
+    background-color:white;
+    @include background-image(
+        linear-gradient(top, rgba(55,30,85, .9), rgba(55,30,85, .9)),
+        url('../images/bg-large.jpg')
+    );
+    background-size: cover;
+    border-top: 10px solid #333;
+}
+
+#homelink {
+    width: 100%;
+    display:block;
+    color: white;
+    text-decoration:none;
+    @include adjust-font-size-to(40px);
+    font-weight:800;
+    text-transform: uppercase;
+    letter-spacing: -2px;
+    text-align:center;
+    span {
+        display:block;
+    }
+
+    :first-child {
+        margin-bottom: -0.425em;
+        @include adjust-font-size-to(60px);
+    }
+
+    :last-child {
+        background: white;
+        color: rgba(70,50,80, .9);
+        font-weight: 400;
+        padding-top: rhythm(.5, 40px);
+    }
+
+
+}
+
+#main {
+    background-color: white;
+    background-color: rgba(white, .975);
+    padding-top: rhythm(1);
+}
+
+/* Footer styles */
+#contentinfo {
+    clear:both;
+    text-align:center;
+
+    @include susy-breakpoint('800px', 16) {
+        padding: 0 span(1 of 16 wide);
+    }
+}
+
+// Media query for 800px. Sets layout to 16 columns.
+@include susy-breakpoint('800px', 16) {
+
+body {
+    @include container($grid);
+}
+
+#main {
+    @include pad(2);
+    padding-top: rhythm(2);
+    padding-bottom: rhythm(2);
+}
+
+.fullbleed {
+    @include fullbleed(2,16);
+    padding-left:span(1 wide of 12);
+    padding-right:span(1 wide of 12);
+}
+
+}
+
+// Media query for 940px. Sets layout to 18 columns.
+@include susy-breakpoint('940px', 18) {
+
+body {
+    @include container($grid);
+}
+
+#main {
+    @include pad(3);
+
+    blockquote {
+        @include bleed(2);
+        padding-left:0;
+        padding-right:0;
+    }
+
+}
+
+.fullbleed {
+    @include fullbleed(3,18);
+    padding-left:span(1 wide of 12);
+    padding-right:span(1 wide of 12);
+}
+
+}
+
+@import "../lib/links";
+@import "../lib/typography";
+@import "../lib/tables";
+@import "../lib/forms";
+@import "../lib/classes";
+@import "../vendor/headroom";
+@import "../vendor/responsive-nav";
+
+}

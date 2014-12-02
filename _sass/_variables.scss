@@ -1,0 +1,38 @@
+// Compass
+$base-font-size: 18px;
+$base-line-height: 30px;
+$grid-background-baseline-color: rgba(black,0.2); // Background color for Compass's vertical rhythm.
+$grid-background-column-color: rgba(black,0.05); // Background color for grid columns
+$grid-background-baseline-height: $base-line-height;
+$default-transition-duration: .5s;
+
+// Susy
+$susy: (
+  global-box-sizing: border-box,
+  columns: 14,
+  gutters: 2/3,
+);
+
+// Colors
+$base-color                     : rgb(90,90,90);
+$base-color-light               : lighten($base-color, 10%);
+$base-color-lighter             : lighten($base-color, 20%);
+$base-color-lightest            : lighten($base-color, 30%);
+$base-color-dark                : darken($base-color, 10%);
+$base-color-darker              : darken($base-color, 20%);
+$base-color-darkest             : darken($base-color, 30%);
+
+$link-color                     : #70d;
+$link-visited-color             : $link-color;
+$link-hover-color               : darken($link-color, 10%);
+$link-focus-color               : $link-hover-color;
+$link-active-color              : $link-color;
+
+$code-color: $base-color-lighter;
+$ins-color: $code-color;
+
+$hero-color                     : $link-color;
+
+// Fonts
+$default-font: "Open Sans", sans-serif;
+$code-font: "Source Code Pro", monospace, monospace;

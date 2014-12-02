@@ -1,0 +1,31 @@
+table {
+  border-collapse:collapse;
+  border-spacing:0;
+  width: 100%;
+}
+
+th,
+td {
+  padding: rhythm(1) rhythm(.5) 0;
+  @include trailing-border(1px);
+  border-color: rgba($base-color,.2);
+  vertical-align:top;
+  .home .events-table & {
+      @include adjust-font-size-to(16px);
+      padding: rhythm(.25, 16px);
+
+      &:first-of-type {
+          width: 30%;
+          color: $base-color-light;
+      }
+
+  }
+
+}
+
+th {
+  @include trailing-border(3px);
+  text-align:left;
+  font-weight: 600;
+}
+

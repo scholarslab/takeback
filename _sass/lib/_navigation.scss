@@ -1,0 +1,228 @@
+#primary-navigation {
+
+    ul {
+        list-style:none;
+        padding:0;
+        margin:0;
+        text-transform:lowercase;
+        letter-spacing:1px;
+        @include adjust-font-size-to(16px);
+        @include adjust-leading-to(1,16px);
+    }
+
+    li {
+        display:inline;
+        & + li:before {
+            content: " · ";
+            color: $default-color-light;
+        }
+
+        ul {
+            display:none;
+        }
+    }
+
+    a {
+        text-decoration:none;
+        color: #710;
+        color: rgba(#710, .8);
+    }
+}
+
+/* CSS for responsive-nav.js by @viljamis */
+
+/**
+ * Responsive-nav.js adds 'js' to the HTML class attribute.
+ */
+/*.js {*/
+
+    /*[> Button to activate the navigation <]*/
+    /*.nav-toggle {*/
+        /*position:relative;*/
+        /*text-decoration:none;*/
+        /*float:right;*/
+        /*display:block;*/
+        /*@include adjust-font-size-to(16px);*/
+        /*@include adjust-leading-to(2,16px);*/
+        /*-webkit-tap-highlight-color: rgba(0,0,0,0);*/
+        /*-webkit-touch-callout: none;*/
+        /*-webkit-user-select: none;*/
+        /*-moz-user-select: none;*/
+        /*-ms-user-select: none;*/
+        /*-o-user-select: none;*/
+        /*user-select: none;*/
+        /*vertical-align:middle;*/
+        /*background: transparent;*/
+
+        /*&:hover {*/
+            /*color: #333;*/
+            /*background: rgba(black,.0125);*/
+        /*}*/
+
+        /*[> Active state and class <]*/
+        /*&:active,*/
+        /*&.active {*/
+            /*background: rgba(black,.025);*/
+        /*}*/
+
+    /*}*/
+
+    /*[> Link to home with SVG logo. <]*/
+    /*#homelink {*/
+        /*float:left;*/
+        /*display:block;*/
+        /*max-width: 120px;*/
+        /*@include adjust-font-size-to(16px);*/
+        /*@include adjust-leading-to(2, 16px);*/
+        /*vertical-align:middle;*/
+    /*}*/
+
+    /*#banner nav {*/
+        /*float:none;*/
+        /*clear:right;*/
+        /*width:100%;*/
+        /*text-align:left;*/
+        /*@include fullbleed;*/
+        /*margin-top:0;*/
+        /*margin-bottom:0;*/
+        /*padding-top:0;*/
+        /*padding-bottom:0;*/
+        /*&.closed {*/
+            /*clip: rect(0 0 0 0);*/
+            /*max-height: 0;*/
+            /*display: block;*/
+            /*overflow: hidden;*/
+            /*zoom: 1;*/
+            /*clear:both;*/
+        /*}*/
+
+        /*[> Open the navigation element <]*/
+        /*&.opened  {*/
+            /*max-height: 9999px;*/
+        /*}*/
+
+        /*ul {*/
+            /*@include adjust-leading-to(1,16px);*/
+        /*}*/
+
+        /*li {*/
+            /*display:block;*/
+        /*}*/
+
+        /*a {*/
+            /*display:block;*/
+            /*text-decoration:none;*/
+            /*border-bottom: 1px solid rgba(black,.1);*/
+            /*@include fullbleed;*/
+            /*margin-top:0;*/
+            /*margin-bottom:0;*/
+            /*padding-top: rhythm(.25, 16px);*/
+            /*padding-bottom: rhythm(.25, 16px);*/
+
+            /*&:focus {*/
+                /*outline:0;*/
+            /*}*/
+
+            /*&:link,*/
+            /*&:visited {*/
+                /*background-color: rgba(black,.05);*/
+            /*}*/
+
+            /*&:hover,*/
+            /*&:focus,*/
+            /*&:active {*/
+                /*background-color: rgba(black,.1);*/
+            /*}*/
+        /*}*/
+
+        /*li:first-child a {*/
+            /*border-top: 1px solid rgba(black,.1);*/
+        /*}*/
+
+    /*}*/
+/*}*/
+
+/*.disable-pointer-events {*/
+    /*pointer-events: none !important;*/
+/*}*/
+
+/*@include susy-breakpoint(800px, 16) {*/
+
+    /*#primary-navigation {*/
+        /*@include span(last 10 of 14);*/
+
+        /*li {*/
+            /*display:inline-block;*/
+        /*}*/
+
+        /*.current-menu-item a {*/
+            /*border-bottom: 5px solid white;*/
+        /*}*/
+
+    /*}*/
+
+    /*.nav-toggle {*/
+        /*display:none;*/
+    /*}*/
+
+    /*nav.closed,*/
+    /*nav.opened{*/
+        /*float:right;*/
+        /*clear:right;*/
+        /*background: transparent !important;*/
+        /*text-align:right;*/
+        /*position:inherit;*/
+        /*max-height:none;*/
+    /*}*/
+
+    /*nav a {*/
+        /*background: transparent !important;*/
+        /*border:none;*/
+        /*margin:0;*/
+        /*padding:0 rhythm(.2,16px);*/
+    /*}*/
+
+
+    /*.js #primary-navigation.closed,*/
+    /*.js #primary-navigation.opened,*/
+    /*#primary-navigation {*/
+
+        /*background: transparent;*/
+        /*margin:0;*/
+        /*padding:0;*/
+
+        /*ul {*/
+            /*@include adjust-leading-to(2,16px);*/
+        /*}*/
+
+    /*}*/
+
+/*}*/
+
+/**
+ * Headroom.js styles
+ */
+.headroom {
+    @include single-transition('transform', 200ms, linear);
+}
+
+.headroom--pinned {
+    @include translateY(0);
+}
+.headroom--unpinned {
+    @include translateY(-100%);
+}
+
+.headroom--not-top {
+    position:fixed;
+    top:0;
+    z-index:10000;
+
+    .admin-bar & {
+        top:32px;
+    }
+
+    width: 100%;
+    max-width: 1200px;
+}
+

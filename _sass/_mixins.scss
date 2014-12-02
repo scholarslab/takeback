@@ -1,0 +1,90 @@
+@mixin clearfix {
+  &:before,
+  &:after {
+    content: " ";
+    display:table;
+    width:100%;
+  }
+}
+
+@mixin fullbleed($columns: 1, $layout: 14, $verticalPadding: true ) {
+    $context: $layout - ($columns * 2);
+
+    @if $verticalPadding {
+        @include bleed-y(rhythm());
+    }
+
+    @include bleed-x(span($columns of $context wide));
+    position:relative;
+}
+
+@mixin fullbackground($image: 'images/background.jpg', $overlay-color: $hero-color, $alpha: .85) {
+    @include background-size(cover);
+    background-repeat: no-repeat;
+    background-position:top center;
+    background-attachment:fixed;
+    $gradient-color: rgba($overlay-color, $alpha);
+
+    // For IE 9
+    @include ie-filter-gradient($gradient-color, $gradient-color);
+    @include background-image(url($image));
+
+    // For everyone else.
+    @include background-image(
+        linear-gradient(left, $gradient-color, $gradient-color),
+        url($image)
+    );
+
+    color: white;
+    color: rgba(white, .9);
+
+    a, a:link {
+        color: white;
+        color: rgba(white, .9);
+    }
+
+}
+
+@mixin gridlist {
+    list-style:none;
+    margin:0;
+    padding:0;
+    overflow:hidden;
+
+    & > * {
+        @include gallery(4 of 12);
+        margin-bottom: rhythm(1);
+
+        &:nth-child(3n) {
+            @include gallery(last 4 of 12);
+        }
+
+    }
+
+
+    @include susy-breakpoint('940px', 18) {
+        @include bleed-x(span(2 of 12 wide));
+        padding:0;
+
+
+        & > * {
+            @include gallery(4 of 16);
+            &:nth-child(3n) {
+                @include gallery(4 of 16);
+            }
+
+            &:nth-child(4n) {
+                @include gallery(last 4 of 16);
+            }
+
+        }
+    }
+}
+
+@mixin ie-filter-gradient($start-color, $end-color, $orientation: vertical) {
+    @include has-layout;
+    $gradient-type: if($orientation == vertical, 0, 1);
+    @each $property in -ms-filter, filter {
+    #{$property}: progid:DXImageTransform.Microsoft.gradient(gradientType=#{$gradient-type}, startColorstr='#{ie-hex-str($start-color)}', endColorstr='#{ie-hex-str($end-color)}');
+    }
+}

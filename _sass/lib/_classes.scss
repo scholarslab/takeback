@@ -1,0 +1,126 @@
+/* Utility classes */
+.visuallyhidden {
+    border: 0;
+    clip: rect(0 0 0 0);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px;
+}
+
+.skip,
+.audible {
+    @extend .visuallyhidden;
+}
+
+.all {
+    text-decoration:none;
+    font-weight:bold;
+    display:block;
+    margin-top: rhythm();
+}
+
+.pagination {
+    text-align:justify;
+    @include clearfix;
+    @include leader(2);
+    @include trailer(2);
+
+    li {
+        display:inline-block;
+        float:left;
+
+        & + li {
+            float:right;
+        }
+
+    }
+
+    a, a:link {
+        border: 2px solid #ccc;
+        border-color: rgba(black, .1);
+        padding: rhythm(.25) rhythm(.5);
+        display:block;
+        text-decoration:none;
+    }
+}
+
+.alignnone {
+    margin: rhythm() 0;
+}
+
+.aligncenter,
+div.aligncenter {
+    display: block;
+    margin: rhythm() auto;
+}
+
+.alignright {
+    float: right;
+    margin: rhythm() 0 rhythm() gutter();
+}
+
+.alignleft {
+    float: left;
+    margin: rhythm() gutter() rhythm() 0;
+}
+
+.aligncenter {
+    display: block;
+    margin: rhythm() auto;
+}
+
+/*a {*/
+    /*img {*/
+        /*&.alignright {*/
+            /*float: right;*/
+            /*margin: rhythm() 0 rhythm() gutter();*/
+        /*}*/
+
+        /*&.alignnone {*/
+            /*margin: rhythm() auto;*/
+        /*}*/
+
+        /*&.alignleft {*/
+            /*float: left;*/
+            /*margin: rhythm() gutter() rhythm() 0;*/
+        /*}*/
+
+        /*&.aligncenter {*/
+            /*display: block;*/
+            /*margin-left: auto;*/
+            /*margin-right: auto*/
+        /*}*/
+    /*}*/
+/*}*/
+
+.author_image {
+    display:block;
+
+    #wpadminbar & {
+        display:inline !important; /* Make sure the image in the admin bar stays put.*/
+    }
+
+    img {
+        @include border-radius(50%);
+        vertical-align:middle;
+    }
+}
+
+.wp-caption {
+    max-width: 100%; /* Image does not overflow the content area */
+
+    img {
+        margin-bottom:0 !important;
+    }
+
+    p {
+        @include adjust-font-size-to(15px);
+        color: $base-color-light;
+        @include adjust-leading-to(1, 15px);
+        margin-top:0;
+    }
+}
+

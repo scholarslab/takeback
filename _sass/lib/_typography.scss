@@ -1,0 +1,264 @@
+body {
+    font-family: $default-font;
+    color: $base-color;
+    color: rgba($base-color, .9);
+}
+
+#{headings()} {
+    margin:0;
+}
+
+h1 {
+    font-weight: 200;
+    @include adjust-font-size-to(40px);
+    @include adjust-leading-to(2,40px);
+    margin:0;
+    @include trailer(1, 40px);
+    text-align:center;
+
+    .singular main header &,
+    main > header & {
+        padding: rhythm(1,40px) span(1 of 14 wide);
+
+        &:before,
+        &:after {
+            display:block;
+            content: " ";
+            height:rhythm(2, 56px);
+            width: 100px;
+            margin: 0 auto;
+            border: 2px solid #ccc;
+            border-color: rgba(black, .1);
+        }
+
+        &:before {
+            border-width: 0 0 2px;
+            margin-bottom: rhythm(1, 56px);
+        }
+
+        &:after {
+            border-width: 2px 0 0;
+            margin-top: rhythm(1, 56px);
+        }
+
+        @include susy-breakpoint('480px', 16) {
+            @include adjust-font-size-to(56px);
+            @include adjust-leading-to(2,56px);
+            margin:0;
+            @include padding-leader(2,56px);
+            @include padding-trailer(2,56px);
+
+        }
+    }
+
+    .archive main > header & {
+        padding: 0 !important;
+    }
+
+    .home article & {
+        @include adjust-font-size-to(25px);
+        @include adjust-leading-to(1,25px);
+        @include trailer(0, 25px);
+    }
+}
+
+h2 {
+    @include adjust-font-size-to(30px);
+    @include adjust-leading-to(1, 30px);
+    @include leader(2, 30px);
+    @include trailer(1, 30px);
+    font-weight:200;
+
+    header + &,
+    h1 + &,
+    h1 ~ * &:first-child {
+        @include leader(1, 30px);
+    }
+
+}
+
+h3 {
+    @include adjust-font-size-to(25px);
+    @include adjust-leading-to(2, 25px);
+    color: $base-color-light;
+    font-weight:200;
+    @include leader(1, 25px);
+
+}
+
+h4 {
+    @include adjust-font-size-to($base-font-size);
+    @include leader(2);
+    h3 + & {
+        @include leader(1);
+    }
+}
+
+h5 {
+    @include adjust-font-size-to($base-font-size);
+    color: $base-color-lighter;
+    @include leader(2);
+    h4 + & {
+        @include leader(1);
+    }
+}
+
+h6 {
+    @include adjust-font-size-to($base-font-size);
+    color: $base-color-light;
+    @include leader(2);
+    h5 + & {
+        @include leader(1);
+    }
+}
+
+#{headings(2,6)} {
+    + * {
+        margin-top:0 !important;
+    }
+}
+
+p {
+    margin: rhythm(1) 0;
+}
+
+blockquote {
+    @include adjust-font-size-to(20px);
+    @include adjust-leading-to(1,20px);
+    font-weight: 200;
+}
+
+ul {
+  list-style:circle;
+}
+
+ol {
+  list-style:decimal;
+}
+
+ul,ol {
+  padding:0;
+  margin: rhythm(1) 0 rhythm(1) rhythm(1);
+
+  nav & {
+    margin-left:0;
+  }
+
+  ul {
+    list-style: disc;
+  }
+
+  ol {
+    list-style: upper-alpha;
+  }
+
+  ul, ol {
+    margin: 0 0 0 rhythm(1);
+
+    ul {
+      list-style:square;
+    }
+
+    ol {
+      list-style:lower-alpha;
+    }
+  }
+}
+
+::-moz-list-bullet,
+::-moz-list-number {
+    color: $base-color-lighter;
+}
+
+dl {
+    margin: rhythm(1) 0;
+}
+
+dt {
+    font-weight:600;
+}
+
+dd {
+    margin-left: gutter();
+}
+
+code {
+  font-family: $code-font;
+  @include adjust-font-size-to(16px);
+  color: $code-color;
+}
+
+pre {
+    font-family: $code-font;
+    @include adjust-font-size-to(16px);
+    color: $code-color;
+    white-space: pre-wrap;
+    white-space: -moz-pre-wrap !important;
+    white-space: -pre-wrap;
+    white-space: -o-pre-wrap;
+    word-wrap: break-word;
+}
+
+/**
+ * Prevent `sub` and `sup` affecting `line-height` in all browsers.
+ */
+sub,
+sup {
+    font-size: 75%;
+    line-height: 0;
+    position: relative;
+    vertical-align: baseline;
+}
+
+sup {
+    top: -.5em;
+}
+
+sub {
+    bottom: -.25em;
+}
+
+del {
+  color: $base-color-lighter;
+}
+
+ins {
+  text-decoration:none;
+  background: $ins-color;
+}
+
+strong,
+b {
+    font-weight: 600;
+}
+
+em,
+i {
+    font-style:italic;
+}
+
+abbr,
+acronym {
+    border-bottom: 1px dotted $base-color-lighter;
+}
+
+address {
+  font-style:normal;
+  margin: rhythm(1) 0;
+}
+
+br {
+  margin:0;
+  line-height:0;
+}
+
+hr {
+  border:none;
+  text-align:center;
+  &:before {
+    display:block;
+    content: " · · · · · ";
+    color: rgba($base-color-light, .5);
+  }
+}
+
