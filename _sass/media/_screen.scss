@@ -10,7 +10,6 @@ $grid: hide;
 html {
     margin: 0;
     padding:0;
-    @include box-shadow(0 0 20px rgba(black,.125));
 }
 
 body {
@@ -103,19 +102,42 @@ svg {
 }
 
 #main {
-    background-color: white;
-    background-color: rgba(white, .975);
-    padding-top: rhythm(1);
+    text-align:justify;
 }
 
 /* Footer styles */
 #contentinfo {
     clear:both;
     text-align:center;
-
-    @include susy-breakpoint('800px', 16) {
-        padding: 0 span(1 of 16 wide);
+    width: 100%;
+    p {
+        @include adjust-font-size-to(16px);
     }
+}
+
+#slab-link {
+    content: " ";
+    display:block;
+    text-align:center;
+    vertical-align:middle;
+    max-width: 250px;
+    margin:0 auto;
+    padding: 5px 10px;
+    svg {
+        vertical-align:middle;
+        max-height: $base-line-height;
+        
+        path {
+            fill: #555;
+        }
+    }
+
+    &:hover {
+        path {
+            fill: #333;
+        }
+    }
+
 }
 
 // Media query for 800px. Sets layout to 16 columns.
@@ -125,10 +147,9 @@ body {
     @include container($grid);
 }
 
-#main {
+#main,
+#contentinfo {
     @include pad(2);
-    padding-top: rhythm(2);
-    padding-bottom: rhythm(2);
 }
 
 .fullbleed {
@@ -146,7 +167,8 @@ body {
     @include container($grid);
 }
 
-#main {
+#main,
+#contentinfo {
     @include pad(3);
 
     blockquote {

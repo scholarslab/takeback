@@ -80,9 +80,6 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
   html {
     margin: 0;
     padding: 0;
-    -moz-box-shadow: 0 0 20px rgba(0, 0, 0, 0.125);
-    -webkit-box-shadow: 0 0 20px rgba(0, 0, 0, 0.125);
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.125);
   }
 
   body {
@@ -194,23 +191,40 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
 
 @media screen {
   #main {
-    background-color: white;
-    background-color: rgba(255, 255, 255, 0.975);
-    padding-top: 1.66667em;
+    text-align: justify;
   }
 
   /* Footer styles */
   #contentinfo {
     clear: both;
     text-align: center;
+    width: 100%;
   }
-}
-@media screen and (min-width: 800px) {
-  #contentinfo {
-    padding: 0 6.41026%;
+  #contentinfo p {
+    font-size: 0.88889em;
+    line-height: 1.875em;
   }
-}
 
+  #slab-link {
+    content: " ";
+    display: block;
+    text-align: center;
+    vertical-align: middle;
+    max-width: 250px;
+    margin: 0 auto;
+    padding: 5px 10px;
+  }
+  #slab-link svg {
+    vertical-align: middle;
+    max-height: 30px;
+  }
+  #slab-link svg path {
+    fill: #555;
+  }
+  #slab-link:hover path {
+    fill: #333;
+  }
+}
 @media screen and (min-width: 800px) {
   body {
     max-width: 100%;
@@ -223,11 +237,10 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
     clear: both;
   }
 
-  #main {
+  #main,
+  #contentinfo {
     padding-left: 12.82051%;
     padding-right: 12.82051%;
-    padding-top: 3.33333em;
-    padding-bottom: 3.33333em;
   }
 
   .fullbleed {
@@ -262,11 +275,13 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
     clear: both;
   }
 
-  #main {
+  #main,
+  #contentinfo {
     padding-left: 17.04545%;
     padding-right: 17.04545%;
   }
-  #main blockquote {
+  #main blockquote,
+  #contentinfo blockquote {
     -moz-box-sizing: content-box;
     -webkit-box-sizing: content-box;
     box-sizing: content-box;
