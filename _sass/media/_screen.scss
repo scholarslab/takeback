@@ -110,6 +110,7 @@ svg {
     clear:both;
     text-align:center;
     width: 100%;
+    padding-bottom: rhythm(1);
     p {
         @include adjust-font-size-to(16px);
     }
@@ -126,7 +127,7 @@ svg {
     svg {
         vertical-align:middle;
         max-height: $base-line-height;
-        
+
         path {
             fill: #555;
         }

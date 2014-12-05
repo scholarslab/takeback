@@ -199,6 +199,7 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
     clear: both;
     text-align: center;
     width: 100%;
+    padding-bottom: 1.66667em;
   }
   #contentinfo p {
     font-size: 0.88889em;
