@@ -17,3 +17,9 @@ function queue_theme_assets() {
     queue_css_file('style');
 }
 
+function queue_slides_assets() {
+    queue_js_file('deck/deck.core');
+    queue_js_file('deck/extensions/scale/deck.scale');
+    queue_js_file('deck/extensions/automatic/deck.automatic');
+    queue_js_file('slides');
+}
