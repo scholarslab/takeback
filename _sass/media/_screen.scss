@@ -18,11 +18,6 @@ body {
     margin:0;
     padding:0;
 
-    &#home {
-        @include display-flex(flex);
-        @include flex-flow(row wrap);
-        height: 100vh;
-    }
 }
 
 #admin-bar {
@@ -36,6 +31,7 @@ svg {
     height:auto;
 }
 
+#primary-nav,
 #main,
 #contentinfo {
     padding-left: span(1 of 14 wide);
@@ -50,10 +46,18 @@ svg {
         url('../images/bg-large.jpg')
     );
     background-size: cover;
-    min-height: 300px;
-    height: 50vh;
     @include display-flex(flex);
     @include align-items(flex-end);
+    #home & {
+      min-height: 300px;
+      height: 50vh;
+    }
+}
+
+#homepage-text {
+  text-align:justify;
+  max-width: 90%;
+  margin: 50px auto;
 }
 
 #homelink {
@@ -70,6 +74,22 @@ svg {
     }
 
     :first-child {
+        @include adjust-font-size-to(40px);
+        line-height:.7;
+        @include padding-leader(1,40px);
+
+    }
+
+    :last-child {
+        background: white;
+        color: rgba($link-color, .9);
+        @include adjust-font-size-to(20px);
+        font-weight: 400;
+        @include padding-leader(.25,20px);
+    }
+
+    #home & {
+    :first-child {
         @include adjust-font-size-to(60px);
         line-height:.7;
         @include susy-breakpoint('400px', 16) {
@@ -84,25 +104,78 @@ svg {
     }
 
     :last-child {
-        background: white;
-        color: rgba($link-color, .9);
-        @include adjust-font-size-to(30px);
-        font-weight: 400;
-        @include padding-leader(1,30px);
         @include susy-breakpoint('400px', 16) {
             @include adjust-font-size-to(40px);
             @include padding-leader(1,40px);
 
         }
-
-
     }
-
+  }
 
 }
 
-#main {
-    text-align:justify;
+nav {
+  ul {
+    list-style:none;
+  }
+  li {
+    display:inline-block;
+
+    & + li:before {
+      content: " · ";
+      padding: 0 .25em;
+    }
+  }
+}
+
+#primary-nav {
+  display:block;
+  ul {
+    list-style:none;
+    text-align: center;
+    font-weight: 400;
+  }
+  li {
+    display:inline-block;
+
+    & + li:before {
+      content: " · ";
+    }
+  }
+
+  a {
+    text-decoration:none;
+    color: $link-color;
+    padding: .25em;
+  }
+}
+
+.item-pagination {
+  text-align:center;
+  ul {
+    text-align:center;
+  }
+
+  a {
+    text-decoration:none;
+  }
+}
+
+#sort-links {
+  ul {
+    list-style:none;
+    margin-left:0;
+    display:inline;
+
+    li {
+      display: inline-block;
+
+      & + li:before {
+        content: " · ";
+        color: rgba(black, .5);
+      }
+    }
+  }
 }
 
 /* Footer styles */
@@ -148,6 +221,7 @@ body {
     @include container($grid);
 }
 
+#primary-nav,
 #main,
 #contentinfo {
     @include pad(2);
@@ -159,6 +233,31 @@ body {
     padding-right:span(1 wide of 12);
 }
 
+#browse-list-links {
+    @include display-flex(flex);
+    @include flex-flow(row wrap);
+    @include justify-content(space-between);
+
+    @include adjust-font-size-to(16px);
+
+    @include padding-leader(1, 16px);
+    @include padding-trailer(.25, 16px);
+    border-bottom: 1px solid rgba(black, .075);
+
+    .pagination_list {
+      text-align:left;
+      margin:0;
+    }
+
+    #sort-links {
+      text-align:right;
+
+      ul {
+        text-align:right;
+      }
+
+    }
+  }
 }
 
 // Media query for 940px. Sets layout to 18 columns.
@@ -168,6 +267,7 @@ body {
     @include container($grid);
 }
 
+#primary-nav,
 #main,
 #contentinfo {
     @include pad(3);

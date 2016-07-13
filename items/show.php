@@ -1,10 +1,38 @@
 <?php echo head(array('title' => metadata('item', array('Dublin Core', 'Title')), 'bodyclass' => 'items show')); ?>
 
 <h1><?php echo metadata('item', array('Dublin Core', 'Title')); ?></h1>
+<?php
 
-<div id="element-sets">
-<?php echo all_element_texts('item'); ?>
-</div>
+$fields = array(
+  array('Dublin Core', 'Description'),
+  array('Dublin Core', 'Subject'),
+  array('Dublin Core', 'Date'),
+  array('Item Type Metadata', 'URL')
+);
+
+?>
+<table id="element-sets">
+<?php if (metadata('item', 'has tags')): ?>
+<tr id="item-tags" class="element">
+    <th><?php echo __('Tags'); ?></th>
+    <td class="element-text"><?php echo tag_string('item'); ?></td>
+</tr>
+<?php endif;?>
+<?php foreach ($fields as $field) : ?>
+  <?php if ($field_value = metadata('item', $field, array('all' => true))): ?>
+    <tr>
+      <th><?php echo $field[1]; ?></th>
+      <td><?php echo implode(', ', $field_value); ?></td>
+    </tr>
+  <?php endif; ?>
+<?php endforeach; ?>
+
+<tr id="item-output-formats" class="element">
+    <th><?php echo __('Output Formats'); ?></th>
+    <td class="element-text"><?php echo output_format_list(false); ?></td>
+</tr>
+
+</table>
 
 <div id="item-secondary">
 <!-- The following returns all of the files associated with an item. -->
@@ -22,25 +50,6 @@
     <div class="element-text"><p><?php echo link_to_collection_for_item(); ?></p></div>
 </div>
 <?php endif; ?>
-
-<!-- The following prints a list of all tags associated with the item -->
-<?php if (metadata('item', 'has tags')): ?>
-<div id="item-tags" class="element">
-    <h2><?php echo __('Tags'); ?></h2>
-    <div class="element-text"><?php echo tag_string('item'); ?></div>
-</div>
-<?php endif;?>
-
-<!-- The following prints a citation for this item. -->
-<div id="item-citation" class="element">
-    <h2><?php echo __('Citation'); ?></h2>
-    <div class="element-text"><?php echo metadata('item', 'citation', array('no_escape' => true)); ?></div>
-</div>
-
-<div id="item-output-formats" class="element">
-    <h2><?php echo __('Output Formats'); ?></h2>
-    <div class="element-text"><?php echo output_format_list(); ?></div>
-</div>
 
 <?php fire_plugin_hook('public_items_show', array('view' => $this, 'item' => $item)); ?>
 

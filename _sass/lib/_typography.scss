@@ -10,21 +10,20 @@ body {
 
 h1 {
     font-weight: 200;
-    @include adjust-font-size-to(40px);
-    @include adjust-leading-to(2,40px);
+    @include adjust-font-size-to(32px);
+    @include adjust-leading-to(1.5,32px);
     margin:0;
-    @include trailer(1, 40px);
-    text-align:center;
+    @include trailer(1, 32px);
 
     .singular main header &,
     main > header & {
-        padding: rhythm(1,40px) span(1 of 14 wide);
+        padding: rhythm(1,32px) span(1 of 14 wide);
 
         &:before,
         &:after {
             display:block;
             content: " ";
-            height:rhythm(2, 56px);
+            height:rhythm(2, 32px);
             width: 100px;
             margin: 0 auto;
             border: 2px solid #ccc;
@@ -33,21 +32,12 @@ h1 {
 
         &:before {
             border-width: 0 0 2px;
-            margin-bottom: rhythm(1, 56px);
+            margin-bottom: rhythm(1, 32px);
         }
 
         &:after {
             border-width: 2px 0 0;
-            margin-top: rhythm(1, 56px);
-        }
-
-        @include susy-breakpoint('480px', 16) {
-            @include adjust-font-size-to(56px);
-            @include adjust-leading-to(2,56px);
-            margin:0;
-            @include padding-leader(2,56px);
-            @include padding-trailer(2,56px);
-
+            margin-top: rhythm(1, 32px);
         }
     }
 
@@ -63,16 +53,16 @@ h1 {
 }
 
 h2 {
-    @include adjust-font-size-to(30px);
-    @include adjust-leading-to(1, 30px);
-    @include leader(2, 30px);
-    @include trailer(1, 30px);
+    @include adjust-font-size-to(28px);
+    @include adjust-leading-to(1.25, 28px);
+    @include leader(2, 28px);
+    @include trailer(1, 28px);
     font-weight:200;
 
     header + &,
     h1 + &,
     h1 ~ * &:first-child {
-        @include leader(1, 30px);
+        @include leader(1, 28px);
     }
 
 }

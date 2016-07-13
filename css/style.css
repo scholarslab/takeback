@@ -68,7 +68,7 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
 @media screen {
   html {
     font-size: 112.5%;
-    line-height: 1.66667em;
+    line-height: 1.5em;
   }
 
   *, *:before, *:after {
@@ -95,13 +95,6 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
     display: block;
     clear: both;
   }
-  body#home {
-    display: -webkit-flex;
-    display: flex;
-    -webkit-flex-flow: row wrap;
-    flex-flow: row wrap;
-    height: 100vh;
-  }
 
   #admin-bar {
     display: none;
@@ -114,6 +107,7 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
     height: auto;
   }
 
+  #primary-nav,
   #main,
   #contentinfo {
     padding-left: 7.35294%;
@@ -130,12 +124,20 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
     background-image: -webkit-linear-gradient(top, rgba(47, 30, 59, 0.9), rgba(80, 50, 100, 0.8)), url("../images/bg-large.jpg");
     background-image: linear-gradient(to bottom, rgba(47, 30, 59, 0.9), rgba(80, 50, 100, 0.8)), url("../images/bg-large.jpg");
     background-size: cover;
-    min-height: 300px;
-    height: 50vh;
     display: -webkit-flex;
     display: flex;
     -webkit-align-items: flex-end;
     align-items: flex-end;
+  }
+  #home #banner {
+    min-height: 300px;
+    height: 50vh;
+  }
+
+  #homepage-text {
+    text-align: justify;
+    max-width: 90%;
+    margin: 50px auto;
   }
 
   #homelink {
@@ -152,46 +154,100 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
     display: block;
   }
   #homelink :first-child {
+    font-size: 2.22222em;
+    line-height: 1.35em;
+    line-height: .7;
+    padding-top: 0.675em;
+  }
+  #homelink :last-child {
+    background: white;
+    color: rgba(80, 50, 100, 0.9);
+    font-size: 1.11111em;
+    line-height: 1.35em;
+    font-weight: 400;
+    padding-top: 0.3375em;
+  }
+  #home #homelink :first-child {
     font-size: 3.33333em;
-    line-height: 1.5em;
+    line-height: 1.35em;
     line-height: .7;
   }
 }
 @media screen and (min-width: 400px) {
-  #homelink :first-child {
+  #home #homelink :first-child {
     font-size: 5.55556em;
-    line-height: 1.2em;
+    line-height: 1.08em;
     line-height: .7;
   }
 }
 @media screen and (min-width: 800px) {
-  #homelink :first-child {
+  #home #homelink :first-child {
     font-size: 8.33333em;
-    line-height: 1.2em;
+    line-height: 1.08em;
     line-height: .7;
   }
 }
-@media screen {
-  #homelink :last-child {
-    background: white;
-    color: rgba(80, 50, 100, 0.9);
-    font-size: 1.66667em;
-    line-height: 2em;
-    font-weight: 400;
-    padding-top: 1em;
-  }
-}
 @media screen and (min-width: 400px) {
-  #homelink :last-child {
+  #home #homelink :last-child {
     font-size: 2.22222em;
-    line-height: 1.5em;
-    padding-top: 0.75em;
+    line-height: 1.35em;
+    padding-top: 0.675em;
   }
 }
 
 @media screen {
-  #main {
-    text-align: justify;
+  nav ul {
+    list-style: none;
+  }
+  nav li {
+    display: inline-block;
+  }
+  nav li + li:before {
+    content: " · ";
+    padding: 0 .25em;
+  }
+
+  #primary-nav {
+    display: block;
+  }
+  #primary-nav ul {
+    list-style: none;
+    text-align: center;
+    font-weight: 400;
+  }
+  #primary-nav li {
+    display: inline-block;
+  }
+  #primary-nav li + li:before {
+    content: " · ";
+  }
+  #primary-nav a {
+    text-decoration: none;
+    color: #503264;
+    padding: .25em;
+  }
+
+  .item-pagination {
+    text-align: center;
+  }
+  .item-pagination ul {
+    text-align: center;
+  }
+  .item-pagination a {
+    text-decoration: none;
+  }
+
+  #sort-links ul {
+    list-style: none;
+    margin-left: 0;
+    display: inline;
+  }
+  #sort-links ul li {
+    display: inline-block;
+  }
+  #sort-links ul li + li:before {
+    content: " · ";
+    color: rgba(0, 0, 0, 0.5);
   }
 
   /* Footer styles */
@@ -199,11 +255,11 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
     clear: both;
     text-align: center;
     width: 100%;
-    padding-bottom: 1.66667em;
+    padding-bottom: 1.5em;
   }
   #contentinfo p {
     font-size: 0.88889em;
-    line-height: 1.875em;
+    line-height: 1.6875em;
   }
 
   #slab-link {
@@ -217,7 +273,7 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
   }
   #slab-link svg {
     vertical-align: middle;
-    max-height: 30px;
+    max-height: 27px;
   }
   #slab-link svg path {
     fill: #555;
@@ -238,6 +294,7 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
     clear: both;
   }
 
+  #primary-nav,
   #main,
   #contentinfo {
     padding-left: 12.82051%;
@@ -248,10 +305,10 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
     -moz-box-sizing: content-box;
     -webkit-box-sizing: content-box;
     box-sizing: content-box;
-    margin-top: -1.66667em;
-    margin-bottom: -1.66667em;
-    padding-top: 1.66667em;
-    padding-bottom: 1.66667em;
+    margin-top: -1.5em;
+    margin-bottom: -1.5em;
+    padding-top: 1.5em;
+    padding-bottom: 1.5em;
     -moz-box-sizing: content-box;
     -webkit-box-sizing: content-box;
     box-sizing: content-box;
@@ -262,6 +319,30 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
     position: relative;
     padding-left: 8.62069%;
     padding-right: 8.62069%;
+  }
+
+  #browse-list-links {
+    display: -webkit-flex;
+    display: flex;
+    -webkit-flex-flow: row wrap;
+    flex-flow: row wrap;
+    -webkit-justify-content: space-between;
+    justify-content: space-between;
+    font-size: 0.88889em;
+    line-height: 1.6875em;
+    padding-top: 1.6875em;
+    padding-bottom: 0.42188em;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.075);
+  }
+  #browse-list-links .pagination_list {
+    text-align: left;
+    margin: 0;
+  }
+  #browse-list-links #sort-links {
+    text-align: right;
+  }
+  #browse-list-links #sort-links ul {
+    text-align: right;
   }
 }
 @media screen and (min-width: 940px) {
@@ -276,11 +357,13 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
     clear: both;
   }
 
+  #primary-nav,
   #main,
   #contentinfo {
     padding-left: 17.04545%;
     padding-right: 17.04545%;
   }
+  #primary-nav blockquote,
   #main blockquote,
   #contentinfo blockquote {
     -moz-box-sizing: content-box;
@@ -296,10 +379,10 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
     -moz-box-sizing: content-box;
     -webkit-box-sizing: content-box;
     box-sizing: content-box;
-    margin-top: -1.66667em;
-    margin-bottom: -1.66667em;
-    padding-top: 1.66667em;
-    padding-bottom: 1.66667em;
+    margin-top: -1.5em;
+    margin-bottom: -1.5em;
+    padding-top: 1.5em;
+    padding-bottom: 1.5em;
     -moz-box-sizing: content-box;
     -webkit-box-sizing: content-box;
     box-sizing: content-box;
@@ -381,20 +464,19 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
 
   h1 {
     font-weight: 200;
-    font-size: 2.22222em;
-    line-height: 1.5em;
-    line-height: 1.5em;
+    font-size: 1.77778em;
+    line-height: 1.6875em;
+    line-height: 1.26563em;
     margin: 0;
-    margin-bottom: 0.75em;
-    text-align: center;
+    margin-bottom: 0.84375em;
   }
   .singular main header h1, main > header h1 {
-    padding: 0.75em 7.35294%;
+    padding: 0.84375em 7.35294%;
   }
   .singular main header h1:before, .singular main header h1:after, main > header h1:before, main > header h1:after {
     display: block;
     content: " ";
-    height: 1.07143em;
+    height: 1.6875em;
     width: 100px;
     margin: 0 auto;
     border: 2px solid #ccc;
@@ -402,82 +484,70 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
   }
   .singular main header h1:before, main > header h1:before {
     border-width: 0 0 2px;
-    margin-bottom: 0.53571em;
+    margin-bottom: 0.84375em;
   }
   .singular main header h1:after, main > header h1:after {
     border-width: 2px 0 0;
-    margin-top: 0.53571em;
+    margin-top: 0.84375em;
   }
-}
-@media screen and (min-width: 480px) {
-  .singular main header h1, main > header h1 {
-    font-size: 3.11111em;
-    line-height: 1.07143em;
-    line-height: 1.07143em;
-    margin: 0;
-    padding-top: 1.07143em;
-    padding-bottom: 1.07143em;
-  }
-}
-@media screen {
   .archive main > header h1 {
     padding: 0 !important;
   }
   .home article h1 {
     font-size: 1.38889em;
-    line-height: 1.2em;
-    line-height: 1.2em;
+    line-height: 2.16em;
+    line-height: 1.08em;
     margin-bottom: 0em;
   }
 
   h2 {
-    font-size: 1.66667em;
-    line-height: 2em;
-    line-height: 1em;
-    margin-top: 2em;
-    margin-bottom: 1em;
+    font-size: 1.55556em;
+    line-height: 1.92857em;
+    line-height: 1.20536em;
+    margin-top: 1.92857em;
+    margin-bottom: 0.96429em;
     font-weight: 200;
   }
   header + h2, h1 + h2, h1 ~ * h2:first-child {
-    margin-top: 1em;
+    margin-top: 0.96429em;
   }
 
   h3 {
     font-size: 1.38889em;
-    line-height: 1.2em;
-    line-height: 2.4em;
+    line-height: 2.16em;
+    line-height: 2.16em;
     color: #747474;
     font-weight: 200;
-    margin-top: 1.2em;
+    margin-top: 1.08em;
   }
 
   h4 {
     font-size: 1em;
-    line-height: 1.66667em;
-    margin-top: 3.33333em;
+    line-height: 1.5em;
+    margin-top: 3em;
   }
   h3 + h4 {
-    margin-top: 1.66667em;
+    margin-top: 1.5em;
   }
 
   h5 {
     font-size: 1em;
-    line-height: 1.66667em;
+    line-height: 1.5em;
     color: #8d8d8d;
-    margin-top: 3.33333em;
+    margin-top: 3em;
   }
   h4 + h5 {
-    margin-top: 1.66667em;
+    margin-top: 1.5em;
   }
 
   h6 {
     font-size: 1em;
-    line-height: 1.66667em;
+    line-height: 1.5em;
     color: #747474;
-    margin-top: 3.33333em;
+    margin-top: 3em;
   }
   h5 + h6 {
-    margin-top: 1.66667em;
+    margin-top: 1.5em;
   }
 
   h2 + *, h3 + *, h4 + *, h5 + *, h6 + * {
@@ -485,13 +555,13 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
   }
 
   p {
-    margin: 1.66667em 0;
+    margin: 1.5em 0;
   }
 
   blockquote {
     font-size: 1.11111em;
-    line-height: 1.5em;
-    line-height: 1.5em;
+    line-height: 1.35em;
+    line-height: 1.35em;
     font-weight: 200;
   }
 
@@ -505,7 +575,7 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
 
   ul, ol {
     padding: 0;
-    margin: 1.66667em 0 1.66667em 1.66667em;
+    margin: 1.5em 0 1.5em 1.5em;
   }
   nav ul, nav ol {
     margin-left: 0;
@@ -517,7 +587,7 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
     list-style: upper-alpha;
   }
   ul ul, ul ol, ol ul, ol ol {
-    margin: 0 0 0 1.66667em;
+    margin: 0 0 0 1.5em;
   }
   ul ul ul, ul ol ul, ol ul ul, ol ol ul {
     list-style: square;
@@ -532,7 +602,7 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
   }
 
   dl {
-    margin: 1.66667em 0;
+    margin: 1.5em 0;
   }
 
   dt {
@@ -546,14 +616,14 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
   code {
     font-family: "Source Code Pro", monospace, monospace;
     font-size: 0.88889em;
-    line-height: 1.875em;
+    line-height: 1.6875em;
     color: #8d8d8d;
   }
 
   pre {
     font-family: "Source Code Pro", monospace, monospace;
     font-size: 0.88889em;
-    line-height: 1.875em;
+    line-height: 1.6875em;
     color: #8d8d8d;
     white-space: pre-wrap;
     white-space: -moz-pre-wrap !important;
@@ -607,7 +677,7 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
 
   address {
     font-style: normal;
-    margin: 1.66667em 0;
+    margin: 1.5em 0;
   }
 
   br {
@@ -633,18 +703,18 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
 
   th,
   td {
-    padding: 1.66667em 0.83333em 0;
+    padding: 1.5em 0.75em 0;
     border-bottom-width: 0.05556em;
     border-bottom-style: solid;
-    padding-bottom: 1.61111em;
+    padding-bottom: 1.44444em;
     border-color: rgba(90, 90, 90, 0.2);
     vertical-align: top;
   }
   .home .events-table th, .home .events-table
   td {
     font-size: 0.88889em;
-    line-height: 1.875em;
-    padding: 0.46875em;
+    line-height: 1.6875em;
+    padding: 0.42188em;
   }
   .home .events-table th:first-of-type, .home .events-table
   td:first-of-type {
@@ -655,7 +725,7 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
   th {
     border-bottom-width: 0.16667em;
     border-bottom-style: solid;
-    padding-bottom: 1.5em;
+    padding-bottom: 1.33333em;
     text-align: left;
     font-weight: 600;
   }
@@ -668,11 +738,11 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
     border-color: rgba(0, 0, 0, 0.25);
     font-family: "Open Sans", sans-serif !important;
     font-size: 0.88889em;
-    line-height: 1.875em;
-    padding-left: 0.46875em;
-    padding-right: 0.46875em;
-    line-height: 1.875em;
-    min-height: 1.875em;
+    line-height: 1.6875em;
+    padding-left: 0.42188em;
+    padding-right: 0.42188em;
+    line-height: 1.6875em;
+    min-height: 1.6875em;
   }
 
   input[type=submit] {
@@ -714,13 +784,13 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
     text-decoration: none;
     font-weight: bold;
     display: block;
-    margin-top: 1.66667em;
+    margin-top: 1.5em;
   }
 
   .pagination {
     text-align: justify;
-    margin-top: 3.33333em;
-    margin-bottom: 3.33333em;
+    margin-top: 3em;
+    margin-bottom: 3em;
   }
   .pagination:before, .pagination:after {
     content: " ";
@@ -737,34 +807,58 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
   .pagination a, .pagination a:link {
     border: 2px solid #ccc;
     border-color: rgba(0, 0, 0, 0.1);
-    padding: 0.41667em 0.83333em;
+    padding: 0.375em 0.75em;
     display: block;
     text-decoration: none;
   }
 
+  .pagination_list {
+    list-style: none;
+    font-size: 0.88889em;
+    line-height: 1.6875em;
+    line-height: 1.6875em;
+    margin-left: 0;
+  }
+  .pagination_list li {
+    display: inline;
+  }
+  .pagination_list li.pagination_current {
+    background: rgba(80, 50, 100, 0.375);
+    color: rgba(0, 0, 0, 0.8);
+    padding: .25em .75em;
+  }
+  .pagination_list a {
+    text-decoration: none;
+    background: rgba(80, 50, 100, 0.05);
+    padding: .25em .75em;
+  }
+  .pagination_list a:hover, .pagination_list a:focus {
+    background: rgba(80, 50, 100, 0.125);
+  }
+
   .alignnone {
-    margin: 1.66667em 0;
+    margin: 1.5em 0;
   }
 
   .aligncenter,
   div.aligncenter {
     display: block;
-    margin: 1.66667em auto;
+    margin: 1.5em auto;
   }
 
   .alignright {
     float: right;
-    margin: 1.66667em 0 1.66667em 2.94118%;
+    margin: 1.5em 0 1.5em 2.94118%;
   }
 
   .alignleft {
     float: left;
-    margin: 1.66667em 2.94118% 1.66667em 0;
+    margin: 1.5em 2.94118% 1.5em 0;
   }
 
   .aligncenter {
     display: block;
-    margin: 1.66667em auto;
+    margin: 1.5em auto;
   }
 
   /*a {*/
@@ -810,9 +904,9 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
   }
   .wp-caption p {
     font-size: 0.83333em;
-    line-height: 2em;
+    line-height: 1.8em;
     color: #747474;
-    line-height: 2em;
+    line-height: 1.8em;
     margin-top: 0;
   }
 
@@ -855,8 +949,8 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
     float: right;
     display: none;
     font-size: 0.88889em;
-    line-height: 1.875em;
-    line-height: 3.75em;
+    line-height: 1.6875em;
+    line-height: 3.375em;
     -webkit-tap-highlight-color: transparent;
     -webkit-touch-callout: none;
     -webkit-user-select: none;
@@ -890,10 +984,10 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
     -moz-box-sizing: content-box;
     -webkit-box-sizing: content-box;
     box-sizing: content-box;
-    margin-top: -1.66667em;
-    margin-bottom: -1.66667em;
-    padding-top: 1.66667em;
-    padding-bottom: 1.66667em;
+    margin-top: -1.5em;
+    margin-bottom: -1.5em;
+    padding-top: 1.5em;
+    padding-bottom: 1.5em;
     -moz-box-sizing: content-box;
     -webkit-box-sizing: content-box;
     box-sizing: content-box;

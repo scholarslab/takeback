@@ -47,6 +47,34 @@
     }
 }
 
+.pagination_list {
+    list-style:none;
+    @include adjust-font-size-to(16px);
+    @include adjust-leading-to(1,16px);
+    margin-left:0;
+
+    li {
+      display:inline;
+
+      &.pagination_current {
+        background: rgba($link-color, .375);
+        color: rgba(black,.8);
+        padding: .25em .75em;
+      }
+    }
+
+    a {
+      text-decoration:none;
+      background: rgba($link-color, .05);
+      padding: .25em .75em;
+
+      &:hover,
+      &:focus {
+        background: rgba($link-color, .125);
+      }
+    }
+  }
+
 .alignnone {
     margin: rhythm() 0;
 }
