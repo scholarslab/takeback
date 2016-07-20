@@ -37,14 +37,17 @@ function make_url_link($url)
 add_filter(array('Display', 'Item', 'Dublin Core', 'Subject'), 'make_subject_link');
 
 function make_subject_link($subject) {
+
     if(empty($subject)) {
         return;
     }
 
-    /* TODO: Query for element_id, instead of assuming it is 49. */
-    $url = 'http://local.dev/takeback/items/browse?search=&advanced[0][element_id]=49&advanced[0][type]=is+exactly&advanced[0][terms]='.$subject;
+    $element = get_db()->getTable('Element')->findByElementSetNameAndElementName('Dublin Core', 'Subject');
 
-    return '<a href="'.$url.'">'.$subject.'</a>';
+    $link = link_to_items_browse($subject, array('advanced' => array(array('element_id' => $element->id, 'type' => 'is exactly', 'terms' => $subject))));
+
+    return $link;
+
 }
 
 add_filter(
