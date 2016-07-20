@@ -50,30 +50,6 @@ function make_subject_link($subject) {
 
 }
 
-add_filter(
-  array('Display', 'Item', 'Dublin Core', 'Title'),
-  'filter_item_title'
-);
-
-
-function filter_item_title($title) {
-  /*
-  $patterns = array();
-  $patterns[0] = 'Cavalier Daily';
-  $patterns[1] = '+?(?=-\=)/';
-  $replacements = array('','');
-
-*/
-
-  //$pattern = '/Cavalier\ Daily/';
-
-  //return $pattern;
-  //return preg_replace($pattern, '', $title);
-
-  $title = 'foobar';
-  return $title;
-}
-
 function get_unique_subjects() {
   $db = get_db();
   $table = $db->getTable('ElementText');
