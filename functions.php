@@ -24,8 +24,6 @@ function queue_slides_assets() {
     queue_js_file('slides');
 }
 
-add_filter(array('Display', 'Item', 'Item Type Metadata', 'URL'), 'make_url_link');
-
 function make_url_link($url)
 {
     if(empty($url)) {
@@ -33,8 +31,6 @@ function make_url_link($url)
     }
     return '<a href="'.$url.'">'.$url.'</a>';
 }
-
-add_filter(array('Display', 'Item', 'Dublin Core', 'Subject'), 'make_subject_link');
 
 function make_subject_link($subject) {
 
