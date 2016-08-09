@@ -1,5 +1,5 @@
 source 'https://rubygems.org'
 
-gem "susy"
-gem "compass"
-gem "breakpoint"
+gem "bourbon"
+gem "neat"
+gem "foreman"
