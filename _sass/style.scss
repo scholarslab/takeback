@@ -95,6 +95,19 @@ th {
   font-weight: 600;
 }
 
+/* Forms */
+input[type=text] {
+  padding: 6px;
+}
+
+select {
+  font-size: 1.2rem;
+}
+
+.field {
+  margin-bottom: 1.5rem;
+}
+
 #admin-bar {
   display:none;
 }
