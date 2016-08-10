@@ -58,22 +58,87 @@ function get_unique_subjects() {
 function get_tbta_public_tags($tagsonly=true) {
 
   $tags = array(
-    'administrative response' => 'Documents and other materials related to actions and reactions of UVA administrators and other university officials in response to charges or incidences of sexual violence. Includes but is not limited to documentation of changes in official policies and articles published in student, local, and national media. This tag is also used in concert with the “race” tag to indicate administrative responses to racial incidents.',
-    'Greek life' => 'Materials pertaining to fraternity and sorority life at UVA, as they relate to issues of sexual violence. We include this tag to encourage a fair but thorough investigation of the relationship of Greek life to reports of sexual violence.',
-    'LGBTQ Community' => 'Materials documenting the intersection of UVA’s LGBTQ community with issues of sexual violence. This tag is also applied to all of the items in the archive’s LGBTQ Center Collection, which covers a broader and more general field of information about LGBTQ life at UVA. We include this tag to encourage research and scholarship at the intersection of LGBTQ concerns, gender discrimination, and sexual violence.',
-    'national media' => 'National media includes all media that is not considered a student publication. This includes local media outlets such as the Daily Progress and C’ville Weekly as well as major mass media outlets such as the Washington Post, New York Times, and other national news publications and sites.',
-    'personal account' => 'The personal account tag identifies materials that constitute or include personal stories about experiences related to sexual violence, narrated or reported by the person involved. It does not include survivor stories, a category that has its own tag.',
-    'protests and demonstrations' => 'Protests and demonstrations of all kinds, from marches to social media memes, related to sexual violence. This tag is also used in concert with the “race” tag to indicate protests and demonstrations related to race; and with the LGBTQ Community tag to indicate protests and demonstrations related to LGBTQ issues.',
-    'race' => 'Identifies materials related to race. We include this tag to encourage research and scholarship at the intersection of race, gender discrimination, and sexual violence.',
-    'student publications' => 'Print and digital publications produced by students at UVA. The vast majority are from the daily student newspaper, the Cavalier Daily, but other publications are also represented, including but not limited to University Journal, The Odyssey, and Iris Magazine. Articles published in UVa Today, a university publication, are not included.',
-    'survivor stories' => 'First-person accounts of sexual violence by survivors.',
-    'advocacy' => 'The advocacy tag recognizes activists of all kinds who work to prevent sexual violence and to support survivors. This includes advocacy efforts undertaken by UVA students, faculty, and staff as well as advocacy groups devoted specifically and institutionally to supporting survivors and educating bystanders.'
+    array(
+      'name' => 'administration response',
+      'description' => 'Documents and other materials related to actions and reactions of UVA administrators and other university officials in response to charges or incidences of sexual violence. Includes but is not limited to documentation of changes in official policies and articles published in student, local, and national media. This tag is also used in concert with the “race” tag to indicate administrative responses to racial incidents.'),
+    array(
+      'name' => 'Greek life',
+      'description' => 'Materials pertaining to fraternity and sorority life at UVA, as they relate to issues of sexual violence. We include this tag to encourage a fair but thorough investigation of the relationship of Greek life to reports of sexual violence.'
+    ),
+    array(
+      'name' => 'LGBTQ Community',
+      'description' => 'Materials documenting the intersection of UVA’s LGBTQ community with issues of sexual violence. This tag is also applied to all of the items in the archive’s LGBTQ Center Collection, which covers a broader and more general field of information about LGBTQ life at UVA. We include this tag to encourage research and scholarship at the intersection of LGBTQ concerns, gender discrimination, and sexual violence.'
+    ),
+    array(
+      'name' => 'national media',
+      'description' => 'National media includes all media that is not considered a student publication. This includes local media outlets such as the Daily Progress and C’ville Weekly as well as major mass media outlets such as the Washington Post, New York Times, and other national news publications and sites.'
+    ),
+    array(
+      'name' => 'personal account',
+      'description' => 'The personal account tag identifies materials that constitute or include personal stories about experiences related to sexual violence, narrated or reported by the person involved. It does not include survivor stories, a category that has its own tag.'
+    ),
+    array(
+      'name' => 'protests and demonstrations',
+      'description' => 'Protests and demonstrations of all kinds, from marches to social media memes, related to sexual violence. This tag is also used in concert with the “race” tag to indicate protests and demonstrations related to race; and with the LGBTQ Community tag to indicate protests and demonstrations related to LGBTQ issues.'
+    ),
+    array(
+      'name' => 'race',
+      'description' => 'Identifies materials related to race. We include this tag to encourage research and scholarship at the intersection of race, gender discrimination, and sexual violence.'
+    ),
+    array(
+      'name' => 'student publications',
+      'description' => 'Print and digital publications produced by students at UVA. The vast majority are from the daily student newspaper, the Cavalier Daily, but other publications are also represented, including but not limited to University Journal, The Odyssey, and Iris Magazine. Articles published in UVa Today, a university publication, are not included.'
+    ),
+    array(
+      'name' => 'survivor stories',
+      'description' => 'First-person accounts of sexual violence by survivors.'
+    ),
+    array(
+      'name' => 'advocacy',
+      'description' => 'The advocacy tag recognizes activists of all kinds who work to prevent sexual violence and to support survivors. This includes advocacy efforts undertaken by UVA students, faculty, and staff as well as advocacy groups devoted specifically and institutionally to supporting survivors and educating bystanders.'
+    )
   );
 
-  if ($tagsonly) {
-    return array_keys($tags);
-  }
-  
   return $tags;
 }
 
+/**
+ * Return a linked tag list using only tags we want to display publicly.
+ *
+ * @TODO Find a better solution than this.
+ * @uses compareDeepValue()
+ * @uses get_tbta_public_tags()
+ * @return string
+ */
+function tbta_tag_list($record = null)
+{
+    $tagStrings = array();
+
+    $tags = get_tbta_public_tags();
+
+    // If there is a record, compare its tags with our public tags array.
+    if ($record) {
+      $record_tags = get_records('Tag', array('record' => $record), 0);
+      if ($record_tags) {
+         // Only return tags with the same $tag['name'] in both arrays.
+         $tags = array_uintersect($tags, $record_tags, 'compareDeepValue');
+      }
+    }
+
+
+    foreach ($tags as $tag) {
+      $name = $tag['name'];
+      $tagStrings[] .= '<a href="' . html_escape(url('items', array('tags' => $name))) . '" class="tag" rel="tag">' . html_escape($name) . '</a>';
+    }
+
+    return join(html_escape(', '), $tagStrings);
+}
+
+/**
+ * Utility to compare name keys in two arrays. Found at:
+ * http://stackoverflow.com/questions/5653241/using-array-intersect-on-a-multi-dimensional-array
+ */
+function compareDeepValue($val1, $val2)
+{
+   return strcmp($val1['name'], $val2['name']);
+}
