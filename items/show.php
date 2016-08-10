@@ -26,12 +26,6 @@ $fields = array(
     </tr>
   <?php endif; ?>
 <?php endforeach; ?>
-
-<tr id="item-output-formats" class="element">
-    <th><?php echo __('Output Formats'); ?></th>
-    <td class="element-text"><?php echo output_format_list(false); ?></td>
-</tr>
-
 </table>
 
 <div id="item-secondary">
