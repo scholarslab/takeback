@@ -4,7 +4,6 @@ echo head(array('title'=>$pageTitle,'bodyid'=>'collections','bodyclass' => 'brow
 ?>
 <div id="primary">
     <h1><?php echo $pageTitle; ?></h1>
-
     <?php if (total_records('Collection')): ?>
     <?php echo pagination_links(); ?>
 

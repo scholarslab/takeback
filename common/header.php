@@ -27,6 +27,7 @@
       <ul>
       <li><a href="<?php echo html_escape(url('/items/')); ?>">Browse Items</a></li>
       <li><a href="<?php echo html_escape(url('/items/search')); ?>">Search Items</a></li>
+      <li><a href="<?php echo html_escape(url('/collections/')); ?>">Browse Collections</a></li>
       <li><a href="<?php echo html_escape(url('/about/')); ?>">About the Archive</a></li>
       </ul>
     </nav>
