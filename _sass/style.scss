@@ -289,6 +289,10 @@ nav {
   }
 }
 
+.browse .item {
+  margin-bottom: 2em;
+}
+
 
 @media screen and (min-width:800px) {
 
@@ -375,5 +379,17 @@ nav {
 .skip,
 .audible {
   @extend .visuallyhidden;
+}
+
+.eyebrow {
+  font-size: .9rem;
+  font-style:normal;
+  font-weight:400;
+  color: #999;
+  margin:0;
+
+  & + h2 {
+    margin-top:0;
+  }
 }
 

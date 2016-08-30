@@ -220,6 +220,9 @@ nav li {
     .pagination_list a:hover, .pagination_list a:focus {
       background: rgba(80, 50, 100, 0.125); }
 
+.browse .item {
+  margin-bottom: 2em; }
+
 @media screen and (min-width: 800px) {
   #main {
     max-width: 800px;
@@ -292,3 +295,12 @@ nav li {
   padding: 0;
   position: absolute;
   width: 1px; }
+
+.eyebrow {
+  font-size: .9rem;
+  font-style: normal;
+  font-weight: 400;
+  color: #999;
+  margin: 0; }
+  .eyebrow + h2 {
+    margin-top: 0; }
