@@ -238,7 +238,7 @@ nav {
   }
 }
 
-#sort-links {
+.sort-links {
   ul {
     list-style:none;
     margin-left:0;
@@ -257,7 +257,7 @@ nav {
 }
 
 .pagination_list,
-#sort-links {
+.sort-links {
   font-size: .825rem;
   line-height:1;
 }
@@ -302,7 +302,7 @@ nav {
   margin-right: auto;
 }
 
-#browse-list-links {
+.browse-list-links {
   @include display(flex);
   @include flex-flow(row wrap);
   @include justify-content(space-between);
@@ -313,7 +313,7 @@ nav {
     margin:0;
   }
 
-  #sort-links {
+  .sort-links {
     text-align:right;
 
     ul {

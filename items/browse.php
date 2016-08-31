@@ -8,14 +8,14 @@ echo head(array('title'=>$pageTitle,'bodyclass' => 'items browse'));
 <?php if ($total_results > 0): ?>
 <?php echo item_search_filters(); ?>
 
-<div id="browse-list-links">
-<div id="pagination-links-container"><?php echo pagination_links(); ?></div>
+<div class="browse-list-links">
+<div class="pagination-links-container"><?php echo pagination_links(); ?></div>
 <?php
 $sortLinks[__('Title')] = 'Dublin Core,Title';
 $sortLinks[__('Creator')] = 'Dublin Core,Creator';
 $sortLinks[__('Date Added')] = 'added';
 ?>
-<div id="sort-links">
+<div class="sort-links">
     <span class="sort-label"><?php echo __('Sort by: '); ?></span><?php echo browse_sort_links($sortLinks); ?>
 </div>
 
@@ -54,8 +54,18 @@ $sortLinks[__('Date Added')] = 'added';
     </div><!-- end class="item-meta" -->
 </div><!-- end class="item hentry" -->
 <?php endforeach; ?>
+<div class="browse-list-links">
+<div class="pagination-links-container"><?php echo pagination_links(); ?></div>
+<?php
+$sortLinks[__('Title')] = 'Dublin Core,Title';
+$sortLinks[__('Creator')] = 'Dublin Core,Creator';
+$sortLinks[__('Date Added')] = 'added';
+?>
+<div class="sort-links">
+    <span class="sort-label"><?php echo __('Sort by: '); ?></span><?php echo browse_sort_links($sortLinks); ?>
+</div>
 
-<?php echo pagination_links(); ?>
+</div>
 
 <?php fire_plugin_hook('public_items_browse', array('items'=>$items, 'view' => $this)); ?>
 
