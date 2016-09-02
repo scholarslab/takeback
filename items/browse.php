@@ -43,9 +43,9 @@ $sortLinks[__('Date Added')] = 'added';
     </div>
     <?php endif; ?>
 
-    <?php if (metadata('item', 'has tags')): ?>
+    <?php if ($tags = tbta_tag_list($item)): ?>
     <div class="tags"><p><strong><?php echo __('Tags'); ?>:</strong>
-        <?php echo tbta_tag_list($item); ?></p>
+        <?php echo $tags; ?></p>
     </div>
     <?php endif; ?>
 
