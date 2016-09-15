@@ -103,38 +103,6 @@ function get_tbta_public_tags($tagsonly=true) {
 }
 
 /**
- * Return a linked tag list using only tags we want to display publicly.
- *
- * @TODO Find a better solution than this.
- * @uses compareDeepValue()
- * @uses get_tbta_public_tags()
- * @return string
- */
-function tbta_tag_list($record = null)
-{
-    $tagStrings = array();
-
-    $tags = get_tbta_public_tags();
-
-    // If there is a record, compare its tags with our public tags array.
-    if ($record) {
-      $record_tags = get_records('Tag', array('record' => $record), 0);
-      if ($record_tags) {
-         // Only return tags with the same $tag['name'] in both arrays.
-         $tags = array_uintersect($tags, $record_tags, 'compareDeepValue');
-      }
-    }
-
-
-    foreach ($tags as $tag) {
-      $name = $tag['name'];
-      $tagStrings[] .= '<a href="' . html_escape(url('items', array('tags' => $name))) . '" class="tag" rel="tag">' . html_escape($name) . '</a>';
-    }
-
-    return join(html_escape(', '), $tagStrings);
-}
-
-/**
  * Utility to compare name keys in two arrays. Found at:
  * http://stackoverflow.com/questions/5653241/using-array-intersect-on-a-multi-dimensional-array
  */
