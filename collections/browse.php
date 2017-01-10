@@ -1,5 +1,5 @@
 <?php
-$pageTitle = __('Browse Collections');
+$pageTitle = __('Collections');
 echo head(array('title'=>$pageTitle,'bodyid'=>'collections','bodyclass' => 'browse'));
 ?>
 <div id="primary">
