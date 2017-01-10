@@ -22,7 +22,6 @@
     <?php fire_plugin_hook('public_body', array('view'=>$this)); ?>
     <header role="banner" id="banner">
     <?php echo link_to_home_page('<span>Take Back</span> <span>the Archive</span>', array('id' => 'homelink')); ?>
-    </header>
     <nav id="primary-nav" role="navigation">
       <ul>
       <li><a href="<?php echo html_escape(url('/items/')); ?>">Browse Items</a></li>
@@ -31,6 +30,6 @@
       <li><a href="<?php echo html_escape(url('/about/')); ?>">About the Archive</a></li>
       </ul>
     </nav>
-
+    </header>
     <main id="main" role="main">
         <?php fire_plugin_hook('public_content_top', array('view'=>$this)); ?>
