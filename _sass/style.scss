@@ -18,10 +18,9 @@ body {
 }
 
 body {
-  font-family: $default-font;
+  font: 16px/1.375 $default-font;
   color: $base-color;
   color: rgba($base-color, .9);
-  font-size: 18px;
 }
 
 a {
@@ -180,6 +179,11 @@ nav {
   margin-left: auto;
   margin-right: auto;
 
+  .collections.show & {
+    max-width: inherit;
+    padding:0;
+  }
+  
   .browse &,
   .page & {
     h1:first-of-type {
@@ -302,6 +306,29 @@ nav {
     text-decoration:none;
   }
 
+}
+
+.collection {
+  header {
+    min-height: 50vh;
+    background-color: rgba($link-color,.75);
+    @include background-image(
+      linear-gradient(hsla(270,50%, 20%,.8),hsla(270,50%, 20%,.8)),
+      url(../images/bg-large.jpg)
+      );
+    background-size: cover;
+    background-position: 50% 50%;
+    color: white;
+    color: rgba(white,.9);
+    padding: 4rem;
+
+    h1 {
+      font-size: 3rem;
+      margin-top: 0;
+      font-weight: 100;
+    }
+    
+  }
 }
 
 @media screen and (min-width:800px) {
