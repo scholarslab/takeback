@@ -150,6 +150,15 @@ nav li {
   max-width: 900px;
   margin-left: auto;
   margin-right: auto; }
+  .browse #main h1:first-of-type, .page #main h1:first-of-type {
+    text-align: center; }
+    .browse #main h1:first-of-type:after, .page #main h1:first-of-type:after {
+      display: block;
+      content: " ";
+      height: .25rem;
+      width: 50px;
+      background: rgba(255, 128, 0, 0.75);
+      margin: 3rem auto; }
 
 #homepage-text {
   padding: 2rem 0; }

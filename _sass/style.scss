@@ -179,6 +179,22 @@ nav {
   max-width: 900px;
   margin-left: auto;
   margin-right: auto;
+
+  .browse &,
+  .page & {
+    h1:first-of-type {
+      text-align: center;
+
+      &:after {
+        display:block;
+        content: " ";
+        height: .25rem;
+        width: 50px;
+        background: hsla(30,100%,50%, .75);
+        margin: 3rem auto;
+      }
+    }
+  }
 }
 
 #homepage-text {
