@@ -179,11 +179,12 @@ nav {
   margin-left: auto;
   margin-right: auto;
 
+  // Make collections/show template span the entire width of viewport.
   .collections.show & {
     max-width: inherit;
     padding:0;
   }
-  
+
   .browse &,
   .page & {
     h1:first-of-type {
@@ -313,7 +314,7 @@ nav {
     min-height: 50vh;
     background-color: rgba($link-color,.75);
     @include background-image(
-      linear-gradient(hsla(270,50%, 20%,.8),hsla(270,50%, 20%,.8)),
+      linear-gradient(hsla(270,50%, 25%,.9),hsla(270,50%, 25%,.9)),
       url(../images/bg-large.jpg)
       );
     background-size: cover;
@@ -324,8 +325,40 @@ nav {
 
     h1 {
       font-size: 3rem;
+      letter-spacing: -1px;
       margin-top: 0;
       font-weight: 100;
+    }
+  }
+
+  .content {
+    max-width: 900px;
+    margin: 0 auto;
+    @include display(flex);
+    @include flex-flow(row wrap);
+    @include justify-content(space-between);
+
+    .item {
+      width: 48%;
+      margin-bottom: 2rem;
+      font-size: .9rem;
+      font-weight: 100;
+      letter-spacing: -1px;
+    }
+  }
+
+  .item {
+    .item-img {
+      float:left;
+      width: 33%;
+      margin-right: 2%;
+      margin-bottom: 2%;
+      padding: 2%;
+      border: 1px solid hsla(220,50%, 50%, .125);
+    }
+
+    h2 {
+      margin-top:0;
     }
     
   }
