@@ -1,5 +1,9 @@
 <?php echo head(array('title' => metadata('item', array('Dublin Core', 'Title')), 'bodyclass' => 'items show')); ?>
 
+<?php if (metadata('item', 'has files')): ?>
+<?php echo video_files_for_item(); ?>
+<?php endif; ?>
+
 <h1><?php echo metadata('item', array('Dublin Core', 'Title')); ?></h1>
 <?php
 

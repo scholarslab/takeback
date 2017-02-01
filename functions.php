@@ -110,3 +110,44 @@ function compareDeepValue($val1, $val2)
 {
    return strcmp($val1['name'], $val2['name']);
 }
+
+/**
+ * Display only video files for an Item.
+ *
+ * Directly queries the File table for files associated with a given Item.
+ * Checks the mime_type against an array of video types:
+ *
+ * - video/flv
+ * - video/x-flv
+ * - video/mp4
+ * - video/webm
+ * - video/wmv
+ * - video/quicktime
+ *
+ * @uses file_markup()
+ * @param array $options
+ * @param array $wrapperAttributes
+ * @param Item|null $item Check for this specific item record (current item if null).
+ * @return string HTML
+ */
+function video_files_for_item($options = array(), $wrapperAttributes = array('class' => 'item-file'), $item = null)
+{
+    if (!$item) {
+        $item = get_current_record('item');
+    }
+
+    $types = array(
+        'video/flv', 'video/x-flv', 'video/mp4', 'video/m4v',
+        'video/webm', 'video/wmv', 'video/quicktime'
+    );
+
+    $fileTable = get_db()->getTable('File');
+    $select = $fileTable->getSelect();
+    $select->where('files.item_id = ?', $item->id);
+    $select->where('files.mime_type IN (?)', $types);
+
+    $files = $fileTable->fetchObjects($select);
+
+    return file_markup($files, $options, $wrapperAttributes);
+
+}
