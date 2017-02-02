@@ -24,6 +24,7 @@ $sortLinks[__('Date Added')] = 'added';
 
 <?php endif; ?>
 
+<div class="items browse">
 <?php foreach (loop('items') as $item): ?>
 <div class="item hentry">
     <?php if($date = metadata('item', array('Dublin Core', 'Date'))): ?>
@@ -37,7 +38,7 @@ $sortLinks[__('Date Added')] = 'added';
     </div>
     <?php endif; ?>
 
-    <?php if ($description = metadata('item', array('Dublin Core', 'Description'), array('snippet'=>250))): ?>
+    <?php if ($description = metadata('item', array('Dublin Core', 'Description'), array('snippet'=>100))): ?>
     <div class="item-description">
         <?php echo $description; ?>
     </div>
@@ -54,6 +55,7 @@ $sortLinks[__('Date Added')] = 'added';
     </div><!-- end class="item-meta" -->
 </div><!-- end class="item hentry" -->
 <?php endforeach; ?>
+</div>
 <div class="browse-list-links">
 <div class="pagination-links-container"><?php echo pagination_links(); ?></div>
 <?php

@@ -21,6 +21,10 @@ body {
   color: #5a5a5a;
   color: rgba(90, 90, 90, 0.9); }
 
+h2 {
+  font-size: 1.2rem;
+  line-height: 1.1; }
+
 a {
   -webkit-transition: color 0.5s, background-color 0.5s;
   -moz-transition: color 0.5s, background-color 0.5s;
@@ -209,7 +213,28 @@ nav li {
     .pagination_list a:hover, .pagination_list a:focus {
       background: rgba(51, 26, 77, 0.125); }
 
+.browse .items {
+  display: -webkit-box;
+  display: -moz-box;
+  display: box;
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+  -moz-box-pack: justify;
+  box-pack: justify;
+  -webkit-justify-content: space-between;
+  -moz-justify-content: space-between;
+  -ms-justify-content: space-between;
+  -o-justify-content: space-between;
+  justify-content: space-between;
+  -ms-flex-pack: justify;
+  -webkit-flex-flow: row wrap;
+  -moz-flex-flow: row wrap;
+  flex-flow: row wrap; }
 .browse .item {
+  width: 29%;
   margin-bottom: 2em; }
 
 .gallery {

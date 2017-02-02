@@ -23,6 +23,11 @@ body {
   color: rgba($base-color, .9);
 }
 
+h2 {
+  font-size: 1.2rem;
+  line-height: 1.1;
+}
+
 a {
 
   &:link {
@@ -275,8 +280,17 @@ nav {
   }
 }
 
-.browse .item {
-  margin-bottom: 2em;
+.browse {
+  .items {
+    @include display(flex);
+    @include justify-content(space-between);
+    @include flex-flow(row wrap);
+  }
+
+  .item {
+    width: 29%;
+    margin-bottom: 2em;
+  }
 }
 
 .gallery {
@@ -360,7 +374,7 @@ nav {
     h2 {
       margin-top:0;
     }
-    
+
   }
 }
 
