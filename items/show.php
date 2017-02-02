@@ -37,7 +37,7 @@ $fields = array(
 <?php if (metadata('item', 'has files')): ?>
 <div id="item-files" class="element">
     <h2><?php echo __('Files'); ?></h2>
-    <div class="element-text"><?php echo files_for_item(); ?></div>
+    <div class="element-text"><?php echo files_for_item(array('imageSize' => 'fullsize')); ?></div>
 </div>
 <?php endif; ?>
 
