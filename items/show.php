@@ -4,13 +4,15 @@
 <?php echo video_files_for_item(); ?>
 <?php endif; ?>
 
+<?php if($date = check_date_string(metadata('item', array('Dublin Core', 'Date')))): ?>
+<em class="eyebrow dc-date"><?php echo date('F j, Y', $date); ?></em>
+<?php endif; ?>
 <h1><?php echo metadata('item', array('Dublin Core', 'Title')); ?></h1>
 <?php
 
 $fields = array(
   array('Dublin Core', 'Description'),
   array('Dublin Core', 'Subject'),
-  array('Dublin Core', 'Date'),
   array('Item Type Metadata', 'URL')
 );
 

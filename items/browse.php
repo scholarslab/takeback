@@ -27,8 +27,8 @@ $sortLinks[__('Date Added')] = 'added';
 <div class="items browse">
 <?php foreach (loop('items') as $item): ?>
 <div class="item hentry">
-    <?php if($date = metadata('item', array('Dublin Core', 'Date'))): ?>
-    <em class="eyebrow dc-date"><?php echo date('Y', strtotime($date)); ?></em>
+    <?php if($date = check_date_string(metadata('item', array('Dublin Core', 'Date')))): ?>
+    <em class="eyebrow dc-date"><?php echo date('Y', $date); ?></em>
     <?php endif; ?>
     <h2><?php echo link_to_item(metadata('item', array('Dublin Core', 'Title')), array('class'=>'permalink')); ?></h2>
     <div class="item-meta">

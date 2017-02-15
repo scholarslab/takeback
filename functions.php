@@ -151,3 +151,15 @@ function video_files_for_item($options = array(), $wrapperAttributes = array('cl
     return file_markup($files, $options, $wrapperAttributes);
 
 }
+
+/**
+ * Determines if a given string is a useable date.
+ *
+ * @return bool
+ */
+function check_date_string($string)
+{
+    $time = strtotime($string);
+    $date = ($time === false) ? false : $time;
+    return $date;
+}
