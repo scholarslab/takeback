@@ -4,7 +4,7 @@ echo head(array('title'=> $collectionTitle, 'bodyclass' => 'collections show'));
 $totalItems = metadata('collection', 'total_items');
 ?>
 
-<article class="collection">
+    <article class="collection" id="collection-<?php echo metadata('collection', 'id'); ?>">
 <header>
 <h1><?php echo $collectionTitle; ?></h1>
 <?php if ($totalItems > 0): ?>

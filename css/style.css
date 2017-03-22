@@ -274,6 +274,54 @@ nav li {
   .gallery a {
     text-decoration: none; }
 
+#collection-11 header, #collection-11 .image {
+  background-image: -webkit-linear-gradient(rgba(64, 32, 96, 0.75), rgba(64, 32, 96, 0.75)), url(../images/collection-11.jpg);
+  background-image: linear-gradient(rgba(64, 32, 96, 0.75), rgba(64, 32, 96, 0.75)), url(../images/collection-11.jpg);
+  background-size: cover;
+  background-position: 50% 50%; }
+
+#collection-12 header, #collection-12 .image {
+  background-image: -webkit-linear-gradient(rgba(64, 32, 96, 0.75), rgba(64, 32, 96, 0.75)), url(../images/collection-12.jpg);
+  background-image: linear-gradient(rgba(64, 32, 96, 0.75), rgba(64, 32, 96, 0.75)), url(../images/collection-12.jpg);
+  background-size: cover;
+  background-position: 50% 50%; }
+
+#collection-13 header, #collection-13 .image {
+  background-image: -webkit-linear-gradient(rgba(64, 32, 96, 0.75), rgba(64, 32, 96, 0.75)), url(../images/collection-13.jpg);
+  background-image: linear-gradient(rgba(64, 32, 96, 0.75), rgba(64, 32, 96, 0.75)), url(../images/collection-13.jpg);
+  background-size: cover;
+  background-position: 50% 50%; }
+
+#collection-14 header, #collection-14 .image {
+  background-image: -webkit-linear-gradient(rgba(64, 32, 96, 0.75), rgba(64, 32, 96, 0.75)), url(../images/collection-14.jpg);
+  background-image: linear-gradient(rgba(64, 32, 96, 0.75), rgba(64, 32, 96, 0.75)), url(../images/collection-14.jpg);
+  background-size: cover;
+  background-position: 50% 50%; }
+
+#collection-15 header, #collection-15 .image {
+  background-image: -webkit-linear-gradient(rgba(64, 32, 96, 0.75), rgba(64, 32, 96, 0.75)), url(../images/collection-15.jpg);
+  background-image: linear-gradient(rgba(64, 32, 96, 0.75), rgba(64, 32, 96, 0.75)), url(../images/collection-15.jpg);
+  background-size: cover;
+  background-position: 50% 50%; }
+
+#collection-16 header, #collection-16 .image {
+  background-image: -webkit-linear-gradient(rgba(64, 32, 96, 0.75), rgba(64, 32, 96, 0.75)), url(../images/collection-16.jpg);
+  background-image: linear-gradient(rgba(64, 32, 96, 0.75), rgba(64, 32, 96, 0.75)), url(../images/collection-16.jpg);
+  background-size: cover;
+  background-position: 50% 50%; }
+
+#collection-17 header, #collection-17 .image {
+  background-image: -webkit-linear-gradient(rgba(64, 32, 96, 0.75), rgba(64, 32, 96, 0.75)), url(../images/collection-17.jpg);
+  background-image: linear-gradient(rgba(64, 32, 96, 0.75), rgba(64, 32, 96, 0.75)), url(../images/collection-17.jpg);
+  background-size: cover;
+  background-position: 50% 50%; }
+
+#collection-18 header, #collection-18 .image {
+  background-image: -webkit-linear-gradient(rgba(64, 32, 96, 0.75), rgba(64, 32, 96, 0.75)), url(../images/collection-18.jpg);
+  background-image: linear-gradient(rgba(64, 32, 96, 0.75), rgba(64, 32, 96, 0.75)), url(../images/collection-18.jpg);
+  background-size: cover;
+  background-position: 50% 50%; }
+
 .collection header {
   min-height: 50vh;
   background-color: rgba(51, 26, 77, 0.75);

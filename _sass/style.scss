@@ -323,6 +323,22 @@ nav {
 
 }
 
+$collections: 11 12 13 14 15 16 17 18;
+
+@each $collection in $collections{
+
+  #collection-#{$collection} {
+    header, .image{
+      @include background-image(
+        linear-gradient(hsla(270,50%, 25%,.75),hsla(270,50%, 25%,.75)),
+        url(../images/collection-#{$collection}.jpg)
+        );
+      background-size: cover;
+      background-position: 50% 50%;
+    }
+  }
+}
+
 .collection {
   header {
     min-height: 50vh;
@@ -430,6 +446,7 @@ nav {
   }
 
 }
+
 
 #slab-link {
   content: " ";

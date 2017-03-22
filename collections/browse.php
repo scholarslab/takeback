@@ -7,9 +7,9 @@ echo head(array('title'=>$pageTitle,'bodyid'=>'collections','bodyclass' => 'brow
     <?php echo pagination_links(); ?>
     <ul class="collections gallery">
     <?php foreach (loop('collections') as $collection): ?>
-    <li class="collection">
+    <li class="collection" id="collection-<?php echo metadata('collection', 'id'); ?>">
       <?php
-        $link_string = '<div class="image"></div>'.metadata('collection', array('Dublin Core', 'Title')); 
+        $link_string = '<div class="image"></div>'.metadata('collection', array('Dublin Core', 'Title'));
         echo link_to_collection($link_string); ?></li><!-- end class="collection" -->
     <?php endforeach; ?>
     </ul>
