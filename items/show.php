@@ -8,10 +8,11 @@
 <em class="eyebrow dc-date"><?php echo date('F j, Y', $date); ?></em>
 <?php endif; ?>
 <h1><?php echo metadata('item', array('Dublin Core', 'Title')); ?></h1>
+<?php if ($description = metadata('item', array('Dublin Core', 'Description'))): ?>
+<?php echo $description; ?>
+<?php endif; ?>
 <?php
-
 $fields = array(
-  array('Dublin Core', 'Description'),
   array('Dublin Core', 'Subject'),
   array('Item Type Metadata', 'URL')
 );
