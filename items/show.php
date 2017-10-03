@@ -22,12 +22,14 @@ $fields = array(
 ?>
 
 <table id="element-sets"> <!-- id DNE -->
+<!-- Tag list: -->
 <?php if (metadata('item', 'has tags')): ?>
 <tr id="item-tags" class="element"> <!-- id yes -->
     <th><?php echo __('Tags'); ?></th>
     <td class="element-text"><?php echo tag_string('item'); ?></td>
 </tr>
 <?php endif;?>
+<!-- Subject list: --> <!--
 <?php foreach ($fields as $field) : ?>
   <?php if ($field_value = metadata('item', $field, array('all' => true))): ?>
     <tr>
@@ -35,7 +37,7 @@ $fields = array(
       <td><?php echo implode(', ', $field_value); ?></td>
     </tr>
   <?php endif; ?>
-<?php endforeach; ?>
+<?php endforeach; ?> -->
 </table>
 
 <div id="item-secondary"> <!-- id DNE -->
