@@ -1,9 +1,11 @@
 <?php echo head(array('title' => metadata('item', array('Dublin Core', 'Title')), 'bodyclass' => 'items show')); ?>
 
+<!-- START ITEM CONTENT: -->
 <?php if (metadata('item', 'has files')): ?>
 <?php echo video_files_for_item(); ?>
 <?php endif; ?>
 
+<!-- If date, display date as "Month [D/DD, no leading 0], YYYY" -->
 <?php if($date = check_date_string(metadata('item', array('Dublin Core', 'Date')))): ?>
 <em class="eyebrow dc-date"><?php echo date('F j, Y', $date); ?></em>
 <?php endif; ?>
@@ -52,6 +54,7 @@ $fields = array(
     <div class="element-text"><p><?php echo link_to_collection_for_item(); ?></p></div>
 </div>
 <?php endif; ?>
+<!-- END ITEM CONTENT-->
 
 <?php fire_plugin_hook('public_items_show', array('view' => $this, 'item' => $item)); ?>
 
