@@ -246,7 +246,7 @@ nav {
       display: inline-block;
 
       & + li:before {
-        content: " · ";
+        content: " · "; /* local server doesn't render properly */
         color: rgba(black, .5);
       }
     }

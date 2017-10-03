@@ -105,7 +105,7 @@ nav ul {
 nav li {
   display: inline-block; }
   nav li + li:before {
-    content: " . "; /* somehow this was changed to "┬╖" during mtg w/ Jeremy? But only in CSS, not SCSS */
+    content: " ┬╖ ";
     padding: 0 .25em; }
 
 #banner {
@@ -193,7 +193,8 @@ nav li {
   .sort-links ul li {
     display: inline-block; }
     .sort-links ul li + li:before {
-      content: " . "; /* "┬╖" here, too?! */
+      content: " ┬╖ ";
+      /* local server doesn't render properly */
       color: rgba(0, 0, 0, 0.5); }
 
 .pagination_list,
