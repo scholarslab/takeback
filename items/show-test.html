@@ -3,23 +3,50 @@
 <html lang="en-US" class="no-js">
 <head>
     <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <title>Show Items Grid</title>
     <meta name="viewport" content="width=device-width">
-
-    <link rel="alternate" type="application/rss+xml" title="Omeka RSS Feed" href="/omeka/items/browse?output=rss2" /><link rel="alternate" type="application/atom+xml" title="Omeka Atom Feed" href="/omeka/items/browse?output=atom" />
-   
-    <!-- Style Sheets -->
-    <link href="http://fonts.googleapis.com/css?family=Open+Sans:400,700" media="screen" rel="stylesheet" type="text/css" >
+    <!-- CSS: -->
     <style>
-    body {
-    	text-align: center;
+    * {
+    	box-sizing: border-box;
     }
+    #item-show {
+    	display: grid;
+    	width: 70%;
+    	grid-gap: 0;
+    	grid-template-areas: "title            files"
+    						 "date  	       files"
+    						 "description      files"
+    						 "tags 	      collection"
+    						 "subject        subject";
+    	grid-template-columns: 1fr 1fr;
+    	grid-auto-rows: min-max(5rem, auto);
+    	border: 1px solid black;
+    }
+    #title {
+    	grid-area: title;
+    }
+    #date {
+    	grid-area: date;
+    }
+    #description {
+    	grid-area: description;
+    }
+    #files {
+    	grid-area: files;
+    }
+    #tags {
+    	grid-area: tags;
+    }
+
 	</style>
 
 </head>
 <body>
-TESTEST
-STESTSELKJ;LKJA
+	<div id="item-show">
+		<div id="title">TITLE</div>
+		<div id="date">DATE</div>
+		<div id="description">DESCRIPTION</div>
+		<div id="files">FILES</div>
 </body>
 </html>
