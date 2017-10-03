@@ -55,6 +55,11 @@ a {
     transition: background-color 0.5s; }
   h1 a, h2 a, h3 a {
     text-decoration: none; }
+  #item-tags a {
+    /* item show page tags */
+    background-color: linen;
+    border: 1px solid black;
+    display: inline-block; }
 
 table {
   border-collapse: collapse;
@@ -100,7 +105,7 @@ nav ul {
 nav li {
   display: inline-block; }
   nav li + li:before {
-    content: " · ";
+    content: " . "; /* somehow this was changed to "┬╖" during mtg w/ Jeremy? But only in CSS, not SCSS */
     padding: 0 .25em; }
 
 #banner {
@@ -188,7 +193,7 @@ nav li {
   .sort-links ul li {
     display: inline-block; }
     .sort-links ul li + li:before {
-      content: " · ";
+      content: " . "; /* "┬╖" here, too?! */
       color: rgba(0, 0, 0, 0.5); }
 
 .pagination_list,

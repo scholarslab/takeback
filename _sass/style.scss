@@ -74,6 +74,12 @@ a {
   h3 & {
     text-decoration:none;
   }
+
+  #item-tags & { /* item show page tags */
+    background-color: linen;
+    border: 1px solid black;
+    display: inline-block;
+  }
 }
 
 table {
