@@ -93,9 +93,9 @@ td {
   border-color: rgba($base-color,.2);
   vertical-align:top;
   padding: 1rem;
-  border-bottom: 1px solid rgba($base-color, .2);
-  &:first-of-type {
-    width: 20%;
+  border-bottom: 1px solid rgba($base-color, .2); /* show.php: lines across bottom */
+  &:first-of-type { /* show.php: styles all fields */
+    width: 20%; /* this applies to data and headings so splits in half - unintentional?? */
     color: $base-color-light;
   }
 }
