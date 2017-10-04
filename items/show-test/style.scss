@@ -7,22 +7,22 @@ $link-color                     : hsl(270,50%,20%);
 .item-show {
     	display: grid;
     	width: 70%;
-    	margin: auto;
+    	margin: 2rem auto;
     	grid-gap: 0;
     	grid-template-areas: "title            files"
     						 "date  	       files"
     						 "description      files"
-    						 "tags 	      collection"
+    						 "tag-container    collection"
     						 "subject        subject";
     	grid-template-columns: 1fr 1fr;
     	grid-auto-rows: min-max(5rem, auto);
-    	border: 1px solid black;
+    	/* Prevent full-size images from overflowing layout: */
     	img {
     		max-width: 30vw;
     	}
 }
 
-@each $area in title, date, description, files, tags, collection, subject {
+@each $area in title, date, description, files, tag-container, collection, subject {
 	.#{$area} {
 		grid-area: #{$area};
 		padding: .5rem;
@@ -30,7 +30,7 @@ $link-color                     : hsl(270,50%,20%);
 		text-align: center;
 		border: 2px solid white;
 		background: {
-			color: lightblue;
+			color: lightgrey;
 		}
 	}
 }
@@ -41,15 +41,31 @@ $link-color                     : hsl(270,50%,20%);
 	}
 }
 
-.tags,
 .collection,
 .subject {
 	a {
 		color: $link-color;
 		text-decoration: none;
-		border-bottom: 2px solid lightgreen;
+		border-bottom: 3px solid #9AAC5A;
 		&:hover {
-			color: lightgreen;
+			color: #9AAC5A;
+			font-weight: bold;
 		}
+	}
+}
+
+.tag-container {
+	display: flex;
+	flex-flow: row wrap;
+	justify-content: flex-end;
+	align-items: center;
+	align-content: center;
+	a {
+		color: white !important;
+		background-color: rgba(154, 172, 90, 80%);
+		text-decoration: none;
+		display: inline-block;
+		padding: 3px 5px;
+		margin: 3px;
 	}
 }
