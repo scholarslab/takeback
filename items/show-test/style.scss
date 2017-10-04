@@ -55,7 +55,7 @@ $link-color                     : hsl(270,50%,20%);
 }
 
 .collection,
-.subject,
+/*.subject,*/
 .date {
 	display: flex;
 	flex-flow: row wrap;
@@ -80,10 +80,16 @@ $link-color                     : hsl(270,50%,20%);
 	}
 }
 .subject {
-	flex-flow: column wrap;
-	justify-content: space-between;
+	a {
+		color: $link-color;
+		text-decoration: none;
+		border-bottom: 3px solid #9AAC5A;
+		&:hover {
+			color: #9AAC5A;
+			font-weight: bold;
+		}
+	}
 }
-
 .tag-container {
 	display: flex;
 	flex-flow: row wrap;

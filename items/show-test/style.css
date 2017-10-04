@@ -77,7 +77,6 @@
   font-size: 2rem; }
 
 .collection,
-.subject,
 .date {
   display: flex;
   flex-flow: row wrap;
@@ -86,27 +85,28 @@
   align-content: center;
   position: relative; }
   .collection span,
-  .subject span,
   .date span {
     position: absolute;
     left: .5rem;
     font-size: 1.5rem;
     font-weight: 700; }
   .collection a,
-  .subject a,
   .date a {
     color: #331a4d;
     text-decoration: none;
     border-bottom: 3px solid #9AAC5A; }
     .collection a:hover,
-    .subject a:hover,
     .date a:hover {
       color: #9AAC5A;
       font-weight: bold; }
 
-.subject {
-  flex-flow: column wrap;
-  justify-content: space-between; }
+.subject a {
+  color: #331a4d;
+  text-decoration: none;
+  border-bottom: 3px solid #9AAC5A; }
+  .subject a:hover {
+    color: #9AAC5A;
+    font-weight: bold; }
 
 .tag-container {
   display: flex;
