@@ -1,0 +1,55 @@
+$link-color                     : hsl(270,50%,20%);
+
+* {
+    	box-sizing: border-box;
+}
+
+.item-show {
+    	display: grid;
+    	width: 70%;
+    	margin: auto;
+    	grid-gap: 0;
+    	grid-template-areas: "title            files"
+    						 "date  	       files"
+    						 "description      files"
+    						 "tags 	      collection"
+    						 "subject        subject";
+    	grid-template-columns: 1fr 1fr;
+    	grid-auto-rows: min-max(5rem, auto);
+    	border: 1px solid black;
+    	img {
+    		max-width: 30vw;
+    	}
+}
+
+@each $area in title, date, description, files, tags, collection, subject {
+	.#{$area} {
+		grid-area: #{$area};
+		padding: .5rem;
+		font-family: 'Raleway', sans-serif;
+		text-align: center;
+		border: 2px solid white;
+		background: {
+			color: lightblue;
+		}
+	}
+}
+
+.title {
+	font: {
+		size: 2rem;
+	}
+}
+
+.tags,
+.collection,
+.subject {
+	a {
+		color: $link-color;
+		text-decoration: none;
+		border-bottom: 2px solid lightgreen;
+		&:hover {
+			color: lightgreen;
+		}
+	}
+}
