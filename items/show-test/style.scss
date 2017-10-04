@@ -10,11 +10,12 @@ $link-color                     : hsl(270,50%,20%);
     	width: 80%;
     	margin: 0 auto;
     	grid-gap: 6px;
-    	grid-template-areas: "title            files"
+    	grid-template-areas: "title            files"    						
     						 "tag-container    files"
-    						 "description      files"
-    						 "date 			   collection"
-    						 "subject          subject";
+    						 "subject      files"
+    						 "subject      files"
+    						 "date collection"
+    						 "description description";
     	grid-template-columns: 1fr 1fr;
     	grid-template-rows: min-max(5rem, auto);
     	/* Prevent full-size images from overflowing layout: */
@@ -37,11 +38,13 @@ $link-color                     : hsl(270,50%,20%);
 
 .title,
 .description,
-.files {
+.files,
+.subject {
 	div:first-of-type {
 		font-size: 1rem;
 		font-weight: 700;
 		color: lightgrey;
+		text-align: left;
 	}
 }
 .title {
@@ -75,6 +78,10 @@ $link-color                     : hsl(270,50%,20%);
 			font-weight: bold;
 		}
 	}
+}
+.subject {
+	flex-flow: column wrap;
+	justify-content: space-between;
 }
 
 .tag-container {
