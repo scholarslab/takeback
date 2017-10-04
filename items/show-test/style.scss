@@ -6,19 +6,19 @@ $link-color                     : hsl(270,50%,20%);
 
 .item-show {
     	display: grid;
-    	width: 70%;
-    	margin: 2rem auto;
+    	width: 80%;
+    	margin: 0 auto;
     	grid-gap: 0;
     	grid-template-areas: "title            files"
-    						 "date  	       files"
+    						 "tag-container    files"
     						 "description      files"
-    						 "tag-container    collection"
-    						 "subject        subject";
+    						 "collection       date"
+    						 "subject          subject";
     	grid-template-columns: 1fr 1fr;
     	grid-auto-rows: min-max(5rem, auto);
     	/* Prevent full-size images from overflowing layout: */
     	img {
-    		max-width: 30vw;
+    		max-width: 40vw;
     	}
 }
 
