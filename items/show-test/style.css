@@ -3,90 +3,102 @@
 
 .item-show {
   display: grid;
+  align-content: center;
   width: 80%;
   margin: 0 auto;
-  grid-gap: 0;
-  grid-template-areas: "title            files" "tag-container    files" "description      files" "collection       date" "subject          subject";
+  grid-gap: 6px;
+  grid-template-areas: "title            files" "tag-container    files" "description      files" "date 			   collection" "subject          subject";
   grid-template-columns: 1fr 1fr;
-  grid-auto-rows: min-max(5rem, auto);
+  grid-template-rows: min-max(5rem, auto);
   /* Prevent full-size images from overflowing layout: */ }
   .item-show img {
     max-width: 40vw; }
 
 .title {
   grid-area: title;
-  padding: .5rem;
-  font-family: 'Raleway', sans-serif;
-  text-align: center;
-  border: 2px solid white;
-  background-color: lightgrey; }
+  padding: .75rem;
+  font-family: 'Open Sans', sans-serif;
+  border: 3px solid lightgrey;
+  background-color: white; }
 
 .date {
   grid-area: date;
-  padding: .5rem;
-  font-family: 'Raleway', sans-serif;
-  text-align: center;
-  border: 2px solid white;
-  background-color: lightgrey; }
+  padding: .75rem;
+  font-family: 'Open Sans', sans-serif;
+  border: 3px solid lightgrey;
+  background-color: white; }
 
 .description {
   grid-area: description;
-  padding: .5rem;
-  font-family: 'Raleway', sans-serif;
-  text-align: center;
-  border: 2px solid white;
-  background-color: lightgrey; }
+  padding: .75rem;
+  font-family: 'Open Sans', sans-serif;
+  border: 3px solid lightgrey;
+  background-color: white; }
 
 .files {
   grid-area: files;
-  padding: .5rem;
-  font-family: 'Raleway', sans-serif;
-  text-align: center;
-  border: 2px solid white;
-  background-color: lightgrey; }
+  padding: .75rem;
+  font-family: 'Open Sans', sans-serif;
+  border: 3px solid lightgrey;
+  background-color: white; }
 
 .tag-container {
   grid-area: tag-container;
-  padding: .5rem;
-  font-family: 'Raleway', sans-serif;
-  text-align: center;
-  border: 2px solid white;
-  background-color: lightgrey; }
+  padding: .75rem;
+  font-family: 'Open Sans', sans-serif;
+  border: 3px solid lightgrey;
+  background-color: white; }
 
 .collection {
   grid-area: collection;
-  padding: .5rem;
-  font-family: 'Raleway', sans-serif;
-  text-align: center;
-  border: 2px solid white;
-  background-color: lightgrey; }
+  padding: .75rem;
+  font-family: 'Open Sans', sans-serif;
+  border: 3px solid lightgrey;
+  background-color: white; }
 
 .subject {
   grid-area: subject;
-  padding: .5rem;
-  font-family: 'Raleway', sans-serif;
-  text-align: center;
-  border: 2px solid white;
-  background-color: lightgrey; }
+  padding: .75rem;
+  font-family: 'Open Sans', sans-serif;
+  border: 3px solid lightgrey;
+  background-color: white; }
+
+.title div:first-of-type,
+.description div:first-of-type,
+.files div:first-of-type {
+  font-size: 1rem;
+  font-weight: 700;
+  color: lightgrey; }
 
 .title {
+  font-weight: 700;
   font-size: 2rem; }
 
 .collection,
-.subject {
-  /* position: relative;
-  span {
-  	position: absolute;
-  	left: .5rem;
-  	font-size: 1.5rem;
-  } */ }
+.subject,
+.date {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: flex-end;
+  align-items: center;
+  align-content: center;
+  position: relative; }
+  .collection span,
+  .subject span,
+  .date span {
+    position: absolute;
+    left: .5rem;
+    font-size: 1.5rem;
+    font-weight: 700; }
   .collection a,
-  .subject a {
+  .subject a,
+  .date a {
     color: #331a4d;
     text-decoration: none;
     border-bottom: 3px solid #9AAC5A; }
     .collection a:hover,
-    .subject a:hover {
+    .subject a:hover,
+    .date a:hover {
       color: #9AAC5A;
       font-weight: bold; }
 
@@ -100,14 +112,15 @@
   .tag-container span {
     position: absolute;
     left: .5rem;
-    font-size: 1.5rem; }
+    font-size: 1.5rem;
+    font-weight: 700; }
   .tag-container a {
     color: white !important;
     /* override $link-color */
     background-color: #9aac5a;
     text-decoration: none;
     display: inline-block;
-    padding: 3px 4px 3px 6px;
+    padding: 4px 4px 4px 6px;
     /* visual adjustment for triangle */
     margin: 3px 15px;
     border-bottom-left-radius: 2px;
@@ -122,5 +135,13 @@
       /* 4px = right padding */
       height: 0;
       width: 0;
-      border: 14px solid transparent;
+      border: 15px solid transparent;
       border-left-color: #9aac5a; }
+
+.files {
+  padding: 1rem; }
+  .files span {
+    color: lightgrey;
+    font-size: .75rem;
+    margin: auto;
+    float: right; }
