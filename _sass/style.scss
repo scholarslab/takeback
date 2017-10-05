@@ -286,7 +286,7 @@ nav {
   }
 }
 
-.browse {
+.browse { /* browse view */
   .items {
     @include display(flex);
     @include justify-content(space-between);
@@ -299,7 +299,7 @@ nav {
   }
 }
 
-.gallery {
+.gallery { /* collection show */
   .image {
     height: 200px;
     background: rgba($link-color, .5);
