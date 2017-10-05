@@ -2,6 +2,8 @@
 $collectionTitle = metadata('collection', 'display_title');
 echo head(array('title'=> $collectionTitle, 'bodyclass' => 'collections show'));
 $totalItems = metadata('collection', 'total_items');
+$myId = metadata('collection', 'id');
+$myItems = get_records('Item', ['collection_id' => $myId], 16);
 ?>
 
     <article class="collection" id="collection-<?php echo metadata('collection', 'id'); ?>">
@@ -18,9 +20,8 @@ $totalItems = metadata('collection', 'total_items');
 </div>
 </header>
 <div class="content">
-
 <ul class="gallery">
-<?php foreach (loop('items') as $item): ?>
+<?php foreach (loop('items', $myItems) as $item): ?>
 <?php $itemTitle = metadata('item', 'display_title'); ?>
 <li class="item record hentry">
     <?php if (metadata('item', 'has files')): ?>
