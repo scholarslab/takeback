@@ -329,9 +329,9 @@ nav {
 
 }
 
-$collections: 11 12 13 14 15 16 17 18;
+$collections: 11 12 13 14 15 16 17 18; /* collections containing header images */
 
-@each $collection in $collections{
+@each $collection in $collections{ /* assign header images to collections */
 
   #collection-#{$collection} {
     header, .image{
@@ -345,7 +345,7 @@ $collections: 11 12 13 14 15 16 17 18;
   }
 }
 
-.collection {
+.collection { /* collection show styles */
   header {
     min-height: 50vh;
     background-color: rgba($link-color,.75);
