@@ -1,0 +1,20 @@
+* {
+  box-sizing: border-box; }
+
+body {
+  font-size: 100%;
+  margin: 0;
+  padding: 0; }
+
+header {
+  height: 100vh;
+  background-color: lavender;
+  background-opacity: .8; }
+
+.low-poly {
+  background-image: linear-gradient(rgba(51, 26, 77, 0.7), rgba(51, 26, 77, 0.7)), url("low-poly.png");
+  height: 100%;
+  width: 40vw;
+  position: fixed;
+  right: 0;
+  top: 0; }
