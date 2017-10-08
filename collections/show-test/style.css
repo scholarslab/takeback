@@ -9,8 +9,8 @@ body {
   padding: 0; }
 
 /* Header Styles: */
-header {
-  height: 100vh; }
+.my-collection {
+  /*height: 100vh;*/ }
 
 .low-poly {
   /* background-image: linear-gradient(hsla(270, 50%, 20%, .7), hsla(270, 50%, 20%, .7)), url("low-poly.png"); */
