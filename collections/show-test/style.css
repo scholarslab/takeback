@@ -9,11 +9,13 @@ body {
   padding: 0; }
 
 /* Header Styles: */
-.my-collection {
-  /*height: 100vh;*/ }
+/* NB: 'my-collection' = wrapper class so =/= css/style.css */
+.my-collection header {
+  height: 100vh;
+  position: relative; }
 
+/* NB: if more efficient, should make this just the bg of <header> */
 .low-poly {
-  /* background-image: linear-gradient(hsla(270, 50%, 20%, .7), hsla(270, 50%, 20%, .7)), url("low-poly.png"); */
   background-image: url("low-poly.png");
   background-color: rgba(51, 26, 77, 0.9);
   background-blend-mode: multiply;
@@ -25,15 +27,38 @@ body {
   z-index: -1; }
 
 .title {
-  color: #a7a7a7;
-  font-size: 3rem;
-  text-align: center;
-  border: 1px solid black; }
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: lightgrey;
+  position: absolute;
+  top: 5rem;
+  right: 5rem;
+  max-width: 80%; }
+  .title div {
+    color: lavender;
+    background-color: rgba(90, 90, 90, 0.7);
+    font-size: 3.5rem;
+    padding: 5px; }
 
 /* Main Styles: */
-main {
-  height: 100vh; }
+.my-content {
+  border: 1px solid lightblue;
+  position: relative; }
+
+.num-items {
+  background-color: lavender;
+  height: 20vw;
+  width: 20vw;
+  position: absolute;
+  top: 0;
+  right: 20vw;
+  transform: translate(25%, -50%); }
 
 .description {
-  background-image: linear-gradient(to left bottom, purple 60%, white 60%);
-  height: 100vh; }
+  background-color: rgba(51, 26, 77, 0.7);
+  padding: 1rem;
+  margin: 3rem 0 1rem 0;
+  max-height: 50vh;
+  width: 50vw; }
+  .description p {
+    color: white; }
