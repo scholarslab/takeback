@@ -139,7 +139,7 @@ body {
 				text-decoration: underline;
 			}
 		}
-		@each $area in pic1, pic2, pic3, pic4, pic5 {
+		@each $area in pic1, pic2, pic3, pic4 {
 		.#{$area} {
 			grid-area: #{$area};
 			background-image: url("low-poly.png");
