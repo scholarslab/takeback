@@ -61,3 +61,281 @@ body {
   width: 50vw; }
   .description p {
     color: white; }
+
+.item-gallery {
+  display: flex;
+  flex-flow: column wrap;
+  /* if no pic, class="permalink"; if pic, no class */
+  /*a[class], img {
+  	min-height: 5rem;
+  	max-width: 10rem;
+  	border: 2px solid lightblue;
+  	padding: .5rem;
+  	margin: 1rem;
+  	background-color: rgba(90,90,90,.5);
+  }*/ }
+
+/* Create sets of items: */
+.set-1 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  width: 50%; }
+  .set-1 a {
+    text-decoration: none;
+    color: lightgrey;
+    font-weight: bold;
+    font-size: 1.5rem; }
+    .set-1 a:hover {
+      text-decoration: underline; }
+  .set-1 .pic1 {
+    grid-area: pic1;
+    background-image: url("low-poly.png");
+    background-color: lavender;
+    background-blend-mode: multiply;
+    padding: 2rem;
+    display: flex;
+    flex-flow: column wrap; }
+    .set-1 .pic1 img {
+      max-height: auto !important; }
+  .set-1 .pic2 {
+    grid-area: pic2;
+    background-image: url("low-poly.png");
+    background-color: rgba(51, 26, 77, 0.9);
+    background-blend-mode: multiply;
+    padding: 2rem;
+    display: flex;
+    flex-flow: column wrap; }
+    .set-1 .pic2 img {
+      max-height: auto !important; }
+  .set-1 .pic3 {
+    grid-area: pic3;
+    background-image: url("low-poly.png");
+    background-color: rgba(51, 26, 77, 0.8);
+    background-blend-mode: multiply;
+    padding: 2rem;
+    display: flex;
+    flex-flow: column wrap; }
+    .set-1 .pic3 img {
+      max-height: auto !important; }
+  .set-1 .pic4 {
+    grid-area: pic4;
+    background-image: url("low-poly.png");
+    background-color: lavender;
+    background-blend-mode: multiply;
+    padding: 2rem;
+    display: flex;
+    flex-flow: column wrap; }
+    .set-1 .pic4 img {
+      max-height: auto !important; }
+  .set-1 .pic5 {
+    grid-area: pic5;
+    background-image: url("low-poly.png");
+    background-color: rgba(51, 26, 77, 0.7);
+    background-blend-mode: multiply;
+    padding: 2rem;
+    display: flex;
+    flex-flow: column wrap; }
+    .set-1 .pic5 img {
+      max-height: auto !important; }
+
+.set-2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  width: 50%; }
+  .set-2 a {
+    text-decoration: none;
+    color: lightgrey;
+    font-weight: bold;
+    font-size: 1.5rem; }
+    .set-2 a:hover {
+      text-decoration: underline; }
+  .set-2 .pic1 {
+    grid-area: pic1;
+    background-image: url("low-poly.png");
+    background-color: lavender;
+    background-blend-mode: multiply;
+    padding: 2rem;
+    display: flex;
+    flex-flow: column wrap; }
+    .set-2 .pic1 img {
+      max-height: auto !important; }
+  .set-2 .pic2 {
+    grid-area: pic2;
+    background-image: url("low-poly.png");
+    background-color: rgba(51, 26, 77, 0.9);
+    background-blend-mode: multiply;
+    padding: 2rem;
+    display: flex;
+    flex-flow: column wrap; }
+    .set-2 .pic2 img {
+      max-height: auto !important; }
+  .set-2 .pic3 {
+    grid-area: pic3;
+    background-image: url("low-poly.png");
+    background-color: rgba(51, 26, 77, 0.8);
+    background-blend-mode: multiply;
+    padding: 2rem;
+    display: flex;
+    flex-flow: column wrap; }
+    .set-2 .pic3 img {
+      max-height: auto !important; }
+  .set-2 .pic4 {
+    grid-area: pic4;
+    background-image: url("low-poly.png");
+    background-color: lavender;
+    background-blend-mode: multiply;
+    padding: 2rem;
+    display: flex;
+    flex-flow: column wrap; }
+    .set-2 .pic4 img {
+      max-height: auto !important; }
+  .set-2 .pic5 {
+    grid-area: pic5;
+    background-image: url("low-poly.png");
+    background-color: rgba(51, 26, 77, 0.7);
+    background-blend-mode: multiply;
+    padding: 2rem;
+    display: flex;
+    flex-flow: column wrap; }
+    .set-2 .pic5 img {
+      max-height: auto !important; }
+
+.set-3 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  width: 50%; }
+  .set-3 a {
+    text-decoration: none;
+    color: lightgrey;
+    font-weight: bold;
+    font-size: 1.5rem; }
+    .set-3 a:hover {
+      text-decoration: underline; }
+  .set-3 .pic1 {
+    grid-area: pic1;
+    background-image: url("low-poly.png");
+    background-color: lavender;
+    background-blend-mode: multiply;
+    padding: 2rem;
+    display: flex;
+    flex-flow: column wrap; }
+    .set-3 .pic1 img {
+      max-height: auto !important; }
+  .set-3 .pic2 {
+    grid-area: pic2;
+    background-image: url("low-poly.png");
+    background-color: rgba(51, 26, 77, 0.9);
+    background-blend-mode: multiply;
+    padding: 2rem;
+    display: flex;
+    flex-flow: column wrap; }
+    .set-3 .pic2 img {
+      max-height: auto !important; }
+  .set-3 .pic3 {
+    grid-area: pic3;
+    background-image: url("low-poly.png");
+    background-color: rgba(51, 26, 77, 0.8);
+    background-blend-mode: multiply;
+    padding: 2rem;
+    display: flex;
+    flex-flow: column wrap; }
+    .set-3 .pic3 img {
+      max-height: auto !important; }
+  .set-3 .pic4 {
+    grid-area: pic4;
+    background-image: url("low-poly.png");
+    background-color: lavender;
+    background-blend-mode: multiply;
+    padding: 2rem;
+    display: flex;
+    flex-flow: column wrap; }
+    .set-3 .pic4 img {
+      max-height: auto !important; }
+  .set-3 .pic5 {
+    grid-area: pic5;
+    background-image: url("low-poly.png");
+    background-color: rgba(51, 26, 77, 0.7);
+    background-blend-mode: multiply;
+    padding: 2rem;
+    display: flex;
+    flex-flow: column wrap; }
+    .set-3 .pic5 img {
+      max-height: auto !important; }
+
+.set-4 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  width: 50%; }
+  .set-4 a {
+    text-decoration: none;
+    color: lightgrey;
+    font-weight: bold;
+    font-size: 1.5rem; }
+    .set-4 a:hover {
+      text-decoration: underline; }
+  .set-4 .pic1 {
+    grid-area: pic1;
+    background-image: url("low-poly.png");
+    background-color: lavender;
+    background-blend-mode: multiply;
+    padding: 2rem;
+    display: flex;
+    flex-flow: column wrap; }
+    .set-4 .pic1 img {
+      max-height: auto !important; }
+  .set-4 .pic2 {
+    grid-area: pic2;
+    background-image: url("low-poly.png");
+    background-color: rgba(51, 26, 77, 0.9);
+    background-blend-mode: multiply;
+    padding: 2rem;
+    display: flex;
+    flex-flow: column wrap; }
+    .set-4 .pic2 img {
+      max-height: auto !important; }
+  .set-4 .pic3 {
+    grid-area: pic3;
+    background-image: url("low-poly.png");
+    background-color: rgba(51, 26, 77, 0.8);
+    background-blend-mode: multiply;
+    padding: 2rem;
+    display: flex;
+    flex-flow: column wrap; }
+    .set-4 .pic3 img {
+      max-height: auto !important; }
+  .set-4 .pic4 {
+    grid-area: pic4;
+    background-image: url("low-poly.png");
+    background-color: lavender;
+    background-blend-mode: multiply;
+    padding: 2rem;
+    display: flex;
+    flex-flow: column wrap; }
+    .set-4 .pic4 img {
+      max-height: auto !important; }
+  .set-4 .pic5 {
+    grid-area: pic5;
+    background-image: url("low-poly.png");
+    background-color: rgba(51, 26, 77, 0.7);
+    background-blend-mode: multiply;
+    padding: 2rem;
+    display: flex;
+    flex-flow: column wrap; }
+    .set-4 .pic5 img {
+      max-height: auto !important; }
+
+.set-1 {
+  grid-template-areas: ".... pic1" "pic2 pic1" "pic2 pic3" ".... pic3";
+  margin: 0 3rem -1rem auto; }
+
+.set-2 {
+  grid-template-areas: "pic1 ...." "pic1 pic2" "pic3 pic2" "pic3 pic4" ".... pic4";
+  margin: 0 0 0 3rem; }
+
+.set-3 {
+  grid-template-areas: ".... pic1" "pic2 pic1" "pic2 pic3" "pic4 pic3" "pic4 ....";
+  margin: 0 3rem 0 auto; }
+
+.set-4 {
+  grid-template-areas: "pic1 ...." "pic1 pic2" "pic3 pic2" "pic3 pic4" "pic5 pic4" "pic5 ....";
+  margin: 0 0 3rem 3rem; }

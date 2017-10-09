@@ -67,6 +67,7 @@ body {
 
 .my-content {
 	position: relative;
+
 }
 
 .num-items {
@@ -90,6 +91,98 @@ body {
 	margin: 3rem 0 1rem 0;
 	max-height: 50vh;
 	width: 50vw;
-	
+}
 
+.item-gallery {
+	display: flex;
+	flex-flow: column wrap;
+	/* if no pic, class="permalink"; if pic, no class */
+	/*a[class], img {
+		min-height: 5rem;
+		max-width: 10rem;
+		border: 2px solid lightblue;
+		padding: .5rem;
+		margin: 1rem;
+		background-color: rgba(90,90,90,.5);
+	}*/
+}
+
+/* Create sets of items: */
+@for $i from 1 through 4 {
+	.set-#{$i} {
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		//grid-auto-rows: 10rem;
+		width: 50%;
+		a {
+			text-decoration: none;
+			color: lightgrey;
+			font-weight: bold;
+			font-size: 1.5rem;
+			&:hover {
+				text-decoration: underline;
+			}
+		}
+		@each $area in pic1, pic2, pic3, pic4, pic5 {
+		.#{$area} {
+			grid-area: #{$area};
+			background-image: url("low-poly.png");
+			@if $area == pic2 {
+				background-color: hsla(270, 50%, 20%, .9); 
+				} @elseif $area == pic3 {
+					background-color: hsla(270, 50%, 20%, .8);
+				} @elseif $area == pic1 or $area == pic4 { 
+					background-color: lavender;
+				} @else { 
+				background-color: hsla(270, 50%, 20%, .7);
+			}
+			background-blend-mode: multiply;
+			padding: 2rem;
+			display: flex;
+			flex-flow: column wrap;
+			img {
+				max-height: auto !important;
+			}
+		}
+		}
+	}
+}
+
+.set-1 {
+	grid-template-areas: ".... pic1"
+						 "pic2 pic1"
+						 "pic2 pic3"
+						 ".... pic3";
+	margin: 0 3rem -1rem auto;
+	
+}
+
+.set-2 {
+	grid-template-areas: "pic1 ...."
+						 "pic1 pic2"
+						 "pic3 pic2"
+						 "pic3 pic4"
+						 ".... pic4";
+	margin: 0 0 0 3rem;
+	
+}
+
+.set-3 {
+	grid-template-areas: ".... pic1"
+						 "pic2 pic1"
+						 "pic2 pic3"
+						 "pic4 pic3"
+						 "pic4 ....";
+	margin: 0 3rem 0 auto;
+	
+}
+
+.set-4 {
+	grid-template-areas: "pic1 ...."
+						 "pic1 pic2"
+						 "pic3 pic2"
+						 "pic3 pic4"
+						 "pic5 pic4"
+						 "pic5 ....";
+	margin: 0 0 3rem 3rem;
 }
