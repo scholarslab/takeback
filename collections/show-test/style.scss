@@ -83,14 +83,31 @@ body {
 }
 
 .description {
-	p {
-		color: white; // $base-color-lightest;
-	}
-	background-color: hsla(270, 50%, 20%, .7);
-	padding: 1rem;
-	margin: 3rem 0 1rem 0;
-	max-height: 50vh;
+	margin-top: 5rem;
+	position: relative;
 	width: 50vw;
+	p {
+		color: white;
+		background-color: hsla(270, 50%, 20%, .7);
+		padding: 2rem;
+		margin: 0 2rem;
+		max-height: 50vh;
+		&::before {
+			content: '';
+			display: block;
+			height: 2rem;
+			width: 4rem;
+			border-top: 5px solid lightgrey;
+		}
+		
+	}
+	span {
+		color: lightgrey;
+		font-weight: bold;
+		font-size: 1.5rem;
+		margin-left: 3rem;
+	}
+
 }
 
 .item-gallery {
@@ -142,6 +159,10 @@ body {
 			flex-flow: column wrap;
 			img {
 				max-height: auto !important;
+				//background: rgba(211, 211, 211, .5);
+				border: 3px solid rgba(90, 90, 90, .7);
+				padding: .5rem;
+
 			}
 		}
 		}
