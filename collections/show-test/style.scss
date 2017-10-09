@@ -91,7 +91,6 @@ body {
 		background-color: hsla(270, 50%, 20%, .7);
 		padding: 2rem;
 		margin: 0 2rem;
-		max-height: 50vh;
 		&::before {
 			content: '';
 			display: block;
@@ -100,7 +99,7 @@ body {
 			border-top: 5px solid lightgrey;
 		}
 		
-	}
+	} /* Title: */
 	span {
 		color: lightgrey;
 		font-weight: bold;

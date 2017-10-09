@@ -56,13 +56,13 @@ body {
 .description {
   margin-top: 5rem;
   position: relative;
-  width: 50vw; }
+  width: 50vw;
+  /* Title: */ }
   .description p {
     color: white;
     background-color: rgba(51, 26, 77, 0.7);
     padding: 2rem;
-    margin: 0 2rem;
-    max-height: 50vh; }
+    margin: 0 2rem; }
     .description p::before {
       content: '';
       display: block;
