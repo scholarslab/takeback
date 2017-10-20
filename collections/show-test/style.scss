@@ -65,32 +65,19 @@ body {
 
 /* Main Styles: */
 
-.my-content {
-	position: relative;
-
-}
-
-.num-items {
-	background: {
-		color: lavender;
-	}
-	height: 20vw;
-	width: 20vw;
-	position: absolute;
-	top: 0;
-	right: 20vw;
-	transform: translate(25%, -50%);
+.content {
+	height: 300vh;
+	background-image: linear-gradient(lightgrey 20%, white 20%, white 80%, hsla(270, 50%, 20%, .9) 80%);
 }
 
 .description {
-	margin-top: 5rem;
 	position: relative;
-	width: 50vw;
 	p {
 		color: white;
 		background-color: hsla(270, 50%, 20%, .7);
 		padding: 2rem;
-		margin: 0 2rem;
+		margin: 0 12.5vw;
+		width: 50vw;
 		&::before {
 			content: '';
 			display: block;
@@ -99,46 +86,35 @@ body {
 			border-top: 5px solid lightgrey;
 		}
 		
-	} /* Title: */
+	}
 	span {
 		color: lightgrey;
 		font-weight: bold;
 		font-size: 1.5rem;
 		margin-left: 3rem;
 	}
-
 }
 
-.item-gallery {
-	display: flex;
-	flex-flow: column wrap;
-	/* if no pic, class="permalink"; if pic, no class */
-	/*a[class], img {
-		min-height: 5rem;
-		max-width: 10rem;
-		border: 2px solid lightblue;
-		padding: .5rem;
-		margin: 1rem;
-		background-color: rgba(90,90,90,.5);
-	}*/
-}
 
 /* Create sets of items: */
 @for $i from 1 through 4 {
 	.set-#{$i} {
 		display: grid;
 		grid-template-columns: 1fr 1fr;
-		//grid-auto-rows: 10rem;
-		width: 50%;
+		width: 45%;
 		a {
 			text-decoration: none;
 			color: lightgrey;
 			font-weight: bold;
-			font-size: 1.5rem;
+			font-size: 1.25rem;
 			&:hover {
 				text-decoration: underline;
 			}
 		}
+		/* Item styles: */
+		/* NB:  pic1 = pic4 = lavender; 
+				pic2 = 90% $link-color; 
+				pic3 = 80% $link-color */
 		@each $area in pic1, pic2, pic3, pic4 {
 		.#{$area} {
 			grid-area: #{$area};
@@ -156,53 +132,46 @@ body {
 			padding: 2rem;
 			display: flex;
 			flex-flow: column wrap;
+			align-items: center;
 			img {
-				max-height: auto !important;
-				//background: rgba(211, 211, 211, .5);
-				border: 3px solid rgba(90, 90, 90, .7);
-				padding: .5rem;
+				padding: .25rem;
 
-			}
+			} // end img
+		} // end areas
+		} // end @each
+	} // end set-i
+} // end for loop
+
+/* Gallery test from dance.html */
+
+.item-gallery {
+	background-color: white;
+	padding: 20px;
+	height: 200vh;
+	width: 75%;
+	margin:  25% auto;
+	display: grid;
+	grid-gap: 16px;
+	grid-template-columns: 1fr 1fr 1fr;
+	grid-template-rows: repeat(5, minmax(auto, 40vh));
+	div {
+		font: {
+			size: 2rem;
+			weight: bold;
 		}
+		a {
+			color: white;
+		}
+		padding: 1em;
+		background-color: lavender;
+		&:nth-of-type(2n + 2) {
+			background-color: rgba(0,0,0,.7);
+		}
+		&:nth-of-type(5n) {
+			background-color: rgba(0,0,0,.3);
+		}
+		&:nth-of-type(5n-2) {
+			background-color: tan;
 		}
 	}
-}
-
-.set-1 {
-	grid-template-areas: ".... pic1"
-						 "pic2 pic1"
-						 "pic2 pic3"
-						 ".... pic3";
-	margin: 0 3rem -1rem auto;
-	
-}
-
-.set-2 {
-	grid-template-areas: "pic1 ...."
-						 "pic1 pic2"
-						 "pic3 pic2"
-						 "pic3 pic4"
-						 ".... pic4";
-	margin: 0 0 0 3rem;
-	
-}
-
-.set-3 {
-	grid-template-areas: ".... pic1"
-						 "pic2 pic1"
-						 "pic2 pic3"
-						 "pic4 pic3"
-						 "pic4 ....";
-	margin: 0 3rem 0 auto;
-	
-}
-
-.set-4 {
-	grid-template-areas: "pic1 ...."
-						 "pic1 pic2"
-						 "pic3 pic2"
-						 "pic3 pic4"
-						 "pic5 pic4"
-						 "pic5 ....";
-	margin: 0 0 3rem 3rem;
 }
