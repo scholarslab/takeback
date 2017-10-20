@@ -94,37 +94,3 @@ body {
 		margin-left: 3rem;
 	}
 }
-
-/* Gallery test from dance.html */
-
-.item-gallery {
-	background-color: white;
-	padding: 20px;
-	height: 200vh;
-	width: 75%;
-	margin:  25% auto;
-	display: grid;
-	grid-gap: 16px;
-	grid-template-columns: 1fr 1fr 1fr;
-	grid-template-rows: repeat(5, minmax(auto, 40vh));
-	div {
-		font: {
-			size: 2rem;
-			weight: bold;
-		}
-		a {
-			color: white;
-		}
-		padding: 1em;
-		background-color: lavender;
-		&:nth-of-type(2n + 2) {
-			background-color: rgba(0,0,0,.7);
-		}
-		&:nth-of-type(5n) {
-			background-color: rgba(0,0,0,.3);
-		}
-		&:nth-of-type(5n-2) {
-			background-color: tan;
-		}
-	}
-}
