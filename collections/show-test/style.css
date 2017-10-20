@@ -8,7 +8,7 @@ body {
   margin: 0;
   padding: 0; }
 
-/* Header Styles: */
+/* Landing Page: */
 /* NB: 'my-collection' = wrapper class so =/= css/style.css */
 .my-collection header {
   height: 100vh;
@@ -41,12 +41,10 @@ body {
     padding: 5px; }
 
 /* Main Styles: */
-.content {
-  height: 300vh;
-  background-image: linear-gradient(lightgrey 20%, white 20%, white 80%, rgba(51, 26, 77, 0.9) 80%); }
-
+/* Description: */
 .description {
-  position: relative; }
+  position: relative;
+  margin-bottom: 2em; }
   .description p {
     color: white;
     background-color: rgba(51, 26, 77, 0.7);
@@ -63,4 +61,30 @@ body {
     color: lightgrey;
     font-weight: bold;
     font-size: 1.5rem;
-    margin-left: 3rem; }
+    margin-left: 12.5vw; }
+
+/* Items: */
+.item-container {
+  /* add media queries */
+  columns: 4;
+  width: 75%;
+  margin: 0 auto;
+  background-color: white; }
+
+.item {
+  background-color: rgba(64, 106, 191, 0.5);
+  margin-bottom: 1em;
+  min-height: 120px;
+  width: 100%;
+  display: inline-block;
+  padding: 1em .5em 1em 1em; }
+
+.item a.permalink {
+  text-decoration: none;
+  color: white; }
+
+.item a img {
+  max-height: 160px;
+  float: left;
+  margin-right: 5px;
+  margin-bottom: 5px; }
