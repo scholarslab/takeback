@@ -95,53 +95,6 @@ body {
 	}
 }
 
-
-/* Create sets of items: */
-@for $i from 1 through 4 {
-	.set-#{$i} {
-		display: grid;
-		grid-template-columns: 1fr 1fr;
-		width: 45%;
-		a {
-			text-decoration: none;
-			color: lightgrey;
-			font-weight: bold;
-			font-size: 1.25rem;
-			&:hover {
-				text-decoration: underline;
-			}
-		}
-		/* Item styles: */
-		/* NB:  pic1 = pic4 = lavender; 
-				pic2 = 90% $link-color; 
-				pic3 = 80% $link-color */
-		@each $area in pic1, pic2, pic3, pic4 {
-		.#{$area} {
-			grid-area: #{$area};
-			background-image: url("low-poly.png");
-			@if $area == pic2 {
-				background-color: hsla(270, 50%, 20%, .9); 
-				} @elseif $area == pic3 {
-					background-color: hsla(270, 50%, 20%, .8);
-				} @elseif $area == pic1 or $area == pic4 { 
-					background-color: lavender;
-				} @else { 
-				background-color: hsla(270, 50%, 20%, .7);
-			}
-			background-blend-mode: multiply;
-			padding: 2rem;
-			display: flex;
-			flex-flow: column wrap;
-			align-items: center;
-			img {
-				padding: .25rem;
-
-			} // end img
-		} // end areas
-		} // end @each
-	} // end set-i
-} // end for loop
-
 /* Gallery test from dance.html */
 
 .item-gallery {
