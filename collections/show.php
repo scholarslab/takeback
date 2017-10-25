@@ -3,7 +3,7 @@ $collectionTitle = metadata('collection', 'display_title');
 echo head(array('title'=> $collectionTitle, 'bodyclass' => 'collections show'));
 $totalItems = metadata('collection', 'total_items');
 $myId = metadata('collection', 'id');
-$myItems = get_records('Item', ['collection_id' => $myId], 16);
+$myItems = get_records('Item', ['collection_id' => $myId], $totalItems); // 10/23 - make commit for this
 ?>
 
     <article class="collection" id="collection-<?php echo metadata('collection', 'id'); ?>">
