@@ -5,9 +5,10 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <title>CS Layout w/ Head/Foot</title>
-    <meta name="viewport" content="width=device-width">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
     <!-- Style Sheets: -->
-    <link href="http://fonts.googleapis.com/css?family=Open+Sans:400,700" media="screen" rel="stylesheet" type="text/css">
+    <link href="http://fonts.googleapis.com/css?family=Open+Sans:400,700|Droid+Sans|Inconsolata|Raleway" media="screen" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Poiret+One" rel="stylesheet">
 	<link href="http://localhost/omeka/themes/takeback/css/style.css" media="all" rel="stylesheet" type="text/css" >
 	<!-- My style sheet: -->
 	<link href="style.css" media="all" rel="stylesheet" type="text/css">
@@ -32,21 +33,88 @@
     <article class="my-collection" id="collection-16x">
     	<!-- Landing page -->
         <header>
-			<div class="title">TITLE
-				<div>Cavalier Daily: Articles about race</div>
-				77 items
-			</div>
-			<div class="low-poly"></div>
+            <div class="small-diagonal"></div>
+            <div class="big-diagonal"></div>
+			<div class="title">
+                <span>COLLECTION</span><br/>
+				<h1>Women's Center Archive: University of Virginia</h1>
+            </div>
 		</header>
+
         <div class="content">
+            <div class="vertical-line"></div>
+
 			<!-- Description -->
 			<div class="description">
-				<span>DESCRIPTION</span>
-				<p>The items in this Collection document cases of reported racial discrimination and violence that appeared in the student newspaper Cavalier Daily from 1954 to at least 2016, including but not limited to events at UVA and in Charlottesville. The inclusion of events outside Charlottesville illuminates the discourse of race carried on in the Cavalier Daily. By including a Collection dedicated to this topic, the creators of this archive hope to facilitate scholarship at the intersection of race and sexual violence.</p>
+				<span>DESCRIPTION</span><br/>
+				The items in this Collection document cases of reported racial discrimination and violence that appeared in the student newspaper Cavalier Daily from 1954 to at least 2016, including but not limited to events at UVA and in Charlottesville. The inclusion of events outside Charlottesville illuminates the discourse of race carried on in the Cavalier Daily. By including a Collection dedicated to this topic, the creators of this archive hope to facilitate scholarship at the intersection of race and sexual violence.
 			</div>
+            <!-- Item count -->
+            <div class="num-items">
+                <span>CONTENTS</span> <strong>431</strong> records and counting.
+            </div>
+            <!-- Filters -->
+            <div class="filters">
+                <span>FILTER</span>
+                <button id="all">All</button>
+                <button id="media">Contains media</button>
+                <span>SORT</span>
+                <button id="date-old">Date: oldest first</button>
+                <button id="date-new">Date: most recent first</button>
+            </div>
 
 			<!-- Gallery -->
+            <div class="gallery-bg"> <!-- bg color -->
 			<div class="item-container">
+              <div class="item">
+                <span>TITLE</span>
+                <a href="/omeka/items/show/873" class="permalink">Discriminating Tastes</a>
+                <span>FILE PREVIEW</span>
+                <a class="img" href="/omeka/items/show/873"><img src="http://localhost/omeka/files/thumbnails/bccd02e7718938f4aaa19a5e60ff7011.jpg" alt="1996-09-25 Cavalier Daily Discriminating Tastes .pdf" title="1996-09-25 Cavalier Daily Discriminating Tastes .pdf"></a>
+                <span>DATE</span>
+                <a class="article" href="#">September 26, 1996</a>
+              </div>
+              <!-- messing with this one ^ -->
+              <div class="item">
+                <span>FILE PREVIEW</span>
+                <!--a class="img" href="/omeka/items/show/544"><img src="http://localhost/omeka/files/thumbnails/e0a230c1f925ceb9a6eb065dc802ee77.jpg" alt="CD11031997.pdf" title="CD11031997.pdf"></a-->
+                <span>TITLE</span>
+                <a href="/omeka/items/show/544" class="permalink">Homophobic incidents mar Proud to be Out week</a>
+                <span>ITEM TYPE</span>
+                <a class="article" href="#">Article</a>
+              </div>
+              <div class="item">
+                <!--a class="img" href="/omeka/items/show/545"><img src="http://localhost/omeka/files/thumbnails/b6f6c9db8606b61e1f31aff894d605be.jpg" alt="CD11071997.pdf" title="CD11071997.pdf"></a-->
+                <a href="/omeka/items/show/545" class="permalink">Intolerance makes pride needed</a>
+              </div>
+              <div class="item">
+                <a class="img" href="/omeka/items/show/548"><img src="http://localhost/omeka/files/thumbnails/c2ce9bc94fc0afdcc4efb27186e9ebb0.jpg" alt="UJ4121993.pdf" title="UJ4121993.pdf"></a>
+                <a href="/omeka/items/show/548" class="permalink">Chaining Women with Regulations</a>
+              </div>
+              <div class="item">
+                <span>TITLE</span>
+                <a href="/omeka/items/show/327" class="permalink">Communities in Transition: Crises and Design for Change (Take Back The Night March &amp; Rally)</a>
+                <span>FILE PREVIEW</span>
+                <!--a class="img" href="/omeka/items/show/327"><img src="http://localhost/omeka/files/thumbnails/f52151f500364a8e68952f931edc0d28.jpg" alt="CommunitiesInTransition.pdf" title="CommunitiesInTransition.pdf"></a-->
+              </div>
+              <div class="item">
+                <a class="img" href="/omeka/items/show/440"><img src="http://localhost/omeka/files/thumbnails/bd20417cf99b89ae7f53bacda1791515.jpg" alt="UJ4191993.pdf" title="UJ4191993.pdf"></a>
+                <a href="/omeka/items/show/440" class="permalink">Crimes hit University community</a>
+              </div>
+              <div class="item">
+                <span>FILE PREVIEW</span>
+                <a class="img" href="/omeka/items/show/452"><img src="http://localhost/omeka/files/thumbnails/286550a4139e7dc3aab294694c2bc001.jpg" alt="Cavalier Daily May 29, 1954 - Views on Segregation.pdf" title="Cavalier Daily May 29, 1954 - Views on Segregation.pdf"></a>
+                <span>TITLE</span>
+                <a href="/omeka/items/show/452" class="permalink">Cavalier Daily May 29, 1954 - Views on Segregation</a>
+              </div>
+              <div class="item">
+                <a class="img" href="/items/show/1512"><img src="http://localhost/omeka/files/thumbnails/c20b33989d2fe4ecae04ea891a70fc3c.jpg" alt="Youth charges in attempted rape- Sarlson.pdf" title="Youth charges in attempted rape- Sarlson.pdf"></a>
+                <a href="/items/show/1512" class="permalink">Youth charges in attempted rape</a>
+              </div>
+              <div class="item">
+                <a class="img" href="/omeka/items/show/337"><img src="http://localhost/omeka/files/thumbnails/c6269390255cc0aa55a813d2dbcc7689.jpg" alt="UJ-awarenessofassault.pdf" title="UJ-awarenessofassault.pdf"></a>
+                <a href="/omeka/items/show/337" class="permalink">Awareness of assault stressed</a>
+              </div>
               <div class="item">
                 <a class="img" href="/omeka/items/show/873"><img src="http://localhost/omeka/files/thumbnails/bccd02e7718938f4aaa19a5e60ff7011.jpg" alt="1996-09-25 Cavalier Daily Discriminating Tastes .pdf" title="1996-09-25 Cavalier Daily Discriminating Tastes .pdf"></a>
                 <a href="/omeka/items/show/873" class="permalink"> Discriminating Tastes </a>
@@ -84,6 +152,7 @@
                 <a href="/omeka/items/show/337" class="permalink">Awareness of assault stressed</a>
               </div>
             </div> <!-- End Gallery -->
+        </div>
         </div> <!-- End .content -->
 
     </article>

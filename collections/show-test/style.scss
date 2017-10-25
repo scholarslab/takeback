@@ -1,4 +1,7 @@
-// $baseColor: hsl(270, 50%, 20%);
+/* TypeKit: <script src="https://use.typekit.net/umh3ofy.js"></script>
+<script>try{Typekit.load({ async: true });}catch(e){}</script> */
+
+// $baseColor: hsl(270, 50%, 20%); = rgb 51 26 77
 $base-color                     : rgb(90,90,90);
 $base-color-lightest            : lighten($base-color, 30%);
 
@@ -19,112 +22,245 @@ body {
 
 /* Landing Page: */
 
-/* NB: 'my-collection' = wrapper class so =/= css/style.css */
+/*
+NB: styles to make banner barely noticeable;
+	easier to focus on landing page itself
+	while designing, vs. making it "match":
+
+#banner {
+	box-shadow: 0 0 3px 2px rgba(0,0,0,.2);
+	z-index: 1;
+	background-color: hsla(270,50%,20%,.1);
+	position: absolute;
+	width: 100%;
+}
+*/
+
+/* NB: 'my-collection' so isn't same as css/style.css's styles */
 .my-collection {
 	header {
-		height: 100vh;
+		height: 133.33vh;
 		position: relative;
+		z-index: 0; // for banner shadow
+		background-image: linear-gradient(to left, rgba(14, 147, 252, .7), rgba(75, 0, 153, .7)), linear-gradient(rgba(255,255,255,.7), rgba(0,0,0,.7)), /*url("noise.png"),*/ url("newspaper-collage-1.png");
+		// v good purple: rgba(86, 29, 224, .7)
+		background-size: auto, auto, cover;
+		.small-diagonal {
+			position: absolute;
+			bottom: 0;
+			left: 0;
+			width: 33.33%;
+			height: 16.67vh;
+			background-image: linear-gradient(to bottom left, rgba(255,255,255,0) 50%, rgba(255,255,255,1) 50%);
+		}
+		.big-diagonal {
+			position: absolute;
+			bottom: 0;
+			right: 0;
+			width: 66.67%;
+			height: 33.33vh;
+			background-image: linear-gradient(to bottom right, rgba(255,255,255,0) 50%, rgba(255,255,255,1) 50%);
+		}
+		/* make color = gradient that's transparent where triangles meet and white elsewhere.
+		&::after {
+			content: '';
+			width: 100%;
+			height: 10px;
+			background-color: white;
+			display: block;
+			position: absolute;
+			bottom: -5px;
+		} */
 	}
-}
-
-/* NB: if more efficient, should make this just the bg of <header> */
-.low-poly {
-	background-image: url("low-poly.png");
-	background-color: hsla(270, 50%, 20%, .9);
-	background-blend-mode: multiply;
-	height: 100%;
-	width: 40vw;
-	position: absolute;
-	right: 0;
-	top: 0;
-	z-index: -1;
 }
 
 .title {
-	font: {
-		size: 1.5rem;
-		weight: bold;
+	span {
+		font-size: 1.5rem;
+		font-weight: bold;
+		color: white;
 	}
-	color: lightgrey;
-	div {
-		color: lavender;
-		background: {
-			color: rgba(90, 90, 90, .7);
-		}
-		font: {
-			size: 3.5rem;
-		}
-		padding: 5px;
+	h1 {
+		color: white;
+		font-size: 3.75rem;
+		line-height: 1.5;
+		//padding-top: 1px;
+		margin: 0;
+		display: inline;
 	}
-	position: absolute;
-	top: 5rem;
-	right: 5rem;
-	max-width: 80%;
+		position: absolute;
+		top: 16.67%;
+		left: 8.33%;
+		max-width: 83.33%;
 }
 
 
 /* Main Styles: */
 
 .content {
-	//height: 300vh;
-	//background-image: linear-gradient(lightgrey 20%, white 20%, white 80%, hsla(270, 50%, 20%, .9) 80%);
+	position: relative;
+	background-color: white; // rgba(56,51,147,.1);
 }
 
-/* Description: */
-
-.description {
-	position: relative;
-	margin-bottom: 2em;
-	p {
-		color: white;
-		background-color: hsla(270, 50%, 20%, .7);
-		padding: 2rem;
-		margin: 0 12.5vw;
-		width: 50vw;
-		&::before {
-			content: '';
-			display: block;
-			height: 2rem;
-			width: 4rem;
-			border-top: 5px solid lightgrey;
-		}
-		
+.vertical-line {
+	position: absolute;
+	left: 33.33%;
+	top: calc(-4.5rem - 3px); // 3rem*1.5 = description.margin-top
+	transform: translate(-50%, 0);
+	width: 6px;
+	height: 100vh;
+	background-image: linear-gradient(to bottom, rgba(56,51,147,1), rgba(51,26,77,1));
+	&::after {
+		content: '';
+		display: block;
+		border-radius: 50%;
+		height: 16px;
+		width: 16px;
+		background-color: black; // rgba(42,38,112,1);
+		position: absolute;
+		bottom: 0;
+		left: -16px;
+		transform: translate(10px, 50%);
 	}
+	
+}
+
+.num-items, .description, .filters {
+	//border: 5px solid rgba(56,51,147,1); // purple from Google eyedropper, save
+	//background-image: linear-gradient(rgba(0,0,0,.05), rgba(0,0,0,.05));
+	position: relative;
+	left: 16.67%;
+	width: 50%;
+	font-family: "Inconsolata", monospace;
+	font-size: 1.5rem;
+	color: rgba(255,255,255,1);
+	margin: 3em 0;
+	padding: 1em;
 	span {
-		color: lightgrey;
+		font-family: "Open Sans", sans-serif;
+		color: rgba(255,255,255,1);
 		font-weight: bold;
 		font-size: 1.5rem;
-		margin-left: 12.5vw;
 	}
 }
 
-/* Items: */
+.num-items {
+	//width: 33.33%;
+	//left: 41.66%;
+	background-color: rgba(56,51,147,1);
+	//background-image: url("noise.png");
+	//background-blend-mode: multiply;
+	text-align: right;
+	padding: 1em 1.5em;
+	span {
+		float: left;
+	}
+}
 
-.item-container { /* add media queries */
-	columns: 4;
-	width: 75%;
+.description {
+	color: rgba(42,38,112,1);
+	//background-color: rgba(42,38,112,.1);
+	left: 41.66%;
+	padding: 0;
+	span {
+		color: black;
+	}
+}
+
+.filters {
+	left: 0;
+	margin: 0;
+	margin-top: 5em;
+	padding-left: calc(16.67% + 16px);
+	width: 100%;
+	background-color: rgba(0,0,0,.05);
+	//width: 100%; //58.33%;
+	//border-top: 6px solid rgba(51,26,77,1);
+	span {
+		color: black;
+	}
+	button {
+		display: inline-block;
+		border: 1px solid rgba(51,26,77,1);
+		background-color: white;
+		margin-top: .25em;
+		padding: 4px;
+		font-family: "Inconsolata", monospace;
+	}
+}
+
+/* Gallery: */
+
+.gallery-bg {
+	width: 100%;
+	position: relative;
+	background-color: rgba(0,0,0,.05);
+	//z-index: 1;
+	//background-image: linear-gradient(to bottom, rgba(51,26,77,1) 25vh, rgba(255,255,255,1) 25vh);
+}
+
+.item-container {
+	columns: 1;
+	width: 100%;
 	margin: 0 auto;
-	//background-image: linear-gradient(to bottom, hsla(270, 50%, 20%, .8) 20%, white 20%);
-	background-color: white;
+	padding: 1em;
+	padding-bottom: 0; // item.bottom-margin = 1em
+	//background-color: rgba(0,0,0,.1);
+	//border: 1px solid black;
+	@media screen and (min-width: 600px) {
+		columns: 2;
+	}
+	@media screen and (min-width: 800px) {
+		columns: 4;
+		max-width: 800px;
+	}
+	@media screen and (min-width:1200px) {
+		max-width: 66.66%;
+		columns: 3;
+		
+	}
+	@media screen and (min-width: 1600px) {
+		font-size: 2em;
+	}
 }
 
 .item {
-	background-color: rgba(64,106,191,.5);
+	//background-color: hsla(270,50,20,.2);
+	background-color: white; //rgba(0,0,0,.1);
+	//border: 1px solid black;
 	margin-bottom: 1em;
+	margin-top: 2px; // shadow doesn't wrap
 	min-height: 120px;
 	width: 100%;
 	display: inline-block;
-	padding: 1em .5em 1em 1em;
-}
-
-.item a.permalink {
-	text-decoration: none;
-	color: white;
+	padding: 1em 1em 1em 1em;
+	box-shadow: 0px 0px 2px .5px rgba(0, 0, 0, .05);
+	border-radius: 0px;
+	a.permalink, a.article {
+		text-decoration: none;
+		color: rgba(51,26,77,1);
+		color: black;
+		display: block;
+		//font-family: "Inconsolata", monospace;
+		//font-weight: bold;
+	}
+	a.permalink {
+		//margin-bottom: 1em; // article is at bottom of item
+	}
 }
 
 .item a img {
 	max-height: 160px;
-	float: left;
-	margin-right: 5px;
-	margin-bottom: 5px;
+	display: block;
+	border: 1px solid rgba(51,26,77,.1);
+	padding: 7px;
+	margin-top: .25em;
+	margin-bottom: .5em;
+}
+
+.item span {
+	color: rgba(0,0,0,.3);
+	color: rgba(75, 0, 153, .7);
+	//color: white;
+	font-weight: bold;
 }
