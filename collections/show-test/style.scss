@@ -204,9 +204,7 @@ NB: styles to make banner barely noticeable;
 	width: 100%;
 	margin: 0 auto;
 	padding: 1em;
-	padding-bottom: 0; // item.bottom-margin = 1em
-	//background-color: rgba(0,0,0,.1);
-	//border: 1px solid black;
+	padding-bottom: 0;
 	@media screen and (min-width: 600px) {
 		columns: 2;
 	}
@@ -215,7 +213,8 @@ NB: styles to make banner barely noticeable;
 		max-width: 800px;
 	}
 	@media screen and (min-width:1200px) {
-		max-width: 66.66%;
+		//max-width: 66.66%;
+		max-width: 75%; // 2/3 width =/= jive w/ 3 col in 12 unit layout
 		columns: 3;
 		
 	}
@@ -225,11 +224,11 @@ NB: styles to make banner barely noticeable;
 }
 
 .item {
-	//background-color: hsla(270,50,20,.2);
-	background-color: white; //rgba(0,0,0,.1);
-	//border: 1px solid black;
+	background-color: white;
+	color: black;
 	margin-bottom: 1em;
 	margin-top: 2px; // shadow doesn't wrap
+	//padding-top: 1em;
 	min-height: 120px;
 	width: 100%;
 	display: inline-block;
@@ -238,15 +237,35 @@ NB: styles to make banner barely noticeable;
 	border-radius: 0px;
 	a.permalink, a.article {
 		text-decoration: none;
-		color: rgba(51,26,77,1);
 		color: black;
 		display: block;
-		//font-family: "Inconsolata", monospace;
-		//font-weight: bold;
+	}
+	a.article {
+		//border-bottom: 1px solid rgba(51,26,77,.1);
+		//border-top: 1px solid rgba(51,26,77,.1);
+		//padding-bottom: .5em;
+		//padding-top: .5em;
 	}
 	a.permalink {
-		//margin-bottom: 1em; // article is at bottom of item
+		margin-bottom: .5em; // article is at bottom of item
+		padding-bottom: .5em;
+		//padding-top: .5em;
+		border-bottom: 1px solid rgba(51,26,77, .1);
+		//-webkit-border-image: linear-gradient(to right, rgba(51,26,77, .1) 75%, white 75%) 1;
+		//border-image: linear-gradient(to right, rgba(51,26,77, .1) 75%, white 75%) 1;
+		//border-top: 1px solid rgba(51,26,77,.1);
+		&:hover {
+			font-weight: bold;
+			text-decoration: underline;
+		}
 	}
+}
+
+.item-image {
+	border-bottom: 1px solid rgba(51,26,77, .1);
+	//-webkit-border-image: linear-gradient(to right, rgba(51,26,77, .1) 75%, white 75%) 1;
+	//border-image: linear-gradient(to right, rgba(51,26,77, .1) 75%, white 75%) 1;
+	margin-bottom: .5em;
 }
 
 .item a img {
@@ -255,12 +274,12 @@ NB: styles to make banner barely noticeable;
 	border: 1px solid rgba(51,26,77,.1);
 	padding: 7px;
 	margin-top: .25em;
-	margin-bottom: .5em;
+	margin-bottom: 1em;
 }
 
 .item span {
-	color: rgba(0,0,0,.3);
-	color: rgba(75, 0, 153, .7);
-	//color: white;
+	color: rgba(75, 0, 153, 1);
 	font-weight: bold;
+	//float: left;
+	padding-right: 3px;
 }

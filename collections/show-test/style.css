@@ -164,7 +164,7 @@ NB: styles to make banner barely noticeable;
       max-width: 800px; } }
   @media screen and (min-width: 1200px) {
     .item-container {
-      max-width: 66.66%;
+      max-width: 75%;
       columns: 3; } }
   @media screen and (min-width: 1600px) {
     .item-container {
@@ -172,6 +172,7 @@ NB: styles to make banner barely noticeable;
 
 .item {
   background-color: white;
+  color: black;
   margin-bottom: 1em;
   margin-top: 2px;
   min-height: 120px;
@@ -182,9 +183,19 @@ NB: styles to make banner barely noticeable;
   border-radius: 0px; }
   .item a.permalink, .item a.article {
     text-decoration: none;
-    color: #331a4d;
     color: black;
     display: block; }
+  .item a.permalink {
+    margin-bottom: .5em;
+    padding-bottom: .5em;
+    border-bottom: 1px solid rgba(51, 26, 77, 0.1); }
+    .item a.permalink:hover {
+      font-weight: bold;
+      text-decoration: underline; }
+
+.item-image {
+  border-bottom: 1px solid rgba(51, 26, 77, 0.1);
+  margin-bottom: .5em; }
 
 .item a img {
   max-height: 160px;
@@ -192,9 +203,9 @@ NB: styles to make banner barely noticeable;
   border: 1px solid rgba(51, 26, 77, 0.1);
   padding: 7px;
   margin-top: .25em;
-  margin-bottom: .5em; }
+  margin-bottom: 1em; }
 
 .item span {
-  color: rgba(0, 0, 0, 0.3);
-  color: rgba(75, 0, 153, 0.7);
-  font-weight: bold; }
+  color: #4b0099;
+  font-weight: bold;
+  padding-right: 3px; }
