@@ -20,10 +20,10 @@ $myItems = get_records('Item', ['collection_id' => $myId], $totalItems); // 10/2
 </div>
 </header>
 <div class="content">
-<ul class="gallery">
+<div class="gallery">
 <?php foreach (loop('items', $myItems) as $item): ?>
 <?php $itemTitle = metadata('item', 'display_title'); // NB: this is setting var, not printing anything ?> 
-<li class="item record hentry">
+<div class="item record hentry">
     <?php if (metadata('item', 'has files')): ?>
     <div class="item-img">
     	<span><?php echo __('File Preview:'); ?></span>
@@ -36,12 +36,12 @@ $myItems = get_records('Item', ['collection_id' => $myId], $totalItems); // 10/2
 
     <?php if($date = check_date_string(metadata('item', array('Dublin Core', 'Date')))): ?>
     <span><?php echo __('Date:'); ?></span>
-	<em class="eyebrow dc-date"><?php echo date('F j, Y', $date); ?></em>
+	<div class="eyebrow dc-date date"><?php echo date('F j, Y', $date); ?></div>
 	<?php endif; ?>
 
-</li>
+</div>
 <?php endforeach; ?>
-</ul>
+</div>
 </div>
 
 <?php fire_plugin_hook('public_collections_show', array('view' => $this, 'collection' => $collection)); ?>
