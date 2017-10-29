@@ -22,15 +22,22 @@ $myItems = get_records('Item', ['collection_id' => $myId], $totalItems); // 10/2
 <div class="content">
 <ul class="gallery">
 <?php foreach (loop('items', $myItems) as $item): ?>
-<?php $itemTitle = metadata('item', 'display_title'); ?>
+<?php $itemTitle = metadata('item', 'display_title'); // NB: this is setting var, not printing anything ?> 
 <li class="item record hentry">
     <?php if (metadata('item', 'has files')): ?>
     <div class="item-img">
+    	<span><?php echo __('File Preview:'); ?></span>
         <?php echo link_to_item(item_image('thumbnail')); ?>
     </div>
     <?php endif; ?>
 
+    <span><?php echo __('Title:'); ?></span>
     <?php echo link_to_item($itemTitle, array('class'=>'permalink')); ?>
+
+    <?php if($date = check_date_string(metadata('item', array('Dublin Core', 'Date')))): ?>
+    <span><?php echo __('Date:'); ?></span>
+	<em class="eyebrow dc-date"><?php echo date('F j, Y', $date); ?></em>
+	<?php endif; ?>
 
 </li>
 <?php endforeach; ?>
