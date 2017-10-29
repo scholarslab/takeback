@@ -4,6 +4,7 @@ echo head(array('title'=> $collectionTitle, 'bodyclass' => 'collections show'));
 $totalItems = metadata('collection', 'total_items');
 $myId = metadata('collection', 'id');
 $myItems = get_records('Item', ['collection_id' => $myId], $totalItems); // 10/23 - make commit for this
+$years = [];
 ?>
 
     <article class="collection" id="collection-<?php echo metadata('collection', 'id'); ?>">
@@ -37,10 +38,17 @@ $myItems = get_records('Item', ['collection_id' => $myId], $totalItems); // 10/2
     <?php if($date = check_date_string(metadata('item', array('Dublin Core', 'Date')))): ?>
     <span><?php echo __('Date:'); ?></span>
 	<div class="eyebrow dc-date date"><?php echo date('F j, Y', $date); ?></div>
+	<?php $years[] = date('Y', $date); ?>
 	<?php endif; ?>
 
 </div>
 <?php endforeach; ?>
+
+<div style="border:1px solid orange;">
+	<?php echo min($years) . ' to ' . max($years);
+	// NB^: code to display year range. ?>
+</div>
+
 </div>
 </div>
 
