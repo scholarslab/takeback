@@ -81,6 +81,7 @@ NB: styles to make banner barely noticeable;
 		color: white;
 	}
 	h1 {
+		font-weight: 700;
 		color: white;
 		font-size: 3.75rem;
 		line-height: 1.5;
@@ -102,13 +103,28 @@ NB: styles to make banner barely noticeable;
 	background-color: white; // rgba(56,51,147,.1);
 }
 
+.line-wrapper {
+	display: grid;
+	grid-template-areas: "line ....."
+						"line stats"
+						"line .....";
+	grid-template-rows: 12.5vh auto 12.5vh;
+	grid-template-columns: 33.33% 1fr;
+}
+
+.item-wrapper {
+	grid-area: line;
+	position: relative;
+	margin-bottom: 1em;
+}
+
 .vertical-line {
+	margin-bottom: 3em;
 	position: absolute;
-	left: 33.33%;
-	top: calc(-4.5rem - 3px); // 3rem*1.5 = description.margin-top
-	transform: translate(-50%, 0);
-	width: 6px;
-	height: 100vh;
+	height: 100%;
+	right: -2px;
+	top: -2px;
+	width: 4px;
 	background-image: linear-gradient(to bottom, rgba(56,51,147,1), rgba(51,26,77,1));
 	&::after {
 		content: '';
@@ -116,7 +132,7 @@ NB: styles to make banner barely noticeable;
 		border-radius: 50%;
 		height: 16px;
 		width: 16px;
-		background-color: black; // rgba(42,38,112,1);
+		background-color: black;
 		position: absolute;
 		bottom: 0;
 		left: -16px;
@@ -125,15 +141,12 @@ NB: styles to make banner barely noticeable;
 	
 }
 
-.num-items, .description, .filters {
+.collection-stats, .description, .filters {
 	//border: 5px solid rgba(56,51,147,1); // purple from Google eyedropper, save
 	//background-image: linear-gradient(rgba(0,0,0,.05), rgba(0,0,0,.05));
 	position: relative;
-	left: 16.67%;
-	width: 50%;
-	font-family: "Inconsolata", monospace;
+	left: 8.33%;
 	font-size: 1.5rem;
-	color: rgba(255,255,255,1);
 	margin: 3em 0;
 	padding: 1em;
 	span {
@@ -144,33 +157,69 @@ NB: styles to make banner barely noticeable;
 	}
 }
 
-.num-items {
-	//width: 33.33%;
-	//left: 41.66%;
-	background-color: rgba(56,51,147,1);
+.collection-stats {
+	grid-area: stats;
+	width: 66.67%;
+	//border: 4px solid rgba(0,0,0,.5);
+	border: 4px solid rgba(56,51,147,.9);
+	color: black;
+	font-family: "Inconsolata", monospace;
 	//background-image: url("noise.png");
 	//background-blend-mode: multiply;
 	text-align: right;
 	padding: 1em 1.5em;
 	span {
 		float: left;
+		color: rgba(56,51,147,1);
+		//color: white;
+		font-weight: 400;
+		font-family: "Inconsolata", monospace;
+		
+	}
+	div {
+		text-transform: uppercase;
+		position: absolute;
+		top: -4px;
+		left: 0;
+		transform: translate(0, -100%);
+		font-family: "Open Sans", sans-serif;
+		color: black;
+		font-weight: bold;
 	}
 }
 
 .description {
 	color: rgba(42,38,112,1);
-	//background-color: rgba(42,38,112,.1);
-	left: 41.66%;
 	padding: 0;
+	margin: 0;
+	margin-top: 1em;
+	font-family: "Inconsolata", monospace;
+	width: 58.33%;
 	span {
 		color: black;
+		font-size: 2rem;
+		border-bottom: 1px solid black;
 	}
 }
 
-.filters {
+.the-collection {
+	//display: none;
+	font-weight: 700;
+	font-size: 3.75em;
+	line-height: 1;
+	position: relative;
+	bottom: -6px;
+	z-index: 1;
+	color: rgba(75, 0, 153, .7);
+    margin-left: calc(12.5% + 16px);
+    margin-top: 1em;
+}
+
+.filters { /* FIX*/
+	display: none;
 	left: 0;
 	margin: 0;
-	margin-top: 5em;
+	z-index: 0;
 	padding-left: calc(16.67% + 16px);
 	width: 100%;
 	background-color: rgba(0,0,0,.05);
@@ -178,6 +227,7 @@ NB: styles to make banner barely noticeable;
 	//border-top: 6px solid rgba(51,26,77,1);
 	span {
 		color: black;
+		padding-left: 2em;
 	}
 	button {
 		display: inline-block;
@@ -195,8 +245,6 @@ NB: styles to make banner barely noticeable;
 	width: 100%;
 	position: relative;
 	background-color: rgba(0,0,0,.05);
-	//z-index: 1;
-	//background-image: linear-gradient(to bottom, rgba(51,26,77,1) 25vh, rgba(255,255,255,1) 25vh);
 }
 
 .item-container {
@@ -205,6 +253,7 @@ NB: styles to make banner barely noticeable;
 	margin: 0 auto;
 	padding: 1em;
 	padding-bottom: 0;
+	padding-top: 3em;
 	@media screen and (min-width: 600px) {
 		columns: 2;
 	}
@@ -226,6 +275,7 @@ NB: styles to make banner barely noticeable;
 .item {
 	background-color: white;
 	color: black;
+	font-family: "Raleway", sans-serif;
 	margin-bottom: 1em;
 	margin-top: 2px; // shadow doesn't wrap
 	//padding-top: 1em;
@@ -234,38 +284,24 @@ NB: styles to make banner barely noticeable;
 	display: inline-block;
 	padding: 1em 1em 1em 1em;
 	box-shadow: 0px 0px 2px .5px rgba(0, 0, 0, .05);
-	border-radius: 0px;
-	a.permalink, a.article {
+	//border-radius: 4px;
+	a.permalink {
 		text-decoration: none;
 		color: black;
 		display: block;
 	}
-	a.article {
-		//border-bottom: 1px solid rgba(51,26,77,.1);
-		//border-top: 1px solid rgba(51,26,77,.1);
-		//padding-bottom: .5em;
-		//padding-top: .5em;
-	}
 	a.permalink {
-		margin-bottom: .5em; // article is at bottom of item
+		margin-bottom: .5em;
 		padding-bottom: .5em;
-		//padding-top: .5em;
-		border-bottom: 1px solid rgba(51,26,77, .1);
-		//-webkit-border-image: linear-gradient(to right, rgba(51,26,77, .1) 75%, white 75%) 1;
-		//border-image: linear-gradient(to right, rgba(51,26,77, .1) 75%, white 75%) 1;
-		//border-top: 1px solid rgba(51,26,77,.1);
+		//border-bottom: 1px solid rgba(51,26,77, .1);
+		border-bottom: 1px solid;
+		border-image: linear-gradient(to right, rgba(51,26,77,.5) 20%, rgba(0,0,0,0) 20%) 1;
+		//border-image: linear-gradient(to right, rgba(51,26,77, .05), rgba(51,26,77, .1) 35%, rgba(51,26,77, .5) 50%, rgba(51,26,77, .1) 65%, rgba(51,26,77, .05) 100%) 1;
 		&:hover {
 			font-weight: bold;
 			text-decoration: underline;
 		}
 	}
-}
-
-.item-image {
-	border-bottom: 1px solid rgba(51,26,77, .1);
-	//-webkit-border-image: linear-gradient(to right, rgba(51,26,77, .1) 75%, white 75%) 1;
-	//border-image: linear-gradient(to right, rgba(51,26,77, .1) 75%, white 75%) 1;
-	margin-bottom: .5em;
 }
 
 .item a img {
@@ -278,8 +314,8 @@ NB: styles to make banner barely noticeable;
 }
 
 .item span {
-	color: rgba(75, 0, 153, 1);
+	color: rgba(77, 0, 153, 1);
 	font-weight: bold;
-	//float: left;
 	padding-right: 3px;
+	font-family: "Open Sans", sans-serif;
 }
