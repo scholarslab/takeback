@@ -55,7 +55,7 @@ $years = [];
     <?php foreach (loop('items', $myItems) as $item): ?>
     <?php $itemTitle = metadata('item', 'display_title'); // NB: this is setting var, not printing anything ?> 
     <!-- Display files, title, and date for each item: -->
-    <div class="item record hentry">
+    <div class="item record entry">
         <!-- Files -->
         <?php if (metadata('item', 'has files')): ?>
         <div class="item-img">
@@ -69,7 +69,7 @@ $years = [];
         <!-- Date -->
         <?php if($date = check_date_string(metadata('item', array('Dublin Core', 'Date')))): ?>
         <span><?php echo __('Date:'); ?></span>
-	   <div class="eyebrow dc-date date"><?php echo date('F j, Y', $date); ?></div>
+	   <div class="date"><?php echo date('F j, Y', $date); ?></div>
 	   <?php $years[] = date('Y', $date); ?>
 	   <?php endif; ?>
     </div>
