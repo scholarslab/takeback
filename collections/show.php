@@ -14,7 +14,7 @@ $years = [];
 <?php endif; ?>
 <?php endforeach; ?>
 
-<article class="collection" id="collection-<?php echo metadata('collection', 'id'); ?>">
+<article class="my-collection" id="collection-<?php echo metadata('collection', 'id'); ?>">
 <!-- Landing page -->
 <header>
     <div class="small-diagonal"></div>

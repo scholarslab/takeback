@@ -1,0 +1,317 @@
+/* TypeKit: <script src="https://use.typekit.net/umh3ofy.js"></script>
+<script>try{Typekit.load({ async: true });}catch(e){}</script> */
+
+/* General Styles: */
+
+* {
+	box-sizing: border-box;
+}
+
+body {
+	font: {
+		size: 100%;
+		family: "Open Sans", sans-serif;
+	}
+	margin: 0;
+	padding: 0;
+}
+
+/* Landing Page: */
+
+/*
+NB: styles to make banner barely noticeable;
+	easier to focus on landing page itself
+	while designing, vs. making it "match":
+
+#banner {
+	box-shadow: 0 0 3px 2px rgba(0,0,0,.2);
+	z-index: 1;
+	background-color: hsla(270,50%,20%,.1);
+	position: absolute;
+	width: 100%;
+}
+*/
+
+/* NB: 'my-collection' so isn't same as css/style.css's styles */
+.my-collection {
+	header {
+		height: 133.33vh;
+		position: relative;
+		z-index: 0; // for banner shadow
+		background-image: linear-gradient(to left, rgba(14, 147, 252, .7), rgba(75, 0, 153, .7)), linear-gradient(rgba(255,255,255,.7), rgba(0,0,0,.7)), /*url("noise.png"),*/ url("../images/newspaper-collage-1.png");
+		// v good purple: rgba(86, 29, 224, .7)
+		background-size: auto, auto, cover;
+		.small-diagonal {
+			position: absolute;
+			bottom: 0;
+			left: 0;
+			width: 33.33%;
+			height: 16.67vh;
+			background-image: linear-gradient(to bottom left, rgba(255,255,255,0) 50%, rgba(255,255,255,1) 50%);
+		}
+		.big-diagonal {
+			position: absolute;
+			bottom: 0;
+			right: 0;
+			width: 66.67%;
+			height: 33.33vh;
+			background-image: linear-gradient(to bottom right, rgba(255,255,255,0) 50%, rgba(255,255,255,1) 50%);
+		}
+		/* make color = gradient that's transparent where triangles meet and white elsewhere.
+		&::after {
+			content: '';
+			width: 100%;
+			height: 10px;
+			background-color: white;
+			display: block;
+			position: absolute;
+			bottom: -5px;
+		} */
+	}
+}
+
+.title {
+	span {
+		font-size: 1.5rem;
+		font-weight: bold;
+		color: white;
+	}
+	h1 {
+		font-weight: 700;
+		color: white;
+		font-size: 3.75rem;
+		line-height: 1.5;
+		//padding-top: 1px;
+		margin: 0;
+		display: inline;
+	}
+		position: absolute;
+		top: 16.67%;
+		left: 8.33%;
+		max-width: 83.33%;
+}
+
+
+/* Main Styles: */
+
+.content {
+	position: relative;
+	background-color: white; // rgba(56,51,147,.1);
+}
+
+.line-wrapper {
+	display: grid;
+	grid-template-areas: "line ....."
+						"line stats"
+						"line .....";
+	grid-template-rows: 12.5vh auto 12.5vh;
+	grid-template-columns: 33.33% 1fr;
+}
+
+.item-wrapper {
+	grid-area: line;
+	position: relative;
+	margin-bottom: 1em;
+}
+
+.vertical-line {
+	margin-bottom: 3em;
+	position: absolute;
+	height: 100%;
+	right: -2px;
+	top: -2px;
+	width: 4px;
+	background-image: linear-gradient(to bottom, rgba(56,51,147,1), rgba(51,26,77,1));
+	&::after {
+		content: '';
+		display: block;
+		border-radius: 50%;
+		height: 16px;
+		width: 16px;
+		background-color: black;
+		position: absolute;
+		bottom: 0;
+		left: -16px;
+		transform: translate(10px, 50%);
+	}
+	
+}
+
+.collection-stats, .description, .filters {
+	//border: 5px solid rgba(56,51,147,1); // purple from Google eyedropper, save
+	//background-image: linear-gradient(rgba(0,0,0,.05), rgba(0,0,0,.05));
+	position: relative;
+	left: 8.33%;
+	font-size: 1.5rem;
+	margin: 3em 0;
+	padding: 1em;
+	span {
+		font-family: "Open Sans", sans-serif;
+		color: rgba(255,255,255,1);
+		font-weight: bold;
+		font-size: 1.5rem;
+	}
+}
+
+.collection-stats {
+	grid-area: stats;
+	width: 66.67%;
+	//border: 4px solid rgba(0,0,0,.5);
+	border: 4px solid rgba(56,51,147,.9);
+	color: black;
+	font-family: "Inconsolata", monospace;
+	//background-image: url("noise.png");
+	//background-blend-mode: multiply;
+	text-align: right;
+	padding: 1em 1.5em;
+	span {
+		float: left;
+		color: rgba(56,51,147,1);
+		//color: white;
+		font-weight: 400;
+		font-family: "Inconsolata", monospace;
+		
+	}
+	div {
+		text-transform: uppercase;
+		position: absolute;
+		top: -4px;
+		left: 0;
+		transform: translate(0, -100%);
+		font-family: "Open Sans", sans-serif;
+		color: black;
+		font-weight: bold;
+	}
+}
+
+.description {
+	color: rgba(42,38,112,1);
+	padding: 0;
+	margin: 0;
+	margin-top: 1em;
+	font-family: "Inconsolata", monospace;
+	width: 58.33%;
+	span {
+		color: black;
+		font-size: 2rem;
+		border-bottom: 1px solid black;
+	}
+}
+
+.the-collection {
+	//display: none;
+	font-weight: 700;
+	font-size: 3.75em;
+	line-height: 1;
+	position: relative;
+	bottom: -6px;
+	z-index: 1;
+	color: rgba(75, 0, 153, .7);
+    margin-left: calc(12.5% + 16px);
+    margin-top: 1em;
+}
+
+.filters { /* FIX*/
+	display: none;
+	left: 0;
+	margin: 0;
+	z-index: 0;
+	padding-left: calc(16.67% + 16px);
+	width: 100%;
+	background-color: rgba(0,0,0,.05);
+	//width: 100%; //58.33%;
+	//border-top: 6px solid rgba(51,26,77,1);
+	span {
+		color: black;
+		padding-left: 2em;
+	}
+	button {
+		display: inline-block;
+		border: 1px solid rgba(51,26,77,1);
+		background-color: white;
+		margin-top: .25em;
+		padding: 4px;
+		font-family: "Inconsolata", monospace;
+	}
+}
+
+/* Gallery: */
+
+.gallery-bg {
+	width: 100%;
+	position: relative;
+	background-color: rgba(0,0,0,.05);
+}
+
+.item-container {
+	columns: 1;
+	width: 100%;
+	margin: 0 auto;
+	padding: 1em;
+	padding-bottom: 0;
+	padding-top: 3em;
+	@media screen and (min-width: 600px) {
+		columns: 2;
+	}
+	@media screen and (min-width: 800px) {
+		columns: 4;
+		max-width: 800px;
+	}
+	@media screen and (min-width:1200px) {
+		//max-width: 66.66%;
+		max-width: 75%; // 2/3 width =/= jive w/ 3 col in 12 unit layout
+		columns: 3;
+		
+	}
+	@media screen and (min-width: 1600px) {
+		font-size: 2em;
+	}
+}
+
+.item {
+	background-color: white;
+	color: black;
+	font-family: "Raleway", sans-serif;
+	margin-bottom: 1em;
+	margin-top: 2px; // shadow doesn't wrap
+	//padding-top: 1em;
+	min-height: 120px;
+	width: 100%;
+	display: inline-block;
+	padding: 1em 1em 1em 1em;
+	box-shadow: 0px 0px 2px .5px rgba(0, 0, 0, .05);
+	//border-radius: 4px;
+	a.permalink {
+		text-decoration: none;
+		color: black;
+		display: block;
+	}
+	a.permalink {
+		margin-bottom: .5em;
+		padding-bottom: .5em;
+		//border-bottom: 1px solid rgba(51,26,77, .1);
+		border-bottom: 1px solid;
+		border-image: linear-gradient(to right, rgba(51,26,77,.5) 20%, rgba(0,0,0,0) 20%) 1;
+		//border-image: linear-gradient(to right, rgba(51,26,77, .05), rgba(51,26,77, .1) 35%, rgba(51,26,77, .5) 50%, rgba(51,26,77, .1) 65%, rgba(51,26,77, .05) 100%) 1;
+		&:hover {
+			font-weight: bold;
+			text-decoration: underline;
+		}
+	}
+}
+
+.item a img {
+	max-height: 160px;
+	display: block;
+	border: 1px solid rgba(51,26,77,.1);
+	padding: 7px;
+	margin-top: .25em;
+	margin-bottom: 1em;
+}
+
+.item span {
+	color: rgba(77, 0, 153, 1);
+	font-weight: bold;
+	padding-right: 3px;
+	font-family: "Open Sans", sans-serif;
+}

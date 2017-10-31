@@ -2,6 +2,7 @@
 @import "neat/neat";
 @import "variables";
 @import "mixins";
+@import "collections";
 
 @import url('//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css');
 
@@ -299,7 +300,10 @@ nav {
   }
 }
 
-.gallery { /* collection show */
+/* Old collection show styles: */
+
+/*
+.gallery {
   .image {
     height: 200px;
     background: rgba($link-color, .5);
@@ -328,13 +332,15 @@ nav {
   }
 
 }
+*/
+
 
 $collections: 11 12 13 14 15 16 17 18; /* collections containing header images */
 
 @each $collection in $collections{ /* assign header images to collections */
 
   #collection-#{$collection} {
-    header, .image{
+    /*header, .image{
       @include background-image(
         linear-gradient(hsla(270,50%, 25%,.75),hsla(270,50%, 25%,.75)),
         url(../images/collection-#{$collection}.jpg)
@@ -342,10 +348,12 @@ $collections: 11 12 13 14 15 16 17 18; /* collections containing header images *
       background-size: cover;
       background-position: 50% 50%;
     }
-  }
+  }*/
 }
 
-.collection { /* collection show styles */
+
+/*
+.collection { /* collection show styles *
   header {
     min-height: 50vh;
     background-color: rgba($link-color,.75);
@@ -399,6 +407,7 @@ $collections: 11 12 13 14 15 16 17 18; /* collections containing header images *
 
   }
 }
+*/
 
 @media screen and (min-width:800px) {
 
@@ -509,3 +518,4 @@ $collections: 11 12 13 14 15 16 17 18; /* collections containing header images *
   }
 }
 
+}
