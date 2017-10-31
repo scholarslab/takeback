@@ -6,6 +6,7 @@ $myId = metadata('collection', 'id');
 $myItems = get_records('Item', ['collection_id' => $myId], $totalItems); // 10/23 - make commit for this
 $years = [];
 $hasFiles = 0;
+$hasURL = 0;
 ?>
 
 <!-- Calculate date range: -->
@@ -16,6 +17,10 @@ $hasFiles = 0;
 
 <?php if (metadata('item', 'has files')): ?>
     <?php $hasFiles++; ?>
+<?php elseif (metadata('item', array('Item Type Metadata', 'URL'))): ?>
+    <?php $hasURL++; ?>
+<?php else: ?>
+    <div><?php echo metadata('item', 'id') . ": " . metadata('item', ['Dublin Core', 'Title']); ?></div>
 <?php endif; ?>
 <?php endforeach; ?>
 
@@ -40,7 +45,7 @@ $hasFiles = 0;
         <div class="collection-stats">
             <div>Summary Statistics</div>
             <?php if ($totalItems > 0): ?>
-            <span>Number of Records:</span> <?php echo $totalItems; ?><br/>
+            <span>Number of Records:</span> <?php echo $totalItems . " " . $hasURL . " " . $hasFiles; ?><br/>
             <?php endif; ?>
             <span>Year Range:</span> <?php echo min($years) . ' - ' . max($years); ?><br/> <!-- LOOP -->
             <span>Collection ID:</span> <?php echo $myId; ?>
