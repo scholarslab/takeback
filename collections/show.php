@@ -5,12 +5,17 @@ $totalItems = metadata('collection', 'total_items');
 $myId = metadata('collection', 'id');
 $myItems = get_records('Item', ['collection_id' => $myId], $totalItems); // 10/23 - make commit for this
 $years = [];
+$hasFiles = 0;
 ?>
 
 <!-- Calculate date range: -->
 <?php foreach (loop('items', $myItems) as $item): ?>
 <?php if($date = check_date_string(metadata('item', array('Dublin Core', 'Date')))): ?>
     <?php $years[] = date('Y', $date); ?>
+<?php endif; ?>
+
+<?php if (metadata('item', 'has files')): ?>
+    <?php $hasFiles++; ?>
 <?php endif; ?>
 <?php endforeach; ?>
 
