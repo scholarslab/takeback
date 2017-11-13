@@ -1,0 +1,136 @@
+$link-color                     : hsl(270,50%,20%);
+
+* {
+    	box-sizing: border-box;
+}
+
+.item-show {
+    	display: grid;
+    	align-content: center;
+    	width: 80%;
+    	margin: 0 auto;
+    	grid-gap: 6px;
+    	grid-template-areas: "title            files"    						
+    						 "tag-container    files"
+    						 "subject      files"
+    						 "subject      files"
+    						 "date collection"
+    						 "description description";
+    	grid-template-columns: 1fr 1fr;
+    	grid-template-rows: min-max(5rem, auto);
+    	/* Prevent full-size images from overflowing layout: */
+    	img {
+    		max-width: 40vw;
+    	}
+}
+
+@each $area in title, date, description, files, tag-container, collection, subject {
+	.#{$area} {
+		grid-area: #{$area};
+		padding: .75rem;
+		font-family: 'Open Sans', sans-serif;
+		border: 3px solid lightgrey;
+		background: {
+			color: white;
+		}
+	}
+}
+
+.title,
+.description,
+.files,
+.subject {
+	div:first-of-type {
+		font-size: 1rem;
+		font-weight: 700;
+		color: lightgrey;
+		text-align: left;
+	}
+}
+.title {
+	font: {
+		weight: 700;
+		size: 2rem;
+	}
+}
+
+.collection,
+/*.subject,*/
+.date {
+	display: flex;
+	flex-flow: row wrap;
+	justify-content: flex-end;
+	align-items: center;
+	align-content: center;
+	position: relative;
+	span {
+		position: absolute;
+		left: .5rem;
+		font-size: 1.5rem;
+		font-weight: 700;
+	}
+	a {
+		color: $link-color;
+		text-decoration: none;
+		border-bottom: 3px solid #9AAC5A;
+		&:hover {
+			color: #9AAC5A;
+			font-weight: bold;
+		}
+	}
+}
+.subject {
+	a {
+		color: $link-color;
+		text-decoration: none;
+		border-bottom: 3px solid #9AAC5A;
+		&:hover {
+			color: #9AAC5A;
+			font-weight: bold;
+		}
+	}
+}
+.tag-container {
+	display: flex;
+	flex-flow: row wrap;
+	justify-content: flex-end;
+	align-items: center;
+	align-content: center;
+	position: relative;
+	span {
+		position: absolute;
+		left: .5rem;
+		font-size: 1.5rem;
+		font-weight: 700;
+	}
+	a {
+		color: white !important; /* override $link-color */
+		background-color: rgba(154, 172, 90, 80%);
+		text-decoration: none;
+		display: inline-block;
+		padding: 4px 4px 4px 6px; /* visual adjustment for triangle */
+		margin: 3px 15px;
+		border-bottom-left-radius: 2px;
+		border-top-left-radius: 2px;
+		&::after { /* triangle */
+			content: '';
+			position: absolute; /* wrt flex container */
+			top: 50%;
+			transform: translate(4px, -50%); /* 4px = right padding */
+			height: 0;
+			width: 0;
+			border: 15px solid transparent;
+			border-left-color: rgba(154, 172, 90, 80%);
+		}
+	}
+}
+
+.files {
+	padding: 1rem;
+	span {
+		color: lightgrey;
+		font-size: .75rem;
+		margin: auto;
+		float: right;
+	}
+}

@@ -1,153 +1,220 @@
+/* General tags covered by main CSS style sheet. */
+/**
+  * Reusable styles and colors from _collections.scss:
+  *
+  * background-image: linear-gradient(to left, rgba(14, 147, 252, .7), rgba(75, 0, 153, .7)), linear-gradient(rgba(255,255,255,.7), rgba(0,0,0,.7)), url("../images/newspaper-collage-1.png");
+  *
+  *
+  * Collection stats color: rgba(56,51,147,1);
+  *
+  * Description text color: color: rgba(42,38,112,1);
+  *
+  * Item label color: rgba(77, 0, 153, 1);
+  *
+  * Image border: 1px solid rgba(51,26,77,.1);
+  *
+  * @media cutoffs: 600px, 800px, 1200px, 1600px;
+  *
+  */
+/* Colors: */
+/* General styles: */
 * {
   box-sizing: border-box; }
 
-.item-show {
-  display: grid;
-  align-content: center;
-  width: 80%;
-  margin: 0 auto;
-  grid-gap: 6px;
-  grid-template-areas: "title            files"    						 "tag-container    files" "subject      files" "subject      files" "date collection" "description description";
-  grid-template-columns: 1fr 1fr;
-  grid-template-rows: min-max(5rem, auto);
-  /* Prevent full-size images from overflowing layout: */ }
-  .item-show img {
-    max-width: 40vw; }
+.items.show #main {
+  margin: 0;
+  padding: 0;
+  max-width: 100%;
+  color: black; }
 
-.title {
-  grid-area: title;
-  padding: .75rem;
-  font-family: 'Open Sans', sans-serif;
-  border: 3px solid lightgrey;
-  background-color: white; }
+/* Components: */
+/* Carousel: */
+.carousel-wrapper--top {
+  position: relative;
+  margin: 1em 8.33%;
+  padding: 0; }
 
-.date {
-  grid-area: date;
-  padding: .75rem;
-  font-family: 'Open Sans', sans-serif;
-  border: 3px solid lightgrey;
-  background-color: white; }
+.carousel-wrapper--visible {
+  position: relative;
+  border-bottom: 4px solid;
+  border-image: linear-gradient(to left, rgba(14, 147, 252, 0.7), rgba(75, 0, 153, 0.7)) 10;
+  padding: 0 4em;
+  margin-bottom: 1em; }
 
-.description {
-  grid-area: description;
-  padding: .75rem;
-  font-family: 'Open Sans', sans-serif;
-  border: 3px solid lightgrey;
-  background-color: white; }
-
-.files {
-  grid-area: files;
-  padding: .75rem;
-  font-family: 'Open Sans', sans-serif;
-  border: 3px solid lightgrey;
-  background-color: white; }
-
-.tag-container {
-  grid-area: tag-container;
-  padding: .75rem;
-  font-family: 'Open Sans', sans-serif;
-  border: 3px solid lightgrey;
-  background-color: white; }
-
-.collection {
-  grid-area: collection;
-  padding: .75rem;
-  font-family: 'Open Sans', sans-serif;
-  border: 3px solid lightgrey;
-  background-color: white; }
-
-.subject {
-  grid-area: subject;
-  padding: .75rem;
-  font-family: 'Open Sans', sans-serif;
-  border: 3px solid lightgrey;
-  background-color: white; }
-
-.title div:first-of-type,
-.description div:first-of-type,
-.files div:first-of-type,
-.subject div:first-of-type {
-  font-size: 1rem;
-  font-weight: 700;
-  color: lightgrey;
-  text-align: left; }
-
-.title {
-  font-weight: 700;
-  font-size: 2rem; }
-
-.collection,
-.date {
-  display: flex;
-  flex-flow: row wrap;
-  justify-content: flex-end;
-  align-items: center;
-  align-content: center;
+.carousel-overflow-mask {
+  overflow: hidden;
   position: relative; }
-  .collection span,
-  .date span {
-    position: absolute;
-    left: .5rem;
-    font-size: 1.5rem;
-    font-weight: 700; }
-  .collection a,
-  .date a {
-    color: #331a4d;
-    text-decoration: none;
-    border-bottom: 3px solid #9AAC5A; }
-    .collection a:hover,
-    .date a:hover {
-      color: #9AAC5A;
-      font-weight: bold; }
 
-.subject a {
-  color: #331a4d;
-  text-decoration: none;
-  border-bottom: 3px solid #9AAC5A; }
-  .subject a:hover {
-    color: #9AAC5A;
+.carousel-item-container {
+  width: 10000px; }
+
+.carousel-btn {
+  position: absolute;
+  top: 50%;
+  color: black;
+  background-color: transparent;
+  font-size: 3.75em;
+  border: none; }
+  .carousel-btn.left {
+    left: 0;
+    transform: translate(0, -50%); }
+  .carousel-btn.right {
+    right: 0;
+    transform: translate(0, -50%); }
+
+.carousel-item {
+  height: 162px;
+  width: 120px;
+  float: left;
+  margin: 1em; }
+  .carousel-item a {
+    text-decoration: none;
+    color: black;
+    display: block; }
+    .carousel-item a img {
+      display: block; }
+    .carousel-item a div {
+      overflow: hidden;
+      height: 2em;
+      line-height: 1;
+      margin-top: .5em;
+      font-family: "Inconsolata", monospace; }
+
+/* Files: */
+.files {
+  max-height: calc(100vh - 54px);
+  width: 100%;
+  padding: 1em 0 3em 0;
+  /* add media queries */
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  position: relative; }
+  .files a {
+    display: block;
+    max-width: 83.33%; }
+  .files span {
+    display: none;
+    line-height: 1;
+    color: rgba(255, 255, 255, 0.5);
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    padding-left: 8.33%;
+    padding-bottom: .5em; }
+
+.files a img {
+  display: block;
+  margin: 0 auto; }
+
+/* Data: */
+.item-info {
+  font-size: 1.5rem;
+  position: relative;
+  /*display: grid;
+  grid-template-areas: "title line description"
+  					 "stats line description"
+  					 "..... line ...........";
+  grid-template-columns: 1fr 1em 58.33%;
+  grid-template-rows: auto auto 12.5vh;*/ }
+
+.vertical-line {
+  display: none;
+  grid-area: line;
+  margin-bottom: 3em;
+  position: absolute;
+  height: 100%;
+  right: -2px;
+  top: -2px;
+  width: 4px;
+  background-image: linear-gradient(to top, #383393, #331a4d); }
+  .vertical-line::after {
+    content: '';
+    display: block;
+    border-radius: 50%;
+    height: 16px;
+    width: 16px;
+    background-color: #383393;
+    position: absolute;
+    bottom: 0;
+    left: -16px;
+    transform: translate(10px, 50%); }
+
+.title--item-show {
+  /*grid-area: title;
+  span {
+  	font-size: 1.5rem;
+  	font-weight: bold;
+  	color: black;
+  	text-transform: uppercase;
+  } */
+  background-color: white;
+  color: black;
+  padding-left: 25%;
+  padding-right: 8.33%; }
+  .title--item-show h1 {
+    font-weight: 700;
+    font-size: 1.25em;
+    margin: 0;
+    display: inline; }
+  .title--item-show span {
+    text-transform: uppercase;
     font-weight: bold; }
 
-.tag-container {
-  display: flex;
-  flex-flow: row wrap;
-  justify-content: flex-end;
-  align-items: center;
-  align-content: center;
-  position: relative; }
-  .tag-container span {
+.summary-stats {
+  grid-area: stats;
+  width: 66.67%;
+  border: 4px solid rgba(56, 51, 147, 0.9);
+  color: black;
+  font-family: "Inconsolata", monospace;
+  text-align: right;
+  padding: 1em 1.5em;
+  position: relative;
+  margin-top: 2em;
+  margin-left: 25%; }
+  .summary-stats span {
+    float: left;
+    color: #383393;
+    font-weight: 400;
+    font-family: "Inconsolata", monospace; }
+  .summary-stats div {
+    text-transform: uppercase;
     position: absolute;
-    left: .5rem;
-    font-size: 1.5rem;
-    font-weight: 700; }
-  .tag-container a {
-    color: white !important;
-    /* override $link-color */
-    background-color: #9aac5a;
-    text-decoration: none;
-    display: inline-block;
-    padding: 4px 4px 4px 6px;
-    /* visual adjustment for triangle */
-    margin: 3px 15px;
-    border-bottom-left-radius: 2px;
-    border-top-left-radius: 2px; }
-    .tag-container a::after {
-      /* triangle */
-      content: '';
-      position: absolute;
-      /* wrt flex container */
-      top: 50%;
-      transform: translate(4px, -50%);
-      /* 4px = right padding */
-      height: 0;
-      width: 0;
-      border: 15px solid transparent;
-      border-left-color: #9aac5a; }
+    top: -4px;
+    left: 0;
+    transform: translate(0, -100%);
+    font-family: "Open Sans", sans-serif;
+    color: black;
+    font-weight: bold; }
 
-.files {
-  padding: 1rem; }
-  .files span {
-    color: lightgrey;
-    font-size: .75rem;
-    margin: auto;
-    float: right; }
+.item-description {
+  grid-area: description;
+  color: #2a2670;
+  padding: 0 8.33%;
+  margin: 0;
+  margin-top: 1em;
+  font-family: "Inconsolata", monospace; }
+  .item-description span {
+    color: black;
+    font-size: 2rem;
+    font-weight: 700;
+    font-family: "Open Sans", sans-serif;
+    text-transform: uppercase;
+    border-bottom: 1px solid black; }
+
+/* Item relationships: */
+.the-relationships {
+  font-weight: 700;
+  font-size: 3.75em;
+  line-height: 1;
+  position: relative;
+  bottom: -6px;
+  z-index: 1;
+  color: rgba(75, 0, 153, 0.7);
+  margin-left: calc(12.5% + 16px);
+  margin-top: 1em; }
+
+.item-relations {
+  width: 100%;
+  position: relative;
+  background-color: rgba(0, 0, 0, 0.05); }
