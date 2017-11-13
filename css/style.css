@@ -5,258 +5,261 @@ html {
 *, *::after, *::before {
   box-sizing: inherit; }
 
-/* TypeKit: <script src="https://use.typekit.net/umh3ofy.js"></script>
-<script>try{Typekit.load({ async: true });}catch(e){}</script> */
-/* General Styles: */
-* {
-  box-sizing: border-box; }
-
-body {
-  font-size: 100%;
-  font-family: "Open Sans", sans-serif;
-  margin: 0;
-  padding: 0; }
-
-/* Landing Page: */
-/*
-NB: styles to make banner barely noticeable;
-	easier to focus on landing page itself
-	while designing, vs. making it "match":
-
-#banner {
-	box-shadow: 0 0 3px 2px rgba(0,0,0,.2);
-	z-index: 1;
-	background-color: hsla(270,50%,20%,.1);
-	position: absolute;
-	width: 100%;
-}
-*/
-/* NB: 'my-collection' so isn't same as css/style.css's styles */
-.my-collection header {
-  height: 133.33vh;
-  position: relative;
-  z-index: 0;
-  background-image: linear-gradient(to left, rgba(14, 147, 252, 0.7), rgba(75, 0, 153, 0.7)), linear-gradient(rgba(255, 255, 255, 0.7), rgba(0, 0, 0, 0.7)), url("../images/newspaper-collage-1.png");
-  background-size: auto, auto, cover;
-  /* make color = gradient that's transparent where triangles meet and white elsewhere.
-  &::after {
-  	content: '';
-  	width: 100%;
-  	height: 10px;
-  	background-color: white;
-  	display: block;
-  	position: absolute;
-  	bottom: -5px;
-  } */ }
-  .my-collection header .small-diagonal {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 33.33%;
-    height: 16.67vh;
-    background-image: linear-gradient(to bottom left, rgba(255, 255, 255, 0) 50%, white 50%); }
-  .my-collection header .big-diagonal {
-    position: absolute;
-    bottom: 0;
-    right: 0;
-    width: 66.67%;
-    height: 33.33vh;
-    background-image: linear-gradient(to bottom right, rgba(255, 255, 255, 0) 50%, white 50%); }
-
-.title {
-  position: absolute;
-  top: 16.67%;
-  left: 8.33%;
-  max-width: 83.33%; }
-  .title span {
-    font-size: 1.5rem;
-    font-weight: bold;
-    color: white; }
-  .title h1 {
-    font-weight: 700;
-    color: white;
-    font-size: 3.75rem;
-    line-height: 1.5;
-    margin: 0;
-    display: inline; }
-
-/* Main Styles: */
-.content {
-  position: relative;
-  background-color: white; }
-
-.line-wrapper {
-  display: grid;
-  grid-template-areas: "line ....." "line stats" "line .....";
-  grid-template-rows: 12.5vh auto 12.5vh;
-  grid-template-columns: 33.33% 1fr; }
-
-.item-wrapper {
-  grid-area: line;
-  position: relative;
-  margin-bottom: 1em; }
-
-.vertical-line {
-  margin-bottom: 3em;
-  position: absolute;
-  height: 100%;
-  right: -2px;
-  top: -2px;
-  width: 4px;
-  background-image: linear-gradient(to bottom, #383393, #331a4d); }
-  .vertical-line::after {
-    content: '';
-    display: block;
-    border-radius: 50%;
-    height: 16px;
-    width: 16px;
-    background-color: black;
-    position: absolute;
-    bottom: 0;
-    left: -16px;
-    transform: translate(10px, 50%); }
-
-.collection-stats, .description, .filters {
-  position: relative;
-  left: 8.33%;
-  font-size: 1.5rem;
-  margin: 3em 0;
-  padding: 1em; }
-  .collection-stats span, .description span, .filters span {
-    font-family: "Open Sans", sans-serif;
-    color: white;
-    font-weight: bold;
-    font-size: 1.5rem; }
-
-.collection-stats {
-  grid-area: stats;
-  width: 66.67%;
-  border: 4px solid rgba(56, 51, 147, 0.9);
-  color: black;
-  font-family: "Inconsolata", monospace;
-  text-align: right;
-  padding: 1em 1.5em; }
-  .collection-stats span {
-    float: left;
-    color: #383393;
-    font-weight: 400;
-    font-family: "Inconsolata", monospace; }
-  .collection-stats div {
-    text-transform: uppercase;
-    position: absolute;
-    top: -4px;
-    left: 0;
-    transform: translate(0, -100%);
-    font-family: "Open Sans", sans-serif;
-    color: black;
-    font-weight: bold; }
-
-.description {
-  color: #2a2670;
-  padding: 0;
-  margin: 0;
-  margin-top: 1em;
-  font-family: "Inconsolata", monospace;
-  width: 58.33%; }
-  .description span {
-    color: black;
-    font-size: 2rem;
-    border-bottom: 1px solid black; }
-
-.the-collection {
-  font-weight: 700;
-  font-size: 3.75em;
-  line-height: 1;
-  position: relative;
-  bottom: -6px;
-  z-index: 1;
-  color: rgba(75, 0, 153, 0.7);
-  margin-left: calc(12.5% + 16px);
-  margin-top: 1em; }
-
-.filters {
-  /* FIX*/
-  display: none;
-  left: 0;
-  margin: 0;
-  z-index: 0;
-  padding-left: calc(16.67% + 16px);
-  width: 100%;
-  background-color: rgba(0, 0, 0, 0.05); }
-  .filters span {
-    color: black;
-    padding-left: 2em; }
-  .filters button {
-    display: inline-block;
-    border: 1px solid #331a4d;
-    background-color: white;
-    margin-top: .25em;
-    padding: 4px;
-    font-family: "Inconsolata", monospace; }
-
-/* Gallery: */
-.gallery-bg {
-  width: 100%;
-  position: relative;
-  background-color: rgba(0, 0, 0, 0.05); }
-
-.item-container {
-  columns: 1;
-  width: 100%;
-  margin: 0 auto;
-  padding: 1em;
-  padding-bottom: 0;
-  padding-top: 3em; }
-  @media screen and (min-width: 600px) {
-    .item-container {
-      columns: 2; } }
-  @media screen and (min-width: 800px) {
-    .item-container {
-      columns: 3;
-      max-width: 800px; } }
-  @media screen and (min-width: 1200px) {
-    .item-container {
-      max-width: 75%;
-      columns: 3; } }
-  @media screen and (min-width: 1600px) {
-    .item-container {
-      font-size: 2em; } }
-  .item-container .item {
-    background-color: white;
-    color: black;
-    font-family: "Raleway", sans-serif;
-    margin-bottom: 1em;
-    margin-top: 2px;
-    min-height: 120px;
-    width: 100%;
-    display: inline-block;
-    padding: 1em 1em 1em 1em;
-    box-shadow: 0px 0px 2px 0.5px rgba(0, 0, 0, 0.05); }
-    .item-container .item a.permalink {
-      text-decoration: none;
-      color: black;
-      display: block; }
-    .item-container .item a.permalink {
-      margin-bottom: .5em;
-      padding-bottom: .5em;
-      border-bottom: 1px solid;
-      border-image: linear-gradient(to right, rgba(51, 26, 77, 0.5) 20%, rgba(0, 0, 0, 0) 20%) 1; }
-      .item-container .item a.permalink:hover {
-        font-weight: bold;
-        text-decoration: underline; }
-    .item-container .item a img {
-      max-height: 160px;
+  /* Start "collections/show" */
+  /* Landing Page: */
+  /* NB: 'my-collection' so isn't same as css/style.css's styles */
+  .my-collection header {
+    height: 133.33vh;
+    position: relative;
+    z-index: 0;
+    background-image: -webkit-gradient(linear, right top, left top, from(rgba(14, 147, 252, 0.7)), to(rgba(75, 0, 153, 0.7))), -webkit-gradient(linear, left top, left bottom, from(rgba(255, 255, 255, 0.7)), to(rgba(0, 0, 0, 0.7))), url("../images/newspaper-collage-1.png");
+    background-image: -webkit-linear-gradient(right, rgba(14, 147, 252, 0.7), rgba(75, 0, 153, 0.7)), -webkit-linear-gradient(rgba(255, 255, 255, 0.7), rgba(0, 0, 0, 0.7)), url("../images/newspaper-collage-1.png");
+    background-image: -o-linear-gradient(right, rgba(14, 147, 252, 0.7), rgba(75, 0, 153, 0.7)), -o-linear-gradient(rgba(255, 255, 255, 0.7), rgba(0, 0, 0, 0.7)), url("../images/newspaper-collage-1.png");
+    background-image: linear-gradient(to left, rgba(14, 147, 252, 0.7), rgba(75, 0, 153, 0.7)), linear-gradient(rgba(255, 255, 255, 0.7), rgba(0, 0, 0, 0.7)), url("../images/newspaper-collage-1.png");
+    background-size: auto, auto, cover;
+    /* make color = gradient that's transparent where triangles meet and white elsewhere.
+    &::after {
+      content: '';
+      width: 100%;
+      height: 10px;
+      background-color: white;
       display: block;
-      border: 1px solid rgba(51, 26, 77, 0.1);
-      padding: 7px;
-      margin-top: .25em;
-      margin-bottom: 1em; }
-    .item-container .item span {
-      color: #4d0099;
-      font-weight: bold;
-      padding-right: 3px;
-      font-family: "Open Sans", sans-serif; }
+      position: absolute;
+      bottom: -5px;
+    } */ }
+    .my-collection header .small-diagonal {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 33.33%;
+      height: 16.67vh;
+      background-image: -webkit-gradient(linear, right top, left bottom, color-stop(50%, rgba(255, 255, 255, 0)), color-stop(50%, white));
+      background-image: -webkit-linear-gradient(top right, rgba(255, 255, 255, 0) 50%, white 50%);
+      background-image: -o-linear-gradient(top right, rgba(255, 255, 255, 0) 50%, white 50%);
+      background-image: linear-gradient(to bottom left, rgba(255, 255, 255, 0) 50%, white 50%); }
+    .my-collection header .big-diagonal {
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      width: 66.67%;
+      height: 33.33vh;
+      background-image: -webkit-gradient(linear, left top, right bottom, color-stop(50%, rgba(255, 255, 255, 0)), color-stop(50%, white));
+      background-image: -webkit-linear-gradient(top left, rgba(255, 255, 255, 0) 50%, white 50%);
+      background-image: -o-linear-gradient(top left, rgba(255, 255, 255, 0) 50%, white 50%);
+      background-image: linear-gradient(to bottom right, rgba(255, 255, 255, 0) 50%, white 50%); }
 
+  .title {
+    position: absolute;
+    top: 16.67%;
+    left: 8.33%;
+    max-width: 83.33%; }
+    .title span {
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: white; }
+    .title h1 {
+      font-weight: 700;
+      color: white;
+      font-size: 3.75rem;
+      line-height: 1.5;
+      margin: 0;
+      display: inline; }
+
+  /* Main Styles: */
+  .content {
+    position: relative;
+    background-color: white; }
+
+  .line-wrapper {
+    display: grid;
+    grid-template-areas: "line ....." "line stats" "line .....";
+    grid-template-rows: 12.5vh auto 12.5vh;
+    grid-template-columns: 33.33% 1fr; }
+
+  .item-wrapper {
+    grid-area: line;
+    position: relative;
+    margin-bottom: 1em; }
+
+  .vertical-line {
+    margin-bottom: 3em;
+    position: absolute;
+    height: 100%;
+    right: -2px;
+    top: -2px;
+    width: 4px;
+    background-image: -webkit-gradient(linear, left top, left bottom, from(#383393), to(#331a4d));
+    background-image: -webkit-linear-gradient(top, #383393, #331a4d);
+    background-image: -o-linear-gradient(top, #383393, #331a4d);
+    background-image: linear-gradient(to bottom, #383393, #331a4d); }
+    .vertical-line::after {
+      content: '';
+      display: block;
+      border-radius: 50%;
+      height: 16px;
+      width: 16px;
+      background-color: black;
+      position: absolute;
+      bottom: 0;
+      left: -16px;
+      -webkit-transform: translate(10px, 50%);
+          -ms-transform: translate(10px, 50%);
+              transform: translate(10px, 50%); }
+
+  .collection-stats, .description, .filters {
+    position: relative;
+    left: 8.33%;
+    font-size: 1.5rem;
+    margin: 3em 0;
+    padding: 1em; }
+    .collection-stats span, .description span, .filters span {
+      font-family: "Open Sans", sans-serif;
+      color: white;
+      font-weight: bold;
+      font-size: 1.5rem; }
+
+  .collection-stats {
+    grid-area: stats;
+    width: 66.67%;
+    border: 4px solid rgba(56, 51, 147, 0.9);
+    color: black;
+    font-family: "Inconsolata", monospace;
+    text-align: right;
+    padding: 1em 1.5em; }
+    .collection-stats span {
+      float: left;
+      color: #383393;
+      font-weight: 400;
+      font-family: "Inconsolata", monospace; }
+    .collection-stats div {
+      text-transform: uppercase;
+      position: absolute;
+      top: -4px;
+      left: 0;
+      -webkit-transform: translate(0, -100%);
+          -ms-transform: translate(0, -100%);
+              transform: translate(0, -100%);
+      font-family: "Open Sans", sans-serif;
+      color: black;
+      font-weight: bold; }
+
+  .description {
+    color: #2a2670;
+    padding: 0;
+    margin: 0;
+    margin-top: 1em;
+    font-family: "Inconsolata", monospace;
+    width: 58.33%; }
+    .description span {
+      color: black;
+      font-size: 2rem;
+      border-bottom: 1px solid black; }
+
+  .the-collection {
+    font-weight: 700;
+    font-size: 3.75em;
+    line-height: 1;
+    position: relative;
+    bottom: -6px;
+    z-index: 1;
+    color: rgba(75, 0, 153, 0.7);
+    margin-left: calc(12.5% + 16px);
+    margin-top: 1em; }
+
+  .filters {
+    /* FIX*/
+    display: none;
+    left: 0;
+    margin: 0;
+    z-index: 0;
+    padding-left: calc(16.67% + 16px);
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.05); }
+    .filters span {
+      color: black;
+      padding-left: 2em; }
+    .filters button {
+      display: inline-block;
+      border: 1px solid #331a4d;
+      background-color: white;
+      margin-top: .25em;
+      padding: 4px;
+      font-family: "Inconsolata", monospace; }
+
+  /* Gallery: */
+  .gallery-bg {
+    width: 100%;
+    position: relative;
+    background-color: rgba(0, 0, 0, 0.05); }
+
+  .item-container {
+    -webkit-columns: 1;
+            columns: 1;
+    width: 100%;
+    margin: 0 auto;
+    padding: 1em;
+    padding-bottom: 0;
+    padding-top: 3em; }
+    @media screen and (min-width: 600px) {
+      .item-container {
+        -webkit-columns: 2;
+                columns: 2; } }
+    @media screen and (min-width: 800px) {
+      .item-container {
+        -webkit-columns: 3;
+                columns: 3;
+        max-width: 800px; } }
+    @media screen and (min-width: 1200px) {
+      .item-container {
+        max-width: 75%;
+        -webkit-columns: 3;
+                columns: 3; } }
+    @media screen and (min-width: 1600px) {
+      .item-container {
+        font-size: 2em; } }
+    .item-container .item {
+      background-color: white;
+      color: black;
+      font-family: "Raleway", sans-serif;
+      margin-bottom: 1em;
+      margin-top: 2px;
+      min-height: 120px;
+      width: 100%;
+      display: inline-block;
+      padding: 1em 1em 1em 1em;
+      -webkit-box-shadow: 0px 0px 2px 0.5px rgba(0, 0, 0, 0.05);
+              box-shadow: 0px 0px 2px 0.5px rgba(0, 0, 0, 0.05); }
+      .item-container .item a.permalink {
+        text-decoration: none;
+        color: black;
+        display: block; }
+      .item-container .item a.permalink {
+        margin-bottom: .5em;
+        padding-bottom: .5em;
+        border-bottom: 1px solid;
+        -webkit-border-image: -webkit-gradient(linear, left top, right top, color-stop(20%, rgba(51, 26, 77, 0.5)), color-stop(20%, rgba(0, 0, 0, 0))) 1;
+        -webkit-border-image: -webkit-linear-gradient(left, rgba(51, 26, 77, 0.5) 20%, rgba(0, 0, 0, 0) 20%) 1;
+             -o-border-image: -o-linear-gradient(left, rgba(51, 26, 77, 0.5) 20%, rgba(0, 0, 0, 0) 20%) 1;
+                border-image: -webkit-gradient(linear, left top, right top, color-stop(20%, rgba(51, 26, 77, 0.5)), color-stop(20%, rgba(0, 0, 0, 0))) 1;
+                border-image: linear-gradient(to right, rgba(51, 26, 77, 0.5) 20%, rgba(0, 0, 0, 0) 20%) 1; }
+        .item-container .item a.permalink:hover {
+          font-weight: bold;
+          text-decoration: underline; }
+      .item-container .item a img {
+        max-height: 160px;
+        display: block;
+        border: 1px solid rgba(51, 26, 77, 0.1);
+        padding: 7px;
+        margin-top: .25em;
+        margin-bottom: 1em; }
+      .item-container .item span {
+        color: #4d0099;
+        font-weight: bold;
+        padding-right: 3px;
+        font-family: "Open Sans", sans-serif; }
+
+  /* End "collections/show" */
+  
 * {
   -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
