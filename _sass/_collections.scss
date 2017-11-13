@@ -1,36 +1,6 @@
-/* TypeKit: <script src="https://use.typekit.net/umh3ofy.js"></script>
-<script>try{Typekit.load({ async: true });}catch(e){}</script> */
-
-/* General Styles: */
-
-* {
-	box-sizing: border-box;
-}
-
-body {
-	font: {
-		size: 100%;
-		family: "Open Sans", sans-serif;
-	}
-	margin: 0;
-	padding: 0;
-}
+/* Start "collections/show" */
 
 /* Landing Page: */
-
-/*
-NB: styles to make banner barely noticeable;
-	easier to focus on landing page itself
-	while designing, vs. making it "match":
-
-#banner {
-	box-shadow: 0 0 3px 2px rgba(0,0,0,.2);
-	z-index: 1;
-	background-color: hsla(270,50%,20%,.1);
-	position: absolute;
-	width: 100%;
-}
-*/
 
 /* NB: 'my-collection' so isn't same as css/style.css's styles */
 .my-collection {
@@ -310,3 +280,4 @@ NB: styles to make banner barely noticeable;
 		}
 	}
 }
+/* End "collections/show" */
