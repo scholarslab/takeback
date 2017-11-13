@@ -254,7 +254,7 @@ NB: styles to make banner barely noticeable;
 		columns: 2;
 	}
 	@media screen and (min-width: 800px) {
-		columns: 4;
+		columns: 3;
 		max-width: 800px;
 	}
 	@media screen and (min-width:1200px) {
@@ -266,52 +266,47 @@ NB: styles to make banner barely noticeable;
 	@media screen and (min-width: 1600px) {
 		font-size: 2em;
 	}
-}
 
-.item {
-	background-color: white;
-	color: black;
-	font-family: "Raleway", sans-serif;
-	margin-bottom: 1em;
-	margin-top: 2px; // shadow doesn't wrap
-	//padding-top: 1em;
-	min-height: 120px;
-	width: 100%;
-	display: inline-block;
-	padding: 1em 1em 1em 1em;
-	box-shadow: 0px 0px 2px .5px rgba(0, 0, 0, .05);
-	//border-radius: 4px;
-	a.permalink {
-		text-decoration: none;
+	.item {
+		background-color: white;
 		color: black;
-		display: block;
-	}
-	a.permalink {
-		margin-bottom: .5em;
-		padding-bottom: .5em;
-		//border-bottom: 1px solid rgba(51,26,77, .1);
-		border-bottom: 1px solid;
-		border-image: linear-gradient(to right, rgba(51,26,77,.5) 20%, rgba(0,0,0,0) 20%) 1;
-		//border-image: linear-gradient(to right, rgba(51,26,77, .05), rgba(51,26,77, .1) 35%, rgba(51,26,77, .5) 50%, rgba(51,26,77, .1) 65%, rgba(51,26,77, .05) 100%) 1;
-		&:hover {
+		font-family: "Raleway", sans-serif;
+		margin-bottom: 1em;
+		margin-top: 2px; // shadow doesn't wrap
+		min-height: 120px;
+		width: 100%;
+		display: inline-block;
+		padding: 1em 1em 1em 1em;
+		box-shadow: 0px 0px 2px .5px rgba(0, 0, 0, .05);
+		a.permalink {
+			text-decoration: none;
+			color: black;
+			display: block;
+		}
+		a.permalink {
+			margin-bottom: .5em;
+			padding-bottom: .5em;
+			border-bottom: 1px solid;
+			border-image: linear-gradient(to right, rgba(51,26,77,.5) 20%, rgba(0,0,0,0) 20%) 1;
+			&:hover {
+				font-weight: bold;
+				text-decoration: underline;
+			}
+		}
+		a img {
+			max-height: 160px;
+			display: block;
+			border: 1px solid rgba(51,26,77,.1);
+			padding: 7px;
+			margin-top: .25em;
+			margin-bottom: 1em;
+		}
+
+		span {
+			color: rgba(77, 0, 153, 1);
 			font-weight: bold;
-			text-decoration: underline;
+			padding-right: 3px;
+			font-family: "Open Sans", sans-serif;
 		}
 	}
-}
-
-.item a img {
-	max-height: 160px;
-	display: block;
-	border: 1px solid rgba(51,26,77,.1);
-	padding: 7px;
-	margin-top: .25em;
-	margin-bottom: 1em;
-}
-
-.item span {
-	color: rgba(77, 0, 153, 1);
-	font-weight: bold;
-	padding-right: 3px;
-	font-family: "Open Sans", sans-serif;
 }
