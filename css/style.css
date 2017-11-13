@@ -363,8 +363,8 @@ nav ul {
 nav li {
   display: inline-block; }
   nav li + li:before {
-    content: " ┬╖ ";
-    padding: 0 .25em; }
+    content: "\b7";
+    padding-right: .25em; }
 
 #banner {
   background-color: #331a4d;

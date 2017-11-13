@@ -138,8 +138,8 @@ nav {
     display:inline-block;
 
     & + li:before {
-      content: " · ";
-      padding: 0 .25em;
+      content: "\b7";
+      padding-right: .25em;
     }
   }
 }
