@@ -3,8 +3,8 @@ $collectionTitle = metadata('collection', 'display_title');
 echo head(array('title'=> $collectionTitle, 'bodyclass' => 'collections show'));
 $totalItems = metadata('collection', 'total_items');
 $myId = metadata('collection', 'id');
-$myItems = get_records('Item', ['collection_id' => $myId], $totalItems); // 10/23 - make commit for this
-$years = [];
+$myItems = get_records('Item', array('collection_id' => $myId), $totalItems); // 10/23 - make commit for this
+$years = array();
 ?>
 
 <!-- Calculate date range: -->
