@@ -3,7 +3,7 @@ $collectionTitle = metadata('collection', 'display_title');
 echo head(array('title'=> $collectionTitle, 'bodyclass' => 'collections show'));
 $totalItems = metadata('collection', 'total_items');
 $myId = metadata('collection', 'id');
-$myItems = get_records('Item', array('collection_id' => $myId), $totalItems); // 10/23 - make commit for this
+$myItems = get_records('Item', array('collection_id' => $myId), $totalItems);
 $years = array();
 ?>
 
@@ -35,7 +35,7 @@ $years = array();
         <div class="collection-stats">
             <div>Summary Statistics</div>
             <?php if ($totalItems > 0): ?>
-            <span>Number of Records:</span> <?php echo $totalItems . " " . $hasURL . " " . $hasFiles; ?><br/>
+            <span>Number of Records:</span> <?php echo $totalItems; ?><br/>
             <?php endif; ?>
             <span>Year Range:</span> <?php echo min($years) . ' - ' . max($years); ?><br/> <!-- LOOP -->
             <span>Collection ID:</span> <?php echo $myId; ?>
