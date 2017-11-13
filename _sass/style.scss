@@ -247,7 +247,8 @@ nav {
       display: inline-block;
 
       & + li:before {
-        content: " · "; /* local server doesn't render properly */
+        content: "\b7";
+        padding: 0 .25em;
         color: rgba(black, .5);
       }
     }
@@ -302,7 +303,7 @@ nav {
 
 /* Old collection show styles: */
 
-/*
+
 .gallery {
   .image {
     height: 200px;
@@ -332,15 +333,15 @@ nav {
   }
 
 }
-*/
+
 
 
 $collections: 11 12 13 14 15 16 17 18; /* collections containing header images */
 
 @each $collection in $collections{ /* assign header images to collections */
 
-  #collection-#{$collection} {
-    /*header, .image{
+  li#collection-#{$collection} {
+    .image{
       @include background-image(
         linear-gradient(hsla(270,50%, 25%,.75),hsla(270,50%, 25%,.75)),
         url(../images/collection-#{$collection}.jpg)
@@ -348,7 +349,7 @@ $collections: 11 12 13 14 15 16 17 18; /* collections containing header images *
       background-size: cover;
       background-position: 50% 50%;
     }
-  }*/
+  }
 }
 
 
@@ -373,7 +374,7 @@ $collections: 11 12 13 14 15 16 17 18; /* collections containing header images *
       margin-top: 0;
       font-weight: 100;
     }
-  }
+  } 
 
   .content {
     max-width: 900px;
@@ -406,8 +407,8 @@ $collections: 11 12 13 14 15 16 17 18; /* collections containing header images *
     }
 
   }
-}
-*/
+} */
+
 
 @media screen and (min-width:800px) {
 
@@ -516,6 +517,4 @@ $collections: 11 12 13 14 15 16 17 18; /* collections containing header images *
   & + h2 {
     margin-top:0;
   }
-}
-
 }
