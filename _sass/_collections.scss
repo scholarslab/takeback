@@ -84,13 +84,20 @@
 	background-color: white;
 }
 
-.line-wrapper { /* 11/13: add media queries to rearrange - =/= work on mobile */
+.line-wrapper { /* 11/13: add media queries to rearrange - =/= work on mobile: altogether < 768, spacing < 1024 */
 	display: grid;
-	grid-template-areas: "line ....."
-						"line stats"
-						"line .....";
-	grid-template-rows: 12.5vh auto 12.5vh;
-	grid-template-columns: 33.33% 1fr;
+	grid-template-areas: "line"
+						 "stats";
+	grid-template-rows: 25vh auto;
+	// columns: implicit, only 1 column
+	@media screen and (min-width: 768px) {
+		grid-template-areas: "line ....."
+							"line stats"
+							"line .....";
+		grid-template-rows: 12.5vh auto 12.5vh;
+		grid-template-columns: 33.33% 1fr;	
+	}
+	
 }
 
 .item-wrapper {
@@ -100,11 +107,18 @@
 }
 
 .vertical-line {
-	margin-bottom: 3em;
+	//margin-bottom: 3em;
 	position: absolute;
-	height: 100%;
-	right: -2px;
+	
 	top: -2px;
+	@media screen and (max-width: 767.99px) {
+		left: calc(33.33% - 2px);
+	}
+	@media screen and (min-width: 768px) {
+		right: -2px;	
+	}
+	height: 100%;
+
 	width: 4px;
 	background-image: linear-gradient(to bottom, rgba(56,51,147,1), rgba(51,26,77,1));
 	&::after {
@@ -122,37 +136,32 @@
 	
 }
 
-.collection-stats, .description, .filters {
-	//border: 5px solid rgba(56,51,147,1); // purple from Google eyedropper, save
-	//background-image: linear-gradient(rgba(0,0,0,.05), rgba(0,0,0,.05));
+.collection-stats, .description {
 	position: relative;
 	left: 8.33%;
-	font-size: 1.5rem;
-	margin: 3em 0;
-	padding: 1em;
+	font-size: 1.25rem;
+	@media screen and (min-width: 600px) {
+		font-size: 1.5rem;
+	}
 	span {
 		font-family: "Open Sans", sans-serif;
 		color: rgba(255,255,255,1);
 		font-weight: bold;
-		font-size: 1.5rem;
 	}
 }
 
 .collection-stats {
 	grid-area: stats;
-	width: 66.67%;
-	//border: 4px solid rgba(0,0,0,.5);
+	width: 83.33%;
+	margin: 3em 0;
+	padding: .5em;
 	border: 4px solid rgba(56,51,147,.9);
 	color: black;
 	font-family: "Inconsolata", monospace;
-	//background-image: url("noise.png");
-	//background-blend-mode: multiply;
 	text-align: right;
-	padding: 1em 1.5em;
 	span {
 		float: left;
 		color: rgba(56,51,147,1);
-		//color: white;
 		font-weight: 400;
 		font-family: "Inconsolata", monospace;
 		
@@ -167,6 +176,10 @@
 		color: black;
 		font-weight: bold;
 	}
+	@media screen and (min-width: 600px) {
+		width: 66.67%;
+		padding: 1em 1.5em;
+	}
 }
 
 .description {
@@ -175,16 +188,18 @@
 	margin: 0;
 	margin-top: 1em;
 	font-family: "Inconsolata", monospace;
-	width: 58.33%;
+	width: 83.33%;
 	span {
 		color: black;
 		font-size: 2rem;
 		border-bottom: 1px solid black;
 	}
+	@media screen and (min-width: 768px) {
+		width: 58.33%;
+	}
 }
 
 .the-collection {
-	//display: none;
 	font-weight: 700;
 	font-size: 3.75em;
 	line-height: 1;
@@ -194,30 +209,6 @@
 	color: rgba(75, 0, 153, .7);
     margin-left: calc(12.5% + 16px);
     margin-top: 1em;
-}
-
-.filters { /* FIX*/
-	display: none;
-	left: 0;
-	margin: 0;
-	z-index: 0;
-	padding-left: calc(16.67% + 16px);
-	width: 100%;
-	background-color: rgba(0,0,0,.05);
-	//width: 100%; //58.33%;
-	//border-top: 6px solid rgba(51,26,77,1);
-	span {
-		color: black;
-		padding-left: 2em;
-	}
-	button {
-		display: inline-block;
-		border: 1px solid rgba(51,26,77,1);
-		background-color: white;
-		margin-top: .25em;
-		padding: 4px;
-		font-family: "Inconsolata", monospace;
-	}
 }
 
 /* Gallery: */

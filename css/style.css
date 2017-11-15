@@ -77,11 +77,15 @@ html {
   background-color: white; }
 
 .line-wrapper {
-  /* 11/13: add media queries to rearrange - =/= work on mobile */
+  /* 11/13: add media queries to rearrange - =/= work on mobile: altogether < 768, spacing < 1024 */
   display: grid;
-  grid-template-areas: "line ....." "line stats" "line .....";
-  grid-template-rows: 12.5vh auto 12.5vh;
-  grid-template-columns: 33.33% 1fr; }
+  grid-template-areas: "line" "stats";
+  grid-template-rows: 25vh auto; }
+  @media screen and (min-width: 768px) {
+    .line-wrapper {
+      grid-template-areas: "line ....." "line stats" "line .....";
+      grid-template-rows: 12.5vh auto 12.5vh;
+      grid-template-columns: 33.33% 1fr; } }
 
 .item-wrapper {
   grid-area: line;
@@ -89,13 +93,17 @@ html {
   margin-bottom: 1em; }
 
 .vertical-line {
-  margin-bottom: 3em;
   position: absolute;
-  height: 100%;
-  right: -2px;
   top: -2px;
+  height: 100%;
   width: 4px;
   background-image: linear-gradient(to bottom, #383393, #331a4d); }
+  @media screen and (max-width: 767.99px) {
+    .vertical-line {
+      left: calc(33.33% - 2px); } }
+  @media screen and (min-width: 768px) {
+    .vertical-line {
+      right: -2px; } }
   .vertical-line::after {
     content: '';
     display: block;
@@ -108,26 +116,27 @@ html {
     left: -16px;
     transform: translate(10px, 50%); }
 
-.collection-stats, .description, .filters {
+.collection-stats, .description {
   position: relative;
   left: 8.33%;
-  font-size: 1.5rem;
-  margin: 3em 0;
-  padding: 1em; }
-  .collection-stats span, .description span, .filters span {
+  font-size: 1.25rem; }
+  @media screen and (min-width: 600px) {
+    .collection-stats, .description {
+      font-size: 1.5rem; } }
+  .collection-stats span, .description span {
     font-family: "Open Sans", sans-serif;
     color: white;
-    font-weight: bold;
-    font-size: 1.5rem; }
+    font-weight: bold; }
 
 .collection-stats {
   grid-area: stats;
-  width: 66.67%;
+  width: 83.33%;
+  margin: 3em 0;
+  padding: .5em;
   border: 4px solid rgba(56, 51, 147, 0.9);
   color: black;
   font-family: "Inconsolata", monospace;
-  text-align: right;
-  padding: 1em 1.5em; }
+  text-align: right; }
   .collection-stats span {
     float: left;
     color: #383393;
@@ -142,6 +151,10 @@ html {
     font-family: "Open Sans", sans-serif;
     color: black;
     font-weight: bold; }
+  @media screen and (min-width: 600px) {
+    .collection-stats {
+      width: 66.67%;
+      padding: 1em 1.5em; } }
 
 .description {
   color: #2a2670;
@@ -149,11 +162,14 @@ html {
   margin: 0;
   margin-top: 1em;
   font-family: "Inconsolata", monospace;
-  width: 58.33%; }
+  width: 83.33%; }
   .description span {
     color: black;
     font-size: 2rem;
     border-bottom: 1px solid black; }
+  @media screen and (min-width: 768px) {
+    .description {
+      width: 58.33%; } }
 
 .the-collection {
   font-weight: 700;
@@ -165,26 +181,6 @@ html {
   color: rgba(75, 0, 153, 0.7);
   margin-left: calc(12.5% + 16px);
   margin-top: 1em; }
-
-.filters {
-  /* FIX*/
-  display: none;
-  left: 0;
-  margin: 0;
-  z-index: 0;
-  padding-left: calc(16.67% + 16px);
-  width: 100%;
-  background-color: rgba(0, 0, 0, 0.05); }
-  .filters span {
-    color: black;
-    padding-left: 2em; }
-  .filters button {
-    display: inline-block;
-    border: 1px solid #331a4d;
-    background-color: white;
-    margin-top: .25em;
-    padding: 4px;
-    font-family: "Inconsolata", monospace; }
 
 /* Gallery: */
 .gallery-bg {
