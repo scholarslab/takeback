@@ -95,8 +95,10 @@ html {
 .item-wrapper {
   grid-area: line;
   position: relative;
-  margin-bottom: 1em;
-  height: 25vh; }
+  margin-bottom: 1em; }
+  @media screen and (max-width: 767.99px) {
+    .item-wrapper {
+      height: 25vh; } }
 
 .vertical-line {
   margin-bottom: 3em;
