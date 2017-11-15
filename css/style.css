@@ -101,6 +101,9 @@ html {
   left: calc(33.33% - 2px);
   height: 100%;
   width: 4px;
+  background-image: -webkit-gradient(linear, left top, left bottom, from(#383393), to(#331a4d));
+  background-image: -webkit-linear-gradient(top, #383393, #331a4d);
+  background-image: -o-linear-gradient(top, #383393, #331a4d);
   background-image: linear-gradient(to bottom, #383393, #331a4d); }
   .vertical-line::after {
     content: '';
