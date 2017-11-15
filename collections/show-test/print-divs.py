@@ -2,6 +2,6 @@
 
 def printDivs(num):
 	for i in range(num):
-		print('<div class="item">Item ' + str(i+1) + ': Lorem ipsum dolor sic amet</div>')
+		print('<div class="slide">Item ' + str(i+1) + '</div>')
 
-printDivs(20)
+printDivs(50)

@@ -23,6 +23,7 @@
 <div id="item-files" class="element"> <!-- id DNE -->
     <h2><?php echo __('Files'); ?></h2>
     <div class="element-text"><?php echo files_for_item(array('imageSize' => 'fullsize')); ?></div>
+    <div class="element-text"><?php echo files_for_item(array('imageSize' => 'square_thumbnail')); ?></div>
 </div>
 <?php endif; ?>
 
