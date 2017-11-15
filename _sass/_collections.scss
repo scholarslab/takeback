@@ -5,7 +5,7 @@
 /* NB: 'my-collection' so isn't same as css/style.css's styles */
 .my-collection {
 	header {
-		height: 133.33vh;
+		height: 100vh;
 		position: relative;
 		z-index: 0; // for banner shadow
 		background-image: linear-gradient(to left, rgba(14, 147, 252, .7), rgba(75, 0, 153, .7)), linear-gradient(rgba(255,255,255,.7), rgba(0,0,0,.7)), /*url("noise.png"),*/ url("../images/newspaper-collage-1.png");
@@ -37,6 +37,9 @@
 			position: absolute;
 			bottom: -5px;
 		} */
+		@media screen and (min-width: 600px) {
+			height: 133.33vh;
+		}
 	}
 }
 
@@ -84,12 +87,11 @@
 	background-color: white;
 }
 
-.line-wrapper { /* 11/13: add media queries to rearrange - =/= work on mobile: altogether < 768, spacing < 1024 */
+.line-wrapper {
 	display: grid;
 	grid-template-areas: "line"
 						 "stats";
 	grid-template-rows: 25vh auto;
-	// columns: implicit, only 1 column
 	@media screen and (min-width: 768px) {
 		grid-template-areas: "line ....."
 							"line stats"
@@ -107,18 +109,11 @@
 }
 
 .vertical-line {
-	//margin-bottom: 3em;
+	margin-bottom: 3em;
 	position: absolute;
-	
 	top: -2px;
-	@media screen and (max-width: 767.99px) {
-		left: calc(33.33% - 2px);
-	}
-	@media screen and (min-width: 768px) {
-		right: -2px;	
-	}
+	left: calc(33.33% - 2px);
 	height: 100%;
-
 	width: 4px;
 	background-image: linear-gradient(to bottom, rgba(56,51,147,1), rgba(51,26,77,1));
 	&::after {
@@ -133,7 +128,9 @@
 		left: -16px;
 		transform: translate(10px, 50%);
 	}
-	
+	@media screen and (min-width: 768px) {
+		left: calc(100% - 2px);
+	}
 }
 
 .collection-stats, .description {
@@ -164,7 +161,6 @@
 		color: rgba(56,51,147,1);
 		font-weight: 400;
 		font-family: "Inconsolata", monospace;
-		
 	}
 	div {
 		text-transform: uppercase;

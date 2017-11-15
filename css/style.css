@@ -9,7 +9,7 @@ html {
 /* Landing Page: */
 /* NB: 'my-collection' so isn't same as css/style.css's styles */
 .my-collection header {
-  height: 133.33vh;
+  height: 100vh;
   position: relative;
   z-index: 0;
   background-image: linear-gradient(to left, rgba(14, 147, 252, 0.7), rgba(75, 0, 153, 0.7)), linear-gradient(rgba(255, 255, 255, 0.7), rgba(0, 0, 0, 0.7)), url("../images/newspaper-collage-1.png");
@@ -38,6 +38,9 @@ html {
     width: 66.67%;
     height: 33.33vh;
     background-image: linear-gradient(to bottom right, rgba(255, 255, 255, 0) 50%, white 50%); }
+  @media screen and (min-width: 600px) {
+    .my-collection header {
+      height: 133.33vh; } }
 
 .title {
   position: absolute;
@@ -77,7 +80,6 @@ html {
   background-color: white; }
 
 .line-wrapper {
-  /* 11/13: add media queries to rearrange - =/= work on mobile: altogether < 768, spacing < 1024 */
   display: grid;
   grid-template-areas: "line" "stats";
   grid-template-rows: 25vh auto; }
@@ -93,17 +95,13 @@ html {
   margin-bottom: 1em; }
 
 .vertical-line {
+  margin-bottom: 3em;
   position: absolute;
   top: -2px;
+  left: calc(33.33% - 2px);
   height: 100%;
   width: 4px;
   background-image: linear-gradient(to bottom, #383393, #331a4d); }
-  @media screen and (max-width: 767.99px) {
-    .vertical-line {
-      left: calc(33.33% - 2px); } }
-  @media screen and (min-width: 768px) {
-    .vertical-line {
-      right: -2px; } }
   .vertical-line::after {
     content: '';
     display: block;
@@ -115,6 +113,9 @@ html {
     bottom: 0;
     left: -16px;
     transform: translate(10px, 50%); }
+  @media screen and (min-width: 768px) {
+    .vertical-line {
+      left: calc(100% - 2px); } }
 
 .collection-stats, .description {
   position: relative;
