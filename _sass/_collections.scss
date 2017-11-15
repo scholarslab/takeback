@@ -262,7 +262,8 @@
 		a.permalink {
 			margin-bottom: .5em;
 			padding-bottom: .5em;
-			border-bottom: 1px solid;
+			border: 0px solid;
+			border-bottom-width: 1px;
 			border-image: linear-gradient(to right, rgba(51,26,77,.5) 20%, rgba(0,0,0,0) 20%) 1;
 			&:hover {
 				font-weight: bold;
