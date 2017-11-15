@@ -42,23 +42,38 @@
 
 .title {
 	span {
-		font-size: 1.5rem;
+		font-size: 1rem;
 		font-weight: bold;
 		color: white;
+		@media screen and (min-width: 400px) {
+			font-size: 1.5rem;
+		}
 	}
 	h1 {
 		font-weight: 700;
 		color: white;
-		font-size: 3.75rem;
-		line-height: 1.5;
+		font-size: 2rem;
+		line-height: 1;
 		//padding-top: 1px;
 		margin: 0;
 		display: inline;
+		@media screen and (min-width: 400px) {
+			font-size: 3rem;
+			line-height: 1.25;
+		}
+		@media screen and (min-width: 800px) {
+			font-size: 3.75rem;
+			line-height: 1.5;
+		}
 	}
 		position: absolute;
-		top: 16.67%;
-		left: 8.33%;
-		max-width: 83.33%;
+		top: 16.67vh;
+		left: 4.167%;
+		max-width: 95.833%;
+		@media screen and (min-width: 600px) {
+			left: 8.33%;
+			max-width: 83.33%;
+		}
 }
 
 
@@ -66,10 +81,10 @@
 
 .content {
 	position: relative;
-	background-color: white; // rgba(56,51,147,.1);
+	background-color: white;
 }
 
-.line-wrapper {
+.line-wrapper { /* 11/13: add media queries to rearrange - =/= work on mobile */
 	display: grid;
 	grid-template-areas: "line ....."
 						"line stats"
