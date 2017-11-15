@@ -114,12 +114,13 @@
 	top: -2px;
 	left: calc(33.33% - 2px);
 	height: 100%;
-	width: 4px;
+	width: 40px;
+	background-color: orange;
 	//background-image: linear-gradient(to bottom, rgba(56,51,147,1), rgba(51,26,77,1));
-	background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(56,51,147,1)), to(rgba(51,26,77,1)));
+	/*background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(56,51,147,1)), to(rgba(51,26,77,1)));
 	background-image: -webkit-linear-gradient(top, rgba(56,51,147,1), rgba(51,26,77,1));
 	background-image: -o-linear-gradient(top, rgba(56,51,147,1), rgba(51,26,77,1));
-	background-image: linear-gradient(to bottom, rgba(56,51,147,1), rgba(51,26,77,1));
+	background-image: linear-gradient(to bottom, rgba(56,51,147,1), rgba(51,26,77,1));*/
 	&::after {
 		content: '';
 		display: block;
