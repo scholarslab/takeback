@@ -9,7 +9,7 @@ html {
 /* Landing Page: */
 /* NB: 'my-collection' so isn't same as css/style.css's styles */
 .my-collection header {
-  height: 100vh;
+  height: 116.67vh;
   position: relative;
   z-index: 0;
   background-image: linear-gradient(to left, rgba(14, 147, 252, 0.7), rgba(75, 0, 153, 0.7)), linear-gradient(rgba(255, 255, 255, 0.7), rgba(0, 0, 0, 0.7)), url("../images/newspaper-collage-1.png");
@@ -29,18 +29,22 @@ html {
     bottom: 0;
     left: 0;
     width: 33.33%;
-    height: 16.67vh;
+    height: 8.33vh;
     background-image: linear-gradient(to bottom left, rgba(255, 255, 255, 0) 50%, white 50%); }
   .my-collection header .big-diagonal {
     position: absolute;
     bottom: 0;
     right: 0;
     width: 66.67%;
-    height: 33.33vh;
+    height: 16.67vh;
     background-image: linear-gradient(to bottom right, rgba(255, 255, 255, 0) 50%, white 50%); }
   @media screen and (min-width: 600px) {
     .my-collection header {
-      height: 133.33vh; } }
+      height: 133.33vh; }
+      .my-collection header .small-diagonal {
+        height: 16.67vh; }
+      .my-collection header .big-diagonal {
+        height: 33.33vh; } }
 
 .title {
   position: absolute;
@@ -57,7 +61,7 @@ html {
   .title h1 {
     font-weight: 700;
     color: white;
-    font-size: 2rem;
+    font-size: 2.5rem;
     line-height: 1;
     margin: 0;
     display: inline; }
