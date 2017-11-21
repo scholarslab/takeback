@@ -13,7 +13,9 @@
   *
   * Image border: 1px solid rgba(51,26,77,.1);
   *
-  * @media cutoffs: 600px, 800px, 1200px, 1600px;
+  * @media cutoffs: 768px, 768px, 1200px, 1768px;
+  *
+  * NB: Layout follows 12-col format; measurements calculated accordingly.
   *
   */
 /* Colors: */
@@ -30,7 +32,6 @@
 #banner {
   opacity: .05; }
 
-/* Components: */
 /* Carousel: */
 .carousel-wrapper--top {
   position: relative;
@@ -86,59 +87,137 @@
       margin-top: .5em;
       font-family: "Inconsolata", monospace; }
 
-/* Files: */
-.files {
+/* * * START ITEM: * * */
+.item-files {
+  position: relative;
+  width: 83.33%;
+  margin: 4.167vw auto;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr auto;
+  grid-template-areas: "pic" "text"; }
+  @media screen and (min-width: 768px) {
+    .item-files {
+      grid-template-columns: 6fr 1fr 3fr;
+      grid-template-rows: minmax(100vh, auto) 25vh;
+      grid-template-areas: "pic . text" "... . text"; } }
+
+.files__pic {
+  grid-area: pic;
+  display: block;
   width: 100%;
-  padding: 1em 0;
-  margin: 0;
-  margin-bottom: 1em;
-  display: flex;
-  justify-content: center;
-  position: relative; }
-  .files a {
-    display: block;
-    max-width: 83.33%; }
-    .files a img {
+  margin: 0 auto; }
+  .files__pic a {
+    display: block; }
+    .files__pic a img {
       display: block;
       margin: 0 auto; }
+  @media screen and (min-width: 768px) {
+    .files__pic {
+      margin: 0 auto; } }
+
+.pic__click-note {
+  text-align: center;
+  font-family: "Inconsolata", monospace; }
+  .pic__click-note span {
+    display: none; }
+  @media screen and (min-width: 768px) {
+    .pic__click-note {
+      text-align: initial; } }
+
+.files__text-wrapper {
+  grid-area: text;
+  position: relative;
+  display: grid;
+  grid-template-rows: auto 1fr auto; }
+
+.files__item-title {
+  margin-bottom: 1rem;
+  font-size: 1.5rem; }
+  .files__item-title span {
+    font-weight: bold; }
+  @media screen and (min-width: 480px) {
+    .files__item-title {
+      font-size: 1.75rem; } }
+  @media screen and (min-width: 600px) {
+    .files__item-title {
+      font-size: 2rem; } }
+  @media screen and (min-width: 768px) {
+    .files__item-title {
+      font-size: 1.5rem; } }
+  @media screen and (min-width: 1024px) {
+    .files__item-title {
+      font-size: 2rem; } }
+
+.files__item-information {
+  position: relative;
+  z-index: 1;
+  margin-bottom: 1rem;
+  font-size: 2rem;
+  line-height: 1;
+  font-weight: bold; }
+
+.files__vertical-line {
+  /*justify-self: center;
+  align-self: center;
+  font-family: "Arial", sans-serif; // btn font, looks nicer for arrow
+  height: 7rem; // so rotate works
+  font-size: 6rem;
+  //font-weight: bold;
+  color: transparent;
+  background-image: linear-gradient(to left, rgba(14, 147, 252, .7) -10%, rgba(75, 0, 153, .7) 110%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  transform: rotate(90deg);*/
+  position: relative;
+  justify-self: center;
+  height: 25vh;
+  width: 4px;
+  background-image: linear-gradient(to bottom, rgba(14, 147, 252, 0.7), rgba(75, 0, 153, 0.7)); }
+  .files__vertical-line::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    transform: translate(-6px, 8px);
+    height: 16px;
+    width: 16px;
+    border-radius: 50%;
+    background-color: #4b0099; }
+  @media screen and (min-width: 768px) {
+    .files__vertical-line {
+      height: 100%; } }
 
 /* Data: */
 .item-grid-wrapper {
   position: relative;
   width: 100%;
-  background-image: linear-gradient(to left, rgba(14, 147, 252, 0.7), rgba(75, 0, 153, 0.7)), linear-gradient(rgba(255, 255, 255, 0.7), rgba(0, 0, 0, 0.7)), url("../images/newspaper-collage-1.png");
   display: grid;
   grid-template-areas: "title" "stats" "description" "relationships" "wrapper"; }
-  @media screen and (min-width: 600px) {
+  @media screen and (min-width: 768px) {
     .item-grid-wrapper {
       grid-template-columns: 1fr 1fr;
-      grid-template-areas: "info  info" "title	title" "description 	stats" "relationships relationships" "wrapper 		wrapper"; } }
+      grid-template-areas: "info  info" "description	title" "description 	stats" "relationships relationships" "wrapper 		wrapper"; } }
 
 .item-title {
   grid-area: title;
   position: relative;
   width: 83.33%;
-  margin: 1em auto;
-  line-height: 1;
-  color: rgba(255, 255, 255, 0.9); }
+  margin: 1rem auto;
+  color: black; }
   .item-title span {
     font-size: 1.5rem;
     font-weight: bold;
     text-transform: uppercase;
-    position: absolute; }
+    position: absolute;
+    border-bottom: 1px solid black; }
   .item-title h1 {
     font-weight: 700;
     font-size: 1.75em;
+    line-height: 1;
     margin: 0;
+    margin-top: 1rem;
     margin-bottom: .5rem; }
-  .item-title .horizontal-line {
-    display: none;
-    position: absolute;
-    bottom: -16px;
-    width: 100%;
-    height: 4px;
-    background-image: linear-gradient(to left, rgba(14, 147, 252, 0.7) -25%, rgba(75, 0, 153, 0.7) 125%); }
-  @media screen and (min-width: 600px) {
+  @media screen and (min-width: 768px) {
     .item-title h1 {
       font-size: 2.25em; } }
 
@@ -148,14 +227,12 @@
   color: #2a2670;
   background-color: rgba(255, 255, 255, 0.5);
   margin: 0;
-  margin-top: 3em;
+  margin-top: 1rem;
   margin-left: 8.33%;
   width: 83.33%;
   font-family: "Inconsolata", monospace; }
-  .item-description div {
+  .item-description span {
     position: absolute;
-    top: 3px;
-    transform: translate(0, -100%);
     text-transform: uppercase;
     font-size: 1.5rem;
     font-family: "Open Sans", sans-serif;
@@ -163,10 +240,11 @@
     color: black;
     border-bottom: 1px solid black; }
   .item-description p {
+    line-height: 2.25rem;
     font-size: 1.5rem;
     margin: 0;
-    margin-top: 1em; }
-  @media screen and (min-width: 600px) {
+    margin-top: 1rem; }
+  @media screen and (min-width: 768px) {
     .item-description {
       margin-left: 16.67%; } }
 
@@ -195,7 +273,7 @@
     font-size: 1.5rem;
     font-family: "Open Sans", sans-serif;
     font-weight: bold; }
-  @media screen and (min-width: 600px) {
+  @media screen and (min-width: 768px) {
     .item-stats {
       margin-top: 2em;
       width: 75%;
@@ -215,10 +293,11 @@
 .the-relationships {
   grid-area: relationships;
   font-size: 2.5em;
-  color: rgba(255, 255, 255, 0.9); }
+  color: black; }
 
 .item-information {
-  color: black;
+  display: none;
+  color: rgba(56, 51, 147, 0.9);
   margin-top: 0; }
 
 .relationships-wrapper {
@@ -234,7 +313,7 @@
   .item-collection a, .item-tags a, .item-subjects a {
     text-decoration: none;
     font-family: "Inconsolata", monospace;
-    color: white; }
+    color: black; }
   .item-collection span, .item-tags span, .item-subjects span {
     font-size: 1.5rem;
     font-weight: bold;
