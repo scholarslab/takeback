@@ -17,7 +17,21 @@
   *
   * NB: Layout follows 12-col format; measurements calculated accordingly.
   *
+  *
   */
+/* * ARROW COMPONENT: * *
+	justify-self: center;
+	align-self: center;
+	font-family: "Arial", sans-serif; // btn font, looks nicer for arrow
+	height: 7rem; // so rotate works
+	font-size: 6rem;
+	//font-weight: bold;
+	color: transparent;
+	background-image: linear-gradient(to left, rgba(14, 147, 252, .7) -10%, rgba(75, 0, 153, .7) 110%);
+	-webkit-background-clip: text;
+	background-clip: text;
+	transform: rotate(90deg);
+* * */
 /* Colors: */
 /* General styles: */
 * {
@@ -35,18 +49,17 @@
 /* Carousel: */
 .carousel-wrapper--top {
   position: relative;
-  width: 91.67%;
+  width: 83.33%;
   margin: 0 auto;
-  margin-top: 1em;
+  margin-top: 1rem;
   padding: 0; }
 
 .carousel-wrapper--visible {
   position: relative;
   border: 0px solid;
   border-bottom: 4px solid;
-  border-image: linear-gradient(to left, rgba(14, 147, 252, 0.7) -10%, rgba(75, 0, 153, 0.7) 110%) 10;
-  padding: 0 4em;
-  margin-bottom: 1em; }
+  border-image: linear-gradient(to left, rgba(14, 147, 252, 0.7), rgba(75, 0, 153, 0.7)) 10;
+  padding: 0 4.167vw; }
 
 .carousel-overflow-mask {
   overflow: hidden;
@@ -70,8 +83,8 @@
     transform: translate(0, -50%); }
 
 .carousel-item {
-  height: 162px;
-  width: 120px;
+  height: 142px;
+  width: 100px;
   float: left;
   margin: 1em; }
   .carousel-item a {
@@ -79,7 +92,8 @@
     color: black;
     display: block; }
     .carousel-item a img {
-      display: block; }
+      display: block;
+      width: 100px; }
     .carousel-item a div {
       overflow: hidden;
       height: 2em;
@@ -90,52 +104,48 @@
 /* * * START ITEM: * * */
 .item-files {
   position: relative;
-  width: 83.33%;
-  margin: 4.167vw auto;
+  width: 100%;
+  margin: 0 auto;
   display: grid;
   grid-template-columns: 1fr;
-  grid-template-rows: 1fr auto;
-  grid-template-areas: "pic" "text"; }
+  grid-template-rows: 1fr auto auto auto;
+  grid-template-areas: "pic" "title" "line" "grad"; }
   @media screen and (min-width: 768px) {
     .item-files {
-      grid-template-columns: 6fr 1fr 3fr;
-      grid-template-rows: minmax(100vh, auto) 25vh;
-      grid-template-areas: "pic . text" "... . text"; } }
-
-.files__pic {
-  grid-area: pic;
-  display: block;
-  width: 100%;
-  margin: 0 auto; }
-  .files__pic a {
-    display: block; }
-    .files__pic a img {
-      display: block;
-      margin: 0 auto; }
-  @media screen and (min-width: 768px) {
-    .files__pic {
-      margin: 0 auto; } }
-
-.pic__click-note {
-  text-align: center;
-  font-family: "Inconsolata", monospace; }
-  .pic__click-note span {
-    display: none; }
-  @media screen and (min-width: 768px) {
-    .pic__click-note {
-      text-align: initial; } }
-
-.files__text-wrapper {
-  grid-area: text;
-  position: relative;
-  display: grid;
-  grid-template-rows: auto 1fr auto; }
+      grid-template-columns: 4fr 8fr;
+      grid-template-rows: auto minmax(75vh, auto) 5vh 6.5rem;
+      grid-template-areas: "title title" "pic  pic" "line  ..." "grad  grad"; } }
 
 .files__item-title {
-  margin-bottom: 1rem;
-  font-size: 1.5rem; }
+  grid-area: title;
+  position: relative;
+  margin-left: 8.33%;
+  padding-right: 8.33%;
+  margin-bottom: 1em;
+  margin-top: 1em;
+  font-size: 1.5rem;
+  font-weight: 300;
+  line-height: 1; }
   .files__item-title span {
-    font-weight: bold; }
+    font-weight: bold;
+    font-family: "Open Sans", sans-serif;
+    font-size: 1.5rem;
+    text-transform: uppercase; }
+  .files__item-title .curly-arrow {
+    display: none;
+    position: absolute;
+    right: 4.167%;
+    top: 1.5em;
+    height: 100%; }
+  .files__item-title .click {
+    display: none;
+    position: absolute;
+    right: 4.167%;
+    top: 5px;
+    font-family: "Inconsolata", monospace;
+    font-size: 1rem;
+    width: 16.67%;
+    color: #7d00ff; }
   @media screen and (min-width: 480px) {
     .files__item-title {
       font-size: 1.75rem; } }
@@ -147,47 +157,90 @@
       font-size: 1.5rem; } }
   @media screen and (min-width: 1024px) {
     .files__item-title {
-      font-size: 2rem; } }
+      font-size: 2rem;
+      padding-right: 25%; }
+      .files__item-title .curly-arrow, .files__item-title .click {
+        display: initial; } }
+  @media screen and (min-width: 1200px) {
+    .files__item-title .curly-arrow {
+      right: 8.33%; } }
 
-.files__item-information {
+.files__pic {
+  grid-area: pic;
+  display: block;
+  margin: 0 4.167%; }
+  .files__pic a {
+    display: block; }
+    .files__pic a img {
+      display: block;
+      margin: 0 auto; }
+  .files__pic .pic__click-note {
+    text-align: center;
+    font-family: "Inconsolata", monospace; }
+    .files__pic .pic__click-note span {
+      display: none; }
+    @media screen and (min-width: 768px) {
+      .files__pic .pic__click-note {
+        text-align: initial; } }
+  @media screen and (min-width: 768px) {
+    .files__pic {
+      margin: 0 auto; } }
+
+.files__vertical-line {
+  grid-area: line;
   position: relative;
-  z-index: 1;
+  width: 100%; }
+  .files__vertical-line .line {
+    position: absolute;
+    left: calc(75% - 2px);
+    height: 25vh;
+    width: 4px;
+    background-image: linear-gradient(to bottom, rgba(14, 147, 252, 0.7), rgba(75, 0, 153, 0.7)); }
+    .files__vertical-line .line::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      transform: translate(-6px, 8px);
+      height: 16px;
+      width: 16px;
+      border-radius: 50%;
+      background-color: #4b0099; }
+    @media screen and (min-width: 768px) {
+      .files__vertical-line .line {
+        height: 100%; } }
+
+.files__gradient {
+  grid-area: grad;
+  position: relative;
   margin-bottom: 1rem;
   font-size: 2rem;
   line-height: 1;
-  font-weight: bold; }
-
-.files__vertical-line {
-  /*justify-self: center;
-  align-self: center;
-  font-family: "Arial", sans-serif; // btn font, looks nicer for arrow
-  height: 7rem; // so rotate works
-  font-size: 6rem;
-  //font-weight: bold;
-  color: transparent;
-  background-image: linear-gradient(to left, rgba(14, 147, 252, .7) -10%, rgba(75, 0, 153, .7) 110%);
-  -webkit-background-clip: text;
-  background-clip: text;
-  transform: rotate(90deg);*/
-  position: relative;
-  justify-self: center;
-  height: 25vh;
-  width: 4px;
-  background-image: linear-gradient(to bottom, rgba(14, 147, 252, 0.7), rgba(75, 0, 153, 0.7)); }
-  .files__vertical-line::after {
-    content: '';
+  font-weight: bold;
+  /*.small-diagonal {
+  	position: absolute;
+  	top: 0;
+  	left: 0;
+  	width: 25%;
+  	height: 8.33vh;
+  	//background-image: linear-gradient(to top left, rgba(255,255,255,0) 48%, black 48%, black 50%, rgba(255,255,255,1) 50%);
+  }
+  .big-diagonal {
+  	position: absolute;
+  	top: 0;
+  	right: 0;
+  	width: 75%;
+  	height: 25vh;
+  	//background-image: linear-gradient(to top right, rgba(255,255,255,0) 49%, black 49%, black 50%, rgba(255,255,255,1) 50%);
+  }*/ }
+  .files__gradient .item-info-label {
     position: absolute;
     bottom: 0;
-    transform: translate(-6px, 8px);
-    height: 16px;
-    width: 16px;
-    border-radius: 50%;
-    background-color: #4b0099; }
-  @media screen and (min-width: 768px) {
-    .files__vertical-line {
-      height: 100%; } }
+    left: 8.33%;
+    color: black;
+    font-size: 3rem;
+    font-weight: bold; }
 
-/* Data: */
+/* Text Information: */
 .item-grid-wrapper {
   position: relative;
   width: 100%;
