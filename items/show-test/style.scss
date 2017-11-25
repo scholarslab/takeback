@@ -144,11 +144,10 @@ $item-labels:			rgba(77, 0, 153, 1);
 	@media screen and (min-width: 768px) {
 		//height: initial;
 		grid-template-columns: 4fr 8fr; // 10 col
-		grid-template-rows: auto minmax(75vh, auto) 5vh 6.5rem;
+		grid-template-rows: auto minmax(75vh, auto) 5vh;
 		grid-template-areas: "title title"
 							 "pic  pic"
-							 "line  ..."
-							 "grad  grad";
+							 "line  ...";
 	}
 }
 
@@ -225,17 +224,17 @@ $item-labels:			rgba(77, 0, 153, 1);
 		span {
 			display: none;
 		}
-		@media screen and (min-width: 768px) {
-			text-align: initial;
-		}
 	}
 	@media screen and (min-width: 768px) {
 		margin: 0 auto;
-		//margin-right: 12.5%;
+		.pic__click-note {
+			text-align: initial;
+		}
 	}
 }
 
 .files__vertical-line {
+	display: none; /* ADDED 11/24 */
 	grid-area: line;
 	position: relative;
 	width: 100%;
@@ -269,80 +268,58 @@ $item-labels:			rgba(77, 0, 153, 1);
 	font-size: 2rem;
 	line-height: 1;
 	font-weight: bold;
-
-	// these are rly pretty lime and teal: linear-gradient(10deg, rgba(2,255,255,1), rgba(255,255,2,1))
-	/*.small-diagonal {
-		position: absolute;
-		top: 0;
-		left: 0;
-		width: 25%;
-		height: 8.33vh;
-		//background-image: linear-gradient(to top left, rgba(255,255,255,0) 48%, black 48%, black 50%, rgba(255,255,255,1) 50%);
-	}
-	.big-diagonal {
-		position: absolute;
-		top: 0;
-		right: 0;
-		width: 75%;
-		height: 25vh;
-		//background-image: linear-gradient(to top right, rgba(255,255,255,0) 49%, black 49%, black 50%, rgba(255,255,255,1) 50%);
-	}*/
 	.item-info-label {
 		position: absolute;
 		bottom: 0;
 		left: 8.33%;
-		color: black;
+		//color: rgba(125,0,255,1);
 		font-size: 3rem;
-		font-weight: bold;
+		font-weight: 700;
 	}
+}
+
+.item-information {
+	display: none;
+	float: right;
+	margin-right: 8.33%;
+	color: rgba(56,51,147,.9);
+	margin-top: 0;
 }
 
 /* Text Information: */
 
 .item-grid-wrapper {
+	display: grid;
 	position: relative;
 	width: 100%;
-	display: grid;
+	//background-color: rgba(0,0,0,.1);
 	grid-template-areas: "title"
 						 "stats"
 						 "description"
 						 "relationships"
 						 "wrapper";
 	@media screen and (min-width: 768px) {
-		grid-template-columns: 1fr 1fr;
-		grid-template-areas: "info  info"
-							 "description	title"
-							 "description 	stats"
-							 "relationships relationships"
-							 "wrapper 		wrapper";
-	}
+		grid-template-columns: 1fr 1fr 1fr;
+		grid-template-areas: "relationships 		stats		  stats"
+							 "wrapper 				stats stats"
+							 "wrapper  		description   description";
+	} // NB: 8.33% = 25% on 1fr; 12.5% on 2fr
 }
 
-.item-title {
-	grid-area: title;
-	position: relative;
-	width: 83.33%;
-	margin: 1rem auto;
-	color: black;
-	span {
-		font-size: 1.5rem;
-		font-weight: bold;
-		text-transform: uppercase;
-		position: absolute; // takes out of layout spacing
-		border-bottom: 1px solid black;
-
-	}
-	h1 {
-		font-weight: 700;
-		font-size: 1.75em;
-		line-height: 1;
-		margin: 0;
-		margin-top: 1rem;
-		margin-bottom: .5rem;
-	}
+.item-about-label {
+	display: none;
 	@media screen and (min-width: 768px) {
-		h1 {
-			font-size: 2.25em;
+		grid-area: about;
+		display: none;
+		align-self: start;
+		margin-left: 25%;
+		font-size: 3em;
+		//line-height: 1;
+		font-weight: bold;
+		color: rgba(125,0,255,1);
+		span {
+			//border-bottom: 1px solid rgba(125,0,255,1);
+
 		}
 	}
 }
@@ -350,15 +327,12 @@ $item-labels:			rgba(77, 0, 153, 1);
 .item-description {
 	grid-area: description;
 	position: relative;
-	color: rgba(42,38,112,1);
-	background-color: rgba(255,255,255,.5);
-	margin: 0;
-	margin-top: 1rem;
-	margin-left: 8.33%;
-	width: 83.33%;
+	margin: 0 4.167%;
+	margin-top: 1em;
+	font-size: 1rem;
 	font-family: "Inconsolata", monospace;
+	color: hsla(270, 100, 30, 1);
 	span {
-		position: absolute;
 		text-transform: uppercase;
 		font-size: 1.5rem;
 		font-family: "Open Sans", sans-serif;
@@ -366,32 +340,34 @@ $item-labels:			rgba(77, 0, 153, 1);
 		color: black;
 		border-bottom: 1px solid black;
 	}
-	p {
-		line-height: 2.25rem;
-		font-size: 1.5rem;
-		margin: 0;
-		margin-top: 1rem;
+	@media screen and (min-width: 400px) {
+		margin-left: 8.33%;
+		margin-right: 8.33%;
+	}
+	@media screen and (min-width: 600px) {
+		font-size: 1.25rem;
 	}
 	@media screen and (min-width: 768px) {
-	//	width: 75%;
-		margin-left: 16.67%;
+		//margin-left: 0;
+		margin-right: 12.5%;
+		font-size: 1.5rem;
+		padding-bottom: 2em;
 	}
 }
 
 .item-stats {
 	grid-area: stats;
-	border: 4px solid rgba(56,51,147,.9);
+	border: 4px solid rgba(125,0,255,1); //rgba(56,51,147,.9);
 	color: black;
 	font-family: "Inconsolata", monospace;
 	text-align: right;
 	padding: 1em 1.5em;
 	position: relative;
+	margin: 0 4.167%;
 	margin-top: 2.5em;
-	margin-left: 8.33%;
-	width: 83.33%;
 	span {
 		float: left;
-		color: rgba(56,51,147,1);
+		color: rgba(125,0,255,1);
 		font-weight: 400;
 		font-family: "Inconsolata", monospace;		
 	}
@@ -401,70 +377,121 @@ $item-labels:			rgba(77, 0, 153, 1);
 		left: -4px; // makes up for border
 		transform: translate(0, -100%);
 		text-transform: uppercase;
-		font-size: 1.5rem;
+		font-size: 1.25rem;
 		font-family: "Open Sans", sans-serif;
 		font-weight: bold;
 	}
+	@media screen and (min-width: 400px) {
+		font-size: 1.25rem;
+		margin-left: 8.33%;
+		margin-right: 8.33%;
+		div {
+			font-size: 1.5rem;
+		}
+	}
 	@media screen and (min-width: 768px) {
-		margin-top: 2em;
-		width: 75%; // space on right = 8.33% -> even spacing w/ description
 		font-size: 1.5rem;
+		//margin-left: 0;
+		margin-right: 12.5%;
 	}
 }
 
 /* literally the word: "Relationships" */
-.the-relationships, .item-information {
+.the-relationships {
 	font-weight: 700;
-	font-size: 3em;
 	line-height: 1;
 	position: relative;
-	bottom: -6px;
+	//bottom: -5px;
 	z-index: 1;
-    margin-left: 8.33%;
-    margin-top: 1em;
-}
-
-.the-relationships {
+    padding-left: 8.33%;
+    margin-top: 3rem;
 	grid-area: relationships;
-	font-size: 2.5em;
-	color: black;// rgba(255,255,255,.9);
-}
-
-.item-information {
-	display: none;
-	color: rgba(56,51,147,.9); //black;
-	margin-top: 0;
+	font-size: 2em;
+	color: black;
+	border-bottom: 1px solid black;
+	@media screen and (min-width: 768px) {
+		margin-left: 25%;
+		padding-left: 0;
+	}
 }
 
 .relationships-wrapper {
 	grid-area: wrapper;
-	background-color: rgba(255,255,255,.5);
+	//background-color: rgba(0,0,0,.05);
 	& div:last-child {
 		padding-bottom: 1em;
 	}
 }
 
 .item-collection, .item-tags, .item-subjects {
-	margin-left: 8.33%;
-	width: 83.33%;
-	padding-top: 1em;
+	margin: 0 8.33%;
+	padding-top: 1.25em;
 	a {
 		text-decoration: none;
 		font-family: "Inconsolata", monospace;
-		color: black;// white;
+		color: black;
 	}
 	span {
 		font-size: 1.5rem;
 		font-weight: bold;
 		text-transform: uppercase;
 	}
+	@media screen and (min-width: 768px) {
+		margin-left: 25%;
+	}
 }
 
-.item-collection {
-	
+.item-collection, .item-subjects {
+	a {
+		&:hover {
+			color: rgba(125,0,255,1);
+			font-weight: bold;
+		}
+		border-bottom: 1px solid rgba(125,0,255,1)
+	}
 }
 
 .item-tags {
+	a {
+		display: inline-block;
+		white-space: nowrap;
+		position: relative;
+		margin-right: 1.25em;
+		margin-bottom: .5em;
+		padding: .5em .75em;
+		line-height: 1;
+		background-color: rgba(125,0,255,1);
+		color: white;
+		border-bottom-left-radius: 2px;
+		border-top-left-radius: 2px;
+		&::after {
+			content: '';
+			position: absolute;
+			right: 0;
+			top: 0;
+			transform: translate(100%, 0);
+			height: 0;
+			width: 0;
+			border: 16px solid transparent;
+			border-left-color: rgba(125,0,255,1);
+		}
+		&::before {
+			content: '';
+			z-index: 1;
+			position: absolute;
+			right: 0;
+			top: 50%;
+			transform: translate(100%, -50%);
+			height: 6px;
+			width: 6px;
+			background-color: white;
+			background-image: linear-gradient(rgba(0,0,0,.1), rgba(0,0,0,.1));
+			border-radius: 50%;
+		}
+		&:last-of-type {
+			margin-bottom: 0;
+		}
+	}
 }
 
 .item-subjects {
