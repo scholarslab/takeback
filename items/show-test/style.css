@@ -481,8 +481,16 @@
     border-radius: 50%; }
   .item-tags a:last-of-type {
     margin-bottom: 0; }
+@media screen and (min-width: 768px) {
+  .item-tags a {
+    font-size: 1.0625rem; }
+    .item-tags a::after {
+      border-width: 17px; } }
 @media screen and (min-width: 1024px) {
   .item-tags a {
-    font-size: 1.125rem; }
+    font-size: 1.125rem;
+    margin-right: 1.625em; }
+    .item-tags a:first-of-type {
+      margin-right: 0; }
     .item-tags a::after {
       border-width: 18px; } }

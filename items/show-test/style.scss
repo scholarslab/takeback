@@ -582,9 +582,21 @@ $item-labels:			rgba(77, 0, 153, 1);
 			margin-bottom: 0;
 		}
 	}
+	@media screen and (min-width: 768px) {
+		a {
+			font-size: 1.0625rem;
+			&::after {
+				border-width: 17px;
+			}
+		}
+	}
 	@media screen and (min-width: 1024px) {
 		a {
 			font-size: 1.125rem;
+			margin-right: 1.625em;
+			&:first-of-type { // *not* last -> "float:right;"
+				margin-right: 0;
+			}
 			&::after {
 				border-width: 18px;
 			}
