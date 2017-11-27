@@ -75,7 +75,7 @@ $item-labels:			rgba(77, 0, 153, 1);
 	position: relative;
 	border: 0px solid;
 	border-bottom: 4px solid;
-	border-image: linear-gradient(to left, rgba(14, 147, 252, .7), rgba(75, 0, 153, .7)) 10;
+	border-image: linear-gradient(to left, rgba(0,121,255,.7), rgba(125,0,255,.7)) 10;
 	padding: 0 4.167vw;
 }
 
@@ -136,75 +136,58 @@ $item-labels:			rgba(77, 0, 153, 1);
 	margin: 0 auto;
 	display: grid;
 	grid-template-columns: 1fr;
-	grid-template-rows: 1fr auto auto auto;
+	grid-template-rows: 1fr auto;
 	grid-template-areas: "pic"
-						 "title"
-						 "line"
-						 "grad";
+						 "title";
 	@media screen and (min-width: 768px) {
 		//height: initial;
-		grid-template-columns: 4fr 8fr; // 10 col
-		grid-template-rows: auto minmax(75vh, auto) 5vh;
-		grid-template-areas: "title title"
-							 "pic  pic"
-							 "line  ...";
+		grid-template-columns: 1fr 2fr; // 10 col
+		grid-template-rows: auto minmax(75vh, auto);
+		grid-template-areas: "title locate"
+							 "pic 	pic";
 	}
 }
 
-.files__item-title {
+.files__item-title, .item-title {
 	grid-area: title;
+	align-self: start;
 	position: relative;
-	margin-left: 8.33%;
+	//padding-left: 8.33%;
 	padding-right: 8.33%;
-	margin-bottom: 1em;
-	margin-top: 1em;
+	margin-left: 8.33%;
 	font-size: 1.5rem;
 	font-weight: 300;
 	line-height: 1;
 	span {
 		font-weight: bold;
 		font-family: "Open Sans", sans-serif;
-		font-size: 1.5rem;
+		font-size: 1.25rem;
 		text-transform: uppercase;
-	}
-	.curly-arrow {
-		display: none; // when small
-		position: absolute;
-		right: 4.167%;
-		top: 1.5em;
-		height: 100%;
-	}
-	.click {
-		display: none; // when small
-		position: absolute;
-		right: 4.167%;
-		top: 5px; // align w/ 'ITEM'
-		font-family: "Inconsolata", monospace;
-		font-size: 1rem;
-		width: 16.67%;
-		color: rgba(125,0,255,1);
 	}
 	@media screen and (min-width: 480px) {
 		font-size: 1.75rem;
+		span {
+			font-size: 1.5rem;
+		}
 	}
 	@media screen and (min-width: 600px) {
 		font-size: 2rem;
 	}
 	@media screen and (min-width: 768px) {
-		font-size: 1.5rem;
+		padding-right: 4.167%;
+		margin-left: 4.167%;
 	}
 	@media screen and (min-width: 1024px) {
-		font-size: 2rem;
-		padding-right: 25%;
-		.curly-arrow, .click {
-			display: initial;
-		}
+		padding-right: 8.33%;
+		margin-left: 8.33%;
 	}
 	@media screen and (min-width: 1200px) {
-		.curly-arrow {
-			right: 8.33%;
-		}
 	}
+}
+
+.files__location {
+	grid-area: locate;
+	font-family: "Inconsolata", monospace;
 }
 
 .files__pic {
@@ -221,14 +204,16 @@ $item-labels:			rgba(77, 0, 153, 1);
 	.pic__click-note {
 		text-align: center;
 		font-family: "Inconsolata", monospace;
+		color: rgba(125, 0, 255, 1);
 		span {
 			display: none;
 		}
 	}
 	@media screen and (min-width: 768px) {
 		margin: 0 auto;
+		padding: 1em;
 		.pic__click-note {
-			text-align: initial;
+			text-align: right;
 		}
 	}
 }
@@ -279,14 +264,36 @@ $item-labels:			rgba(77, 0, 153, 1);
 }
 
 .item-information {
-	display: none;
-	float: right;
-	margin-right: 8.33%;
-	color: rgba(56,51,147,.9);
-	margin-top: 0;
+	position: relative;
+	padding-left: 8.33%;
+	margin-top: .5em;
+	margin-bottom: .5em;
+	font-size: 2rem;
+	font-weight: bold;
+	line-height: 1;
+	color: black; // rgba(56,51,147,.9);
+	background-image: linear-gradient(to top, rgba(0,0,0,0) 3.5px, rgba(255,255,255,1) 3.5px), linear-gradient(to left, rgba(0,121,255,.7), rgba(125,0,255,.7));
+	@media screen and (min-width: 768px) {
+		font-size: 2.5rem;
+		background-image: linear-gradient(to top, rgba(0,0,0,0) 4.5px, rgba(255,255,255,1) 4.5px), linear-gradient(to left, rgba(0,121,255,.7), rgba(125,0,255,.7));
+		margin-right: 8.33%; // do this at 600px
+		&::after {
+			content: '';
+			z-index: 1;
+			position: absolute;
+			right: 0;
+			bottom: 0;
+			transform: translate(50%, 6px);
+			height: 16px;
+			width: 16px;
+			border-radius: 50%;
+			background-color: white;
+			background-image: linear-gradient(rgba(0,0,0,1), rgba(0,0,0,1));
+		}
+	}
 }
 
-/* Text Information: */
+/* * * GRID #2: * * */
 
 .item-grid-wrapper {
 	display: grid;
@@ -299,10 +306,11 @@ $item-labels:			rgba(77, 0, 153, 1);
 						 "relationships"
 						 "wrapper";
 	@media screen and (min-width: 768px) {
-		grid-template-columns: 1fr 1fr 1fr;
-		grid-template-areas: "relationships 		stats		  stats"
-							 "wrapper 				stats stats"
-							 "wrapper  		description   description";
+		grid-template-columns: 1fr 1fr;
+		grid-template-areas: "title title"
+							 "description stats"
+							 "relationships relationships"
+							 "wrapper wrapper";
 	} // NB: 8.33% = 25% on 1fr; 12.5% on 2fr
 }
 
@@ -310,10 +318,10 @@ $item-labels:			rgba(77, 0, 153, 1);
 	display: none;
 	@media screen and (min-width: 768px) {
 		grid-area: about;
-		display: none;
+		//display: initial;
 		align-self: start;
 		margin-left: 25%;
-		font-size: 3em;
+		font-size: 2em;
 		//line-height: 1;
 		font-weight: bold;
 		color: rgba(125,0,255,1);
@@ -326,38 +334,46 @@ $item-labels:			rgba(77, 0, 153, 1);
 
 .item-description {
 	grid-area: description;
+	align-self: start;
 	position: relative;
 	margin: 0 4.167%;
-	margin-top: 1em;
+	margin-top: 1.5em;
 	font-size: 1rem;
 	font-family: "Inconsolata", monospace;
-	color: hsla(270, 100, 30, 1);
+	color: black;
 	span {
+		position: relative;
+		top: 4px;
 		text-transform: uppercase;
 		font-size: 1.5rem;
 		font-family: "Open Sans", sans-serif;
 		font-weight: bold;
 		color: black;
-		border-bottom: 1px solid black;
 	}
 	@media screen and (min-width: 400px) {
 		margin-left: 8.33%;
-		margin-right: 8.33%;
+	//	margin-right: 8.33%;
 	}
 	@media screen and (min-width: 600px) {
 		font-size: 1.25rem;
 	}
 	@media screen and (min-width: 768px) {
-		//margin-left: 0;
-		margin-right: 12.5%;
-		font-size: 1.5rem;
-		padding-bottom: 2em;
+		top: -4px; // it's noticeable at this size but not larger
+		margin-right: 4.167%;
+	}
+	@media screen and (min-width: 1024px) {
+		top: 0;
+		margin-left: 16.67%;
+	}
+	@media screen and (min-width: 1200px) {
+		//margin-right: 8.33%;
 	}
 }
 
 .item-stats {
 	grid-area: stats;
-	border: 4px solid rgba(125,0,255,1); //rgba(56,51,147,.9);
+	align-self: start;
+	border: 4px solid rgba(125,0,255,1);
 	color: black;
 	font-family: "Inconsolata", monospace;
 	text-align: right;
@@ -389,35 +405,46 @@ $item-labels:			rgba(77, 0, 153, 1);
 			font-size: 1.5rem;
 		}
 	}
+	@media screen and (min-width: 600px) {
+		font-size: 1.375rem;
+	}
 	@media screen and (min-width: 768px) {
+		margin-left: 4.167%;
+	}
+	@media screen and (min-width: 1024px) {
 		font-size: 1.5rem;
-		//margin-left: 0;
-		margin-right: 12.5%;
+		margin-right: 16.67%;
+	}
+	@media screen and (min-width: 1200px) {
+		margin-left: 8.33%;
 	}
 }
 
 /* literally the word: "Relationships" */
 .the-relationships {
+	grid-area: relationships;
+	z-index: 1;
 	font-weight: 700;
 	line-height: 1;
 	position: relative;
-	//bottom: -5px;
-	z-index: 1;
+	bottom: -3.5px;
+	margin-top: 1em;
     padding-left: 8.33%;
-    margin-top: 3rem;
-	grid-area: relationships;
 	font-size: 2em;
 	color: black;
-	border-bottom: 1px solid black;
 	@media screen and (min-width: 768px) {
-		margin-left: 25%;
-		padding-left: 0;
+		//font-size: 2.25em;
+		//bottom: -5px;
 	}
 }
 
 .relationships-wrapper {
 	grid-area: wrapper;
-	//background-color: rgba(0,0,0,.05);
+	position: relative;
+	margin-bottom: 1.5rem;
+	border: 0px solid;
+	border-top-width: 4px;
+	border-image: linear-gradient(to left, white 8.33%, rgba(0,121,255,.9) 8.33%, rgba(125,0,255,.9) 91.67%, white 91.67%) 10;
 	& div:last-child {
 		padding-bottom: 1em;
 	}
@@ -425,38 +452,50 @@ $item-labels:			rgba(77, 0, 153, 1);
 
 .item-collection, .item-tags, .item-subjects {
 	margin: 0 8.33%;
-	padding-top: 1.25em;
+	padding-top: 1.5em;
 	a {
 		text-decoration: none;
-		font-family: "Inconsolata", monospace;
+		font-family: "Raleway", sans-serif;
 		color: black;
+		line-height: 1;
 	}
 	span {
 		font-size: 1.5rem;
-		font-weight: bold;
+		font-weight: 300;
 		text-transform: uppercase;
+		color: hsla(270, 100, 30, 1);
 	}
-	@media screen and (min-width: 768px) {
-		margin-left: 25%;
+	@media screen and (min-width: 1024px) {
+		a {
+			float: right;
+		}
+		span {
+			&:nth-of-type(2) {
+				display: none; // removes line break
+			}
+		}
 	}
 }
 
 .item-collection, .item-subjects {
 	a {
+		font-size: 1.25em;
+		//border-bottom: 1px solid rgba(125,0,255,1);
 		&:hover {
-			color: rgba(125,0,255,1);
+			//color: rgba(125,0,255,1);
 			font-weight: bold;
+			border-bottom: 1px solid black;
 		}
-		border-bottom: 1px solid rgba(125,0,255,1)
 	}
 }
 
 .item-tags {
 	a {
+		font-family: "Inconsolata", monospace;
 		display: inline-block;
 		white-space: nowrap;
 		position: relative;
-		margin-right: 1.25em;
+		margin-right: 1.5em;
 		margin-bottom: .5em;
 		padding: .5em .75em;
 		line-height: 1;
