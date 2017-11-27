@@ -388,7 +388,7 @@
   margin-bottom: 1.5rem;
   border: 0px solid;
   border-top-width: 4px;
-  border-image: linear-gradient(to left, rgba(0, 121, 255, 0.9), rgba(125, 0, 255, 0.9)) 10; }
+  border-image: linear-gradient(to left, rgba(0, 121, 255, 0.7), rgba(125, 0, 255, 0.7)) 10; }
   .relationships-wrapper div:last-child {
     padding-bottom: 1em; }
   @media screen and (min-width: 400px) {
