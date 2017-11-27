@@ -120,53 +120,13 @@
   margin: 0 auto;
   display: grid;
   grid-template-columns: 1fr;
-  grid-template-rows: 1fr auto;
-  grid-template-areas: "pic" "title"; }
+  grid-template-rows: 1fr;
+  grid-template-areas: "pic"; }
   @media screen and (min-width: 768px) {
     .item-files {
-      grid-template-columns: 1fr 2fr;
-      grid-template-rows: auto minmax(75vh, auto);
-      grid-template-areas: "title locate" "pic 	pic"; } }
-
-.files__item-title, .item-title {
-  grid-area: title;
-  align-self: start;
-  position: relative;
-  padding-right: 4.167%;
-  margin-left: 4.167%;
-  font-size: 1.375rem;
-  font-weight: 300;
-  line-height: 1; }
-  .files__item-title span, .item-title span {
-    font-weight: bold;
-    font-family: "Open Sans", sans-serif;
-    font-size: 1.25rem;
-    text-transform: uppercase; }
-  @media screen and (min-width: 400px) {
-    .files__item-title, .item-title {
-      padding-right: 8.33%;
-      margin-left: 8.33%;
-      font-size: 1.5rem; }
-      .files__item-title span, .item-title span {
-        font-size: 1.375rem; } }
-  @media screen and (min-width: 600px) {
-    .files__item-title, .item-title {
-      font-size: 1.75rem; }
-      .files__item-title span, .item-title span {
-        font-size: 1.5rem; } }
-  @media screen and (min-width: 768px) {
-    .files__item-title, .item-title {
-      padding-right: 4.167%;
-      margin-left: 4.167%; } }
-  @media screen and (min-width: 1024px) {
-    .files__item-title, .item-title {
-      font-size: 2rem;
-      padding-right: 8.33%;
-      margin-left: 8.33%; } }
-
-.files__location {
-  grid-area: locate;
-  font-family: "Inconsolata", monospace; }
+      grid-template-columns: 1fr;
+      grid-template-rows: minmax(75vh, auto);
+      grid-template-areas: "pic"; } }
 
 .files__pic {
   grid-area: pic;
@@ -194,45 +154,6 @@
     .files__pic {
       margin: 0 auto;
       padding: 1em; } }
-
-.files__vertical-line {
-  display: none;
-  /* ADDED 11/24 */
-  grid-area: line;
-  position: relative;
-  width: 100%; }
-  .files__vertical-line .line {
-    position: absolute;
-    left: calc(75% - 2px);
-    height: 25vh;
-    width: 4px;
-    background-image: linear-gradient(to bottom, rgba(14, 147, 252, 0.7), rgba(75, 0, 153, 0.7)); }
-    .files__vertical-line .line::after {
-      content: '';
-      position: absolute;
-      bottom: 0;
-      transform: translate(-6px, 8px);
-      height: 16px;
-      width: 16px;
-      border-radius: 50%;
-      background-color: #4b0099; }
-    @media screen and (min-width: 768px) {
-      .files__vertical-line .line {
-        height: 100%; } }
-
-.files__gradient {
-  grid-area: grad;
-  position: relative;
-  margin-bottom: 1rem;
-  font-size: 2rem;
-  line-height: 1;
-  font-weight: bold; }
-  .files__gradient .item-info-label {
-    position: absolute;
-    bottom: 0;
-    left: 8.33%;
-    font-size: 3rem;
-    font-weight: 700; }
 
 .item-information {
   position: relative;
@@ -296,16 +217,41 @@
       grid-template-columns: 1fr 1fr;
       grid-template-areas: "title title" "description stats" "relationships relationships" "wrapper wrapper"; } }
 
-.item-about-label {
-  display: none; }
+.item-title {
+  grid-area: title;
+  align-self: start;
+  position: relative;
+  padding-right: 4.167%;
+  margin-left: 4.167%;
+  font-size: 1.375rem;
+  font-weight: 300;
+  line-height: 1; }
+  .item-title span {
+    font-weight: bold;
+    font-family: "Open Sans", sans-serif;
+    font-size: 1.25rem;
+    text-transform: uppercase; }
+  @media screen and (min-width: 400px) {
+    .item-title {
+      padding-right: 8.33%;
+      margin-left: 8.33%;
+      font-size: 1.5rem; }
+      .item-title span {
+        font-size: 1.375rem; } }
+  @media screen and (min-width: 600px) {
+    .item-title {
+      font-size: 1.75rem; }
+      .item-title span {
+        font-size: 1.5rem; } }
   @media screen and (min-width: 768px) {
-    .item-about-label {
-      grid-area: about;
-      align-self: start;
-      margin-left: 25%;
-      font-size: 2em;
-      font-weight: bold;
-      color: #7d00ff; } }
+    .item-title {
+      padding-right: 4.167%;
+      margin-left: 4.167%; } }
+  @media screen and (min-width: 1024px) {
+    .item-title {
+      font-size: 2rem;
+      padding-right: 8.33%;
+      margin-left: 8.33%; } }
 
 .item-description {
   grid-area: description;
