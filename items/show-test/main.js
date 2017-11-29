@@ -90,9 +90,11 @@
  		lastDelta = slideTrack.getAttribute("data-translateX");
  		if (e.type === 'panleft') {
  			btnLeft.classList.remove('hide-btn');
+ 			btnLeft.removeAttribute('disabled');
  		}
  		if (e.type === 'panright') {
  			btnRight.classList.remove('hide-btn');
+ 			btnRight.removeAttribute('disabled');
  		}
  		percentage = 100 * e.deltaX / (slide.width * slideList.length);
  		moveBy = percentage + parseFloat(lastDelta);
@@ -102,10 +104,12 @@
  			slideTrack.setAttribute('data-translateX', moveBy);
  			if (parseFloat(moveBy) >= 0) {
  				btnLeft.classList.add('hide-btn');
+ 				btnLeft.setAttribute('disabled', 'true');
  				slideTrack.style.transform = `translateX(0)`;
  				slideTrack.setAttribute('data-translateX', 0);
  			} else if (parseFloat(moveBy) <= maxTranslateX) {
  				btnRight.classList.add('hide-btn');
+ 				btnRight.setAttribute('disabled', 'true');
  				slideTrack.style.transform = `translateX(${maxTranslateX}%)`;
  				slideTrack.setAttribute('data-translateX', maxTranslateX);
  			}
@@ -114,10 +118,12 @@
 
  	// hide nav if active slide on load is 1st/last in collection
  	if (slideTrack.getAttribute("data-translateX") >= 0) {
- 		btnLeft.classList.add("hide-btn");
+ 		btnLeft.classList.add('hide-btn');
+ 		btnLeft.setAttribute('disabled', 'true');
  	}
  	if (slideTrack.getAttribute("data-translateX") <= maxTranslateX) {
- 		btnRight.classList.add("hide-btn");
+ 		btnRight.classList.add('hide-btn');
+ 		btnRight.setAttribute('disabled', 'true');
  	}
 
  	// enable button nav
@@ -155,15 +161,19 @@
  		}
  		// show/hide buttons
  		if (slideTrack.getAttribute("data-translateX") < 0) {
- 			btnLeft.classList.remove("hide-btn");
+ 			btnLeft.classList.remove('hide-btn');
+ 			btnLeft.removeAttribute('disabled');
  		} else if (slideTrack.getAttribute("data-translateX") >= 0) {
- 			btnLeft.classList.add("hide-btn");
+ 			btnLeft.classList.add('hide-btn');
+ 			btnLeft.setAttribute('disabled', 'true');
  		}
 
  		if (slideTrack.getAttribute("data-translateX") <= maxTranslateX) {
- 			btnRight.classList.add("hide-btn");
+ 			btnRight.classList.add('hide-btn');
+ 			btnRight.setAttribute('disabled', 'true');
  		} else if (slideTrack.getAttribute("data-translateX") > maxTranslateX) {
- 			btnRight.classList.remove("hide-btn");
+ 			btnRight.classList.remove('hide-btn');
+ 			btnRight.removeAttribute('disabled');
  		}
  	}
  })();
