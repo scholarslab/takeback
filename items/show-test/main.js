@@ -23,17 +23,3 @@
  		picWrapper.style.height = (a.getBoundingClientRect().height + clickNote.getBoundingClientRect().height) + 'px';
  	});
  })();
-
-
-(function() {
-	var sliderEl = document.querySelector('.carousel-item-container');
-	var slideCount = document.getElementsByClassName('carousel-item').length;
-	var sliderManager = new Hammer.Manager(sliderEl);
-	var sliderWrapper 	= document.querySelector(".carousel-wrapper--visible");
-
-	sliderManager.add(new Hammer.Pan({threshold:0, pointers:0}));
-	sliderManager.on('pan', function(e) {
-		var percent = (100 / slideCount) * e.deltaX / sliderWrapper.offsetWidth;
-		sliderEl.style.transform = 'translateX(' + percent + '%)';
-	});
-})();
