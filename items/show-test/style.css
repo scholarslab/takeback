@@ -72,7 +72,7 @@
   position: relative; }
 
 .carousel-item-container {
-  width: 8000px; }
+  margin-left: -1em; }
 
 .carousel-btn {
   display: none;
@@ -83,7 +83,8 @@
   font-size: 3.75em;
   padding: 0;
   width: 32px;
-  border: none; }
+  border: none;
+  outline: none; }
   .carousel-btn.left {
     left: 0;
     transform: translate(0, -50%); }
@@ -93,6 +94,9 @@
   @media screen and (min-width: 600px) {
     .carousel-btn {
       display: initial; } }
+
+.hide-btn {
+  opacity: .1; }
 
 .carousel-item {
   height: 142px;

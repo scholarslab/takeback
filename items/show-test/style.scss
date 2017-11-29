@@ -90,7 +90,7 @@ $item-labels:			rgba(77, 0, 153, 1);
 }
 
 .carousel-item-container {
-	width: 8000px;
+	margin-left: -1em; // correct for first slide margin
 }
 
 .carousel-btn {
@@ -103,6 +103,7 @@ $item-labels:			rgba(77, 0, 153, 1);
 	padding: 0;
 	width: 32px; 
 	border: none;
+	outline: none;
 	&.left {
 		left: 0;
 		transform: translate(0, -50%);
@@ -114,6 +115,10 @@ $item-labels:			rgba(77, 0, 153, 1);
 	@media screen and (min-width: 600px) {
 		display: initial;
 	}
+}
+
+.hide-btn {
+	opacity: .1;
 }
 
 .carousel-item {
