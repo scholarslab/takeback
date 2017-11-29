@@ -32,12 +32,15 @@
  		btnLeft,
  		btnRight;
 
- 	slideList 		= document.getElementsByClassName('slide');
- 	slideTrack 		= document.querySelector('.slide-container');
+ 	slideList 		= document.getElementsByClassName('carousel-item');
+ 	// <div class="carousel-item"> <!-- slide -->
+ 	slideTrack 		= document.querySelector('.carousel-item-container');
+ 	// <div class="carousel-item-container"> <!-- slide-container -->
  	btnLeft 		= document.querySelector('.left');
  	btnRight 		= document.querySelector('.right');
  	gallery 		= {
- 					  elem: 	 		document.querySelector('.slide-wrapper-visible'),
+ 					  elem: 	 		document.querySelector('.carousel-wrapper--visible'),
+ 					  // <div class="carousel-wrapper--visible" style="clear:both;"> <!--slide-wrapper-visible -->
  					  get width() {
  										return this.elem.offsetWidth;
  					  },
