@@ -111,7 +111,8 @@
       height: 2em;
       line-height: 1;
       margin-top: .5em;
-      font-family: "Inconsolata", monospace; }
+      font-family: "Inconsolata", monospace;
+      font-size: 14px; }
 
 /* * * START ITEM: * * */
 .item-files {
@@ -140,6 +141,7 @@
       margin: 0 auto; }
   .files__pic .pic__click-note {
     text-align: center;
+    font-size: .875rem;
     font-family: "Inconsolata", monospace;
     color: #7d00ff; }
     .files__pic .pic__click-note span {
@@ -149,7 +151,8 @@
       margin: 0 4.167%; } }
   @media screen and (min-width: 600px) {
     .files__pic .pic__click-note {
-      text-align: right; } }
+      text-align: right;
+      font-size: 1rem; } }
   @media screen and (min-width: 768px) {
     .files__pic {
       margin: 0 auto;
@@ -157,8 +160,8 @@
 
 .item-information {
   position: relative;
-  padding-left: 8.33%;
-  margin-top: .75em;
+  padding-left: 4.167%;
+  margin-top: 1.75em;
   margin-bottom: .5em;
   font-size: 1.75rem;
   font-weight: bold;
@@ -172,7 +175,6 @@
   @media screen and (min-width: 600px) {
     .item-information {
       font-size: 2.25rem;
-      margin-top: .5em;
       background-image: linear-gradient(to top, rgba(0, 0, 0, 0) 4.5px, white 4.5px), linear-gradient(to left, rgba(0, 121, 255, 0.7), rgba(125, 0, 255, 0.7)); } }
   @media screen and (min-width: 768px) {
     .item-information {
@@ -194,14 +196,15 @@
   @media screen and (min-width: 1024px) {
     .item-information {
       padding-left: 8.33%;
-      margin-right: 8.33%; }
+      margin-right: 8.33%;
+      margin-bottom: 1.75rem; }
       .item-information::after {
         transform: translate(50%, 5.75px);
         height: 16px;
         width: 16px; } }
   @media screen and (min-width: 1200px) {
     .item-information {
-      font-size: 2.75rem;
+      margin-top: 1.5em;
       background-image: linear-gradient(to top, rgba(0, 0, 0, 0) 5px, white 5px), linear-gradient(to left, rgba(0, 121, 255, 0.7), rgba(125, 0, 255, 0.7)); }
       .item-information::after {
         transform: translate(50%, 5.5px); } }
@@ -223,8 +226,9 @@
   position: relative;
   padding-right: 4.167%;
   margin-left: 4.167%;
+  font-family: "Raleway", sans-serif;
   font-size: 1.375rem;
-  font-weight: 300;
+  font-weight: 200;
   line-height: 1; }
   .item-title span {
     font-weight: bold;
@@ -296,6 +300,7 @@
   border: 4px solid #7d00ff;
   color: black;
   font-family: "Inconsolata", monospace;
+  font-size: 1rem;
   text-align: right;
   padding: 1em 1.5em;
   position: relative;
@@ -349,7 +354,6 @@
   bottom: -3.5px;
   margin-top: 1em;
   padding-left: 4.167%;
-  color: black;
   /*span:last-of-type {
   	display: none;
   }*/ }
@@ -375,11 +379,8 @@
       padding-left: 4.167%; } }
   @media screen and (min-width: 1024px) {
     .the-relationships {
-      padding-left: 8.33%; } }
-  @media screen and (min-width: 1200px) {
-    .the-relationships {
-      font-size: 2.25rem;
-      bottom: -4px; } }
+      padding-left: 8.33%;
+      margin-top: 28px; } }
 
 .relationships-wrapper {
   grid-area: wrapper;
@@ -397,16 +398,19 @@
   @media screen and (min-width: 480px) {
     .relationships-wrapper {
       padding: 0;
-      margin: 0 8.33%; } }
+      margin: 0 8.33%;
+      margin-bottom: 1.5rem; } }
   @media screen and (min-width: 768px) {
     .relationships-wrapper {
-      margin: 0 4.167%; } }
+      margin: 0 4.167%;
+      margin-bottom: 1.5rem; } }
   @media screen and (min-width: 1024px) {
     .relationships-wrapper {
-      margin: 0 8.33%; } }
+      margin: 0 8.33%;
+      margin-bottom: 3rem; } }
 
 .item-collection, .item-tags, .item-subjects {
-  padding-top: 1.5em; }
+  padding-top: 1.25rem; }
   .item-collection a, .item-tags a, .item-subjects a {
     text-decoration: none;
     font-family: "Raleway", sans-serif;
@@ -415,8 +419,18 @@
   .item-collection span, .item-tags span, .item-subjects span {
     font-size: 1.25rem;
     font-weight: 300;
+    line-height: 1.5;
     text-transform: uppercase;
     color: #4d0099; }
+    .item-collection span:first-of-type::after, .item-tags span:first-of-type::after, .item-subjects span:first-of-type::after {
+      content: ' \00bb';
+      display: inline-block;
+      position: relative;
+      left: .375em;
+      top: .125em;
+      margin: 0;
+      padding: 0;
+      transform: rotate(90deg); }
   @media screen and (min-width: 400px) {
     .item-collection span, .item-tags span, .item-subjects span {
       font-size: 1.375rem; } }
@@ -426,8 +440,13 @@
   @media screen and (min-width: 1024px) {
     .item-collection a, .item-tags a, .item-subjects a {
       float: right; }
-    .item-collection span:nth-of-type(2), .item-tags span:nth-of-type(2), .item-subjects span:nth-of-type(2) {
-      display: none; } }
+    .item-collection span, .item-tags span, .item-subjects span {
+      line-height: 36px; }
+      .item-collection span:nth-of-type(2), .item-tags span:nth-of-type(2), .item-subjects span:nth-of-type(2) {
+        display: none; }
+      .item-collection span:first-of-type::after, .item-tags span:first-of-type::after, .item-subjects span:first-of-type::after {
+        display: inline;
+        position: static; } }
 
 .item-collection a, .item-subjects a {
   font-size: 1rem; }
@@ -443,6 +462,9 @@
 @media screen and (min-width: 768px) {
   .item-collection a, .item-subjects a {
     font-size: 1.25rem; } }
+@media screen and (min-width: 768px) {
+  .item-collection a, .item-subjects a {
+    line-height: 36px; } }
 
 .item-tags a {
   font-family: "Inconsolata", monospace;
@@ -477,10 +499,7 @@
     height: 6px;
     width: 6px;
     background-color: white;
-    background-image: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1));
     border-radius: 50%; }
-  .item-tags a:last-of-type {
-    margin-bottom: 0; }
 @media screen and (min-width: 768px) {
   .item-tags a {
     font-size: 1.0625rem; }
@@ -491,6 +510,12 @@
     font-size: 1.125rem;
     margin-right: 1.625em; }
     .item-tags a:first-of-type {
-      margin-right: 0; }
+      margin-right: 18px; }
     .item-tags a::after {
       border-width: 18px; } }
+
+.item-subjects {
+  margin-top: -.5rem; }
+  @media screen and (min-width: 1024px) {
+    .item-subjects {
+      margin-top: 0; } }
