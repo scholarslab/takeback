@@ -1,24 +1,4 @@
 /* General tags covered by main CSS style sheet. */
-/**
-  * Reusable styles and colors from _collections.scss:
-  *
-  * background-image: linear-gradient(to left, rgba(14, 147, 252, .7), rgba(75, 0, 153, .7)), linear-gradient(rgba(255,255,255,.7), rgba(0,0,0,.7)), url("../images/newspaper-collage-1.png");
-  *
-  *
-  * Collection stats color: rgba(56,51,147,1);
-  *
-  * Description text color: color: rgba(42,38,112,1);
-  *
-  * Item label color: rgba(77, 0, 153, 1);
-  *
-  * Image border: 1px solid rgba(51,26,77,.1);
-  *
-  * @media cutoffs: 768px, 768px, 1200px, 1768px;
-  *
-  * NB: Layout follows 12-col format; measurements calculated accordingly.
-  *
-  *
-  */
 /* * ARROW COMPONENT: * *
 	justify-self: center;
 	align-self: center;
@@ -32,19 +12,11 @@
 	background-clip: text;
 	transform: rotate(90deg);
 * * */
-/* Colors: */
-/* General styles: */
-* {
-  box-sizing: border-box; }
-
 .items.show #main {
   margin: 0;
   padding: 0;
   max-width: 100%;
   color: black; }
-
-#banner {
-  opacity: .05; }
 
 /* Carousel: */
 .carousel-wrapper--top {
