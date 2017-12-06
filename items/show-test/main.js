@@ -7,6 +7,7 @@
  *
  */
 
+// ensure main image is same size as its <a> wrapper
  (function() {
  	var picWrapper = document.querySelector(".files__pic"),
  		clickNote = document.querySelector(".pic__click-note");
@@ -24,6 +25,7 @@
  	});
  })();
 
+// carousel gallery
  (function() {
  	var slide,
  		slideList,
