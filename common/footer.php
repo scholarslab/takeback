@@ -21,5 +21,7 @@
         <?php fire_plugin_hook('public_theme_footer'); ?>
 
     </footer>
+    <?php echo js_tag('hammer.min'); ?>
+   	<?php echo js_tag('items-show'); ?>
 </body>
 </html>
