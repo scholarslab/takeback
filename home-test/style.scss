@@ -1,0 +1,92 @@
+// pic: http://takeback.neatline-uva.org/items/show/1
+
+#banner, footer {
+	opacity: .05;
+	display: none;
+}
+
+#home #main {
+	margin: 0;
+	padding: 0;
+	max-width: 100%;
+	color: black;
+}
+
+.home-icon {
+	position: absolute;
+	margin: 12px;
+	opacity: .8;
+	a {
+		display: block;
+		height: 46px;
+		width: 46px;
+		border: 1px solid white;
+		border-radius: 2px;
+	}
+	img {
+		display: block;
+		height: 36px;
+		margin: 4px auto;
+	}
+	&:hover, &:focus {
+		opacity: 1;
+	}
+}
+
+.home-grid-container {
+	display: grid;
+	grid-template-areas: "title";
+	justify-content: center;
+	background-image: linear-gradient(to bottom, rgba(255,255,255,0), rgba(0,0,0,.3)),
+	 linear-gradient(to right, rgba(125,0,255,1), rgba(212,0,255,.7)),
+	 url("newspaper-collage-1.png");
+	//repeating-linear-gradient(to right, rgba(125,0,255,0), rgba(125,0,255,0) 30px, rgba(125,0,255,.5) 44px, rgba(125,0,255,.5) 52px, rgba(125,0,255,0) 66px); 
+	//repeating-linear-gradient(to bottom, rgba(125,0,255,1) 0, rgba(125,0,255,1) calc(8px * 2), rgba(0,0,0,.8) calc(16px * 1.5), rgba(125,0,255,1) calc(24px * 1.5), rgba(125,0,255,1) calc(32px * 2));
+//	background-size: cover;
+	height: 100vh;
+}
+
+.home-title {
+	grid-area: title;
+	position: relative;
+	font-family: "Raleway", sans-serif;
+	font-size: 7rem;
+	line-height: .8;
+	text-transform: uppercase;
+	text-align: center;
+	color: rgba(255,255,255,.9);
+	margin-top: .75em;
+	span {
+	//	display: inline-block;
+	//	letter-spacing: 8px; //.0625em;
+		position: relative;
+		font-weight: 200;
+		display: inline-block;
+	//	border-bottom: 4px solid white;
+		&:nth-of-type(4) {
+		//	font-size: 8rem;
+			color: white;
+		//	font-family: "Permanent Marker";
+		//	font-family: "Monoton";
+			border-bottom: none;
+			font-weight: bold;
+		//	letter-spacing: 8px;
+		}
+	}
+	/* MEDIA QUERY TEMPLATE: */
+	@media screen and (min-width: 400px) {
+
+	}
+	@media screen and (min-width: 600px) {
+		
+	}
+	@media screen and (min-width: 768px) {
+		
+	}
+	@media screen and (min-width: 1024px) {
+		
+	}
+	@media screen and (min-width: 1200px) {
+		
+	}
+}
