@@ -1,4 +1,21 @@
-#banner, footer {
+/* repeating-linear-gradient(to right, rgba(125,0,255,0), rgba(125,0,255,0) 30px, rgba(125,0,255,.5) 44px, rgba(125,0,255,.5) 52px, rgba(125,0,255,0) 66px),
+ repeating-linear-gradient(to bottom, rgba(125,0,255,.1) 0, rgba(125,0,255,.1) calc(8px * 2), rgba(0,0,0,.8) calc(16px * 1.5), rgba(125,0,255,.1) calc(24px * 1.5), rgba(125,0,255,.1) calc(32px * 2)), */
+#banner {
+  background-color: transparent;
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 1; }
+  #banner #homelink {
+    display: none; }
+  #banner nav {
+    font-family: "Montserrat", sans-serif;
+    font-size: 14px;
+    text-transform: uppercase; }
+    #banner nav ul li:hover {
+      border-bottom: .5px solid white; }
+
+footer {
   opacity: .05;
   display: none; }
 
@@ -10,6 +27,7 @@
 
 .home-icon {
   position: absolute;
+  z-index: 1;
   margin: 12px;
   opacity: .8; }
   .home-icon a {
@@ -27,27 +45,123 @@
 
 .home-grid-container {
   display: grid;
-  grid-template-areas: "title";
-  justify-content: center;
-  background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0), rgba(0, 0, 0, 0.3)), linear-gradient(to right, #7d00ff, rgba(212, 0, 255, 0.7)), url("newspaper-collage-1.png");
-  height: 100vh; }
+  margin: 0;
+  padding: 0;
+  grid-template-columns: 1fr;
+  grid-auto-rows: minmax(50vh, auto);
+  grid-template-areas: "title" "about" "explore" "footer"; }
 
 .home-title {
-  grid-area: title;
   position: relative;
-  font-family: "Raleway", sans-serif;
-  font-size: 7rem;
-  line-height: .8;
-  text-transform: uppercase;
-  text-align: center;
-  color: rgba(255, 255, 255, 0.9);
-  margin-top: .75em;
+  grid-area: title;
+  height: 100vh;
+  font-size: 3rem;
+  padding-top: 120px;
+  background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0), rgba(0, 0, 0, 0.4)), url("low-poly.svg"), linear-gradient(to bottom, #7d00ff, #d400ff 200%);
+  background-size: auto, 400px, auto;
   /* MEDIA QUERY TEMPLATE: */ }
-  .home-title span {
+  @media screen and (min-width: 400px) {
+    .home-title {
+      font-size: 3.5rem; } }
+  @media screen and (min-width: 600px) {
+    .home-title {
+      font-size: 4rem; }
+      .home-title .small-diagonal {
+        height: 16.67vh; }
+      .home-title .big-diagonal {
+        height: 33.33vh; } }
+  @media screen and (min-width: 768px) {
+    .home-title {
+      font-size: 5.5rem;
+      padding-top: 1.5em; } }
+  @media screen and (min-width: 900px) {
+    .home-title {
+      font-size: 6rem; } }
+  @media screen and (min-width: 1024px) {
+    .home-title {
+      padding-top: 1em;
+      font-size: 6.5rem; } }
+  @media screen and (min-width: 1200px) {
+    .home-title .small-diagonal {
+      width: 25%; }
+    .home-title .big-diagonal {
+      width: 75%; } }
+  @media screen and (min-width: 1600px) {
+    .home-title {
+      font-size: 8rem; } }
+
+.title-wrapper {
+  position: relative;
+  height: 3.2em;
+  /* 4 words * .8 line height */
+  max-width: 66.66%;
+  margin: 0 auto;
+  font-family: "Montserrat", sans-serif;
+  line-height: .8;
+  text-transform: uppercase; }
+  .title-wrapper span {
     position: relative;
-    font-weight: 200;
+    color: white;
+    text-shadow: 0 0 1px rgba(0, 0, 0, 0.3);
+    font-weight: bold;
     display: inline-block; }
-    .home-title span:nth-of-type(4) {
-      color: white;
-      border-bottom: none;
-      font-weight: bold; }
+    .title-wrapper span:nth-of-type(4) {
+      color: rgba(255, 255, 255, 0.7);
+      border-bottom: 0px solid white; }
+
+.home-subtitle {
+  position: relative;
+  max-width: 66.66%;
+  margin: 2em auto;
+  font-size: 1rem;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 200;
+  line-height: 1;
+  color: white; }
+  @media screen and (min-width: 768px) {
+    .home-subtitle {
+      font-size: 1.25rem; } }
+
+.home-about-site {
+  position: relative;
+  grid-area: about;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-areas: "label explanation";
+  align-items: start;
+  justify-content: center;
+  min-height: 40vh;
+  margin: .75em 0;
+  padding: .5em 0;
+  font-size: 5rem; }
+  .home-about-site::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translate(-50%, 0);
+    height: 100%;
+    width: 2px;
+    background-color: #7d00ff; }
+  .home-about-site .home-about__label {
+    display: inline-block;
+    margin: 0 16.67%;
+    font-family: "Montserrat", sans-serif;
+    font-weight: bold;
+    text-transform: uppercase;
+    line-height: 1;
+    color: rgba(0, 0, 0, 0.9);
+    /*span:nth-of-type(2) {
+    	color: rgba(125,0,255,1);
+    }*/ }
+  .home-about-site .home-about__explanation {
+    margin: 0 16.67%;
+    font-size: 1.125rem;
+    font-weight: 300; }
+
+.home-explore-site {
+  grid-area: explore;
+  display: grid; }
+
+.home-mock-footer {
+  grid-area: footer; }
