@@ -164,24 +164,6 @@ footer {
 	}
 }
 
-.home-subtitle {
-	position: relative;
-	max-width: 50%; //41.67%;
-	margin: 1em auto;
-	margin-left: 25%; // 16.67%;
-	padding-top: 1em;
-//	border-top: 1px solid white;
-	font-size: 1rem;
-//	font-family: "Inconsolata", monospace;
-//	font-family: "Montserrat", sans-serif;
-	font-weight: 600;
-//	line-height: 1.15;
-	color: hsla(270,100,100,1); // rgba(255,255,255,1);
-	@media screen and (min-width: 768px) {
-		font-size: 1.25rem;
-	}
-}
-
 /* Start 'About': */
 
 .home-about-site {

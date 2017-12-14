@@ -124,19 +124,6 @@ footer {
         position: relative;
         top: 2px; }
 
-.home-subtitle {
-  position: relative;
-  max-width: 50%;
-  margin: 1em auto;
-  margin-left: 25%;
-  padding-top: 1em;
-  font-size: 1rem;
-  font-weight: 600;
-  color: white; }
-  @media screen and (min-width: 768px) {
-    .home-subtitle {
-      font-size: 1.25rem; } }
-
 /* Start 'About': */
 .home-about-site {
   position: relative;
