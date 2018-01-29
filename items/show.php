@@ -22,7 +22,7 @@ $collectionItems = get_records('Item', array('collection_id' => $myId), $totalIt
         <div class="carousel-item">
           <?php if (metadata('item', 'has files')): ?>
           <?php $text = item_image('square_thumbnail') . '<div>' . metadata('item', 'display_title') . '</div>';
-                array_push($imageDataArray, array($text, metadata('item', 'id')));
+                array_push($imageDataArray, array(link_to_item($text, array('class' => 'download-file')), metadata('item', 'id')));
           ?>
           <?php // echo link_to_item($text, array('class' => 'download-file')); ?>
           <?php endif; ?>
@@ -123,6 +123,7 @@ set_current_record('item', $currentItem);
 <?php $json = json_encode($imageDataArray); ?>
 <script>
   var imageDataArray = <?php echo $json; ?>;
+  var itemId = <?php echo metadata($currentItem, 'id'); ?>;
 </script>
 <?php fire_plugin_hook('public_items_show', array('view' => $this, 'item' => $item)); ?>
 <?php echo foot(); ?>
