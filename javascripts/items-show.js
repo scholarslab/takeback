@@ -7,46 +7,24 @@
  *
  */
 
+// set up AJAX functionality
 /* (function() {
- 	var picWrapper = document.querySelector(".files__pic"),
- 		clickNote = document.querySelector(".pic__click-note");
- 		img = picWrapper.querySelector("img"),
- 		a = picWrapper.querySelector("a");
-
- 	picWrapper.style.height = (a.getBoundingClientRect().height + clickNote.getBoundingClientRect().height) + 'px';
- 	//picWrapper.style.height = window.getComputedStyle(img, null).height;
- 	console.log(window.getComputedStyle(img, null).height);
- 	console.log(a.style.height);
-
- 	window.addEventListener("resize", function() {
- 		
- 		picWrapper.style.height = (a.getBoundingClientRect().height + clickNote.getBoundingClientRect().height) + 'px';
- 	});
- })(); */
- console.log(imageDataArray[0]);
-
- (function() {
  	var //btn,
  		item,
  		httpRequest;
 
- 	/*btn = document.querySelector('.ajax-btn');
- 	btn.addEventListener('click', makeRequest); */
-
  	itemContainer = document.querySelector('.carousel-item-container');
  	
 
- //	function makeRequest() {
- 		httpRequest = new XMLHttpRequest();
- 		console.log('test');
+ 	httpRequest = new XMLHttpRequest();
+ 	console.log('test');
 
- 		var url = 'http://takeback.scholarslab.org/api/items/' + itemContainer.getAttribute('data-item');
- 		console.log(url);
+ 	var url = 'http://takeback.scholarslab.org/api/items/' + itemContainer.getAttribute('data-item');
+ 	console.log(url);
  		
- 		httpRequest.onreadystatechange = populateItem;
- 		httpRequest.open('GET', url, true);
- 		httpRequest.send();
- //	}
+ 	httpRequest.onreadystatechange = populateItem;
+ 	httpRequest.open('GET', url, true);
+ 	httpRequest.send();
 
  	function populateItem() {
  		if (httpRequest.readyState === XMLHttpRequest.DONE) {
@@ -78,7 +56,7 @@
  					//		imgParent.style.height = "200px";
  					//		imgParent.innerHTML = `<img src="${img}" height="200px"><br/><div>${title}</div>`;
  						} else {
- 							alert('There was an error in processing your request.');
+// 							alert('There was an error in processing your request.');
  						}
  					}
  				};
@@ -87,11 +65,43 @@
 			
 
  			} else {
- 				alert('There was an error in processing your request.');
+ //				alert('There was an error in processing your request.');
  			}
  		}
  	}
- })();
+ })(); */
+// fill carousel w/ PHP-generated array
+(function() {
+ 	var itemContainer,
+ 		itemArray,
+ 		i,
+ 		item;
+
+ 	itemContainer = document.querySelector('.carousel-item-container');
+ 	console.log(itemContainer.children.length);
+ 	console.log(imageDataArray.length);
+ 	// ^fix so not just getting ones w/ images!
+
+	itemArray = itemContainer.children; 	
+
+ 	for (i=0; i < imageDataArray.length; i++) {
+ 		itemArray[i].innerHTML = imageDataArray[i][0];
+ 		itemArray[i].setAttribute("id", imageDataArray[i][1]);
+
+ 		if (itemId == imageDataArray[i][1]) {
+ 			item = {
+ 					width: 				itemArray[i].offsetWidth + 
+ 						   				(2 * parseInt(window.getComputedStyle(itemArray[i], null).marginLeft)),
+ 					get translate() {
+ 										return (itemId - 2) * this.width;
+ 					},
+ 					};
+ 			// translation on initial load - put in other function! awesome
+ 			console.log(item.translate);
+ 		}
+ }
+})();
+
 
  (function() {
  	var slide,
@@ -103,15 +113,12 @@
  		btnRight;
 
  	slideList 		= document.getElementsByClassName('carousel-item');
- 	// <div class="carousel-item"> <!-- slide -->
  	slideTrack 		= document.querySelector('.carousel-item-container');
- 	// <div class="carousel-item-container"> <!-- slide-container -->
  	btnLeft 		= document.querySelector('.left');
  	btnRight 		= document.querySelector('.right');
- 	itemId			= slideTrack.getAttribute('data-item');
+//	itemId			= slideTrack.getAttribute('data-item'); // = fetched in PHP doc
  	gallery 		= {
  					  elem: 	 		document.querySelector('.carousel-wrapper--visible'),
- 					  // <div class="carousel-wrapper--visible" style="clear:both;"> <!--slide-wrapper-visible -->
  					  get width() {
  										return this.elem.offsetWidth;
  					  },
@@ -134,7 +141,6 @@
  	
  	// set track width, margin, translation
  	slideTrack.style.width = slide.width * slideList.length + 'px';
- 	console.log(slide.percentOfTotal);
  	slideTrack.setAttribute('data-translateX', "0");
 
  	// set track translation depending on current item
