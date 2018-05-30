@@ -2,6 +2,7 @@
 @import "neat/neat";
 @import "variables";
 @import "mixins";
+@import "collections";
 
 @import url('//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css');
 
@@ -74,6 +75,10 @@ a {
   h3 & {
     text-decoration:none;
   }
+
+  #item-tags & { /* item show page tags */
+    display: inline-block;
+  }
 }
 
 table {
@@ -87,9 +92,9 @@ td {
   border-color: rgba($base-color,.2);
   vertical-align:top;
   padding: 1rem;
-  border-bottom: 1px solid rgba($base-color, .2);
-  &:first-of-type {
-    width: 20%;
+  border-bottom: 1px solid rgba($base-color, .2); /* show.php: lines across bottom */
+  &:first-of-type { /* show.php: styles all fields */
+    width: 20%; /* this applies to data and headings so splits in half - unintentional?? */
     color: $base-color-light;
   }
 }
@@ -131,8 +136,8 @@ nav {
     display:inline-block;
 
     & + li:before {
-      content: " · ";
-      padding: 0 .25em;
+      content: "\b7";
+      padding-right: .25em;
     }
   }
 }
@@ -240,7 +245,8 @@ nav {
       display: inline-block;
 
       & + li:before {
-        content: " · ";
+        content: "\b7";
+        padding: 0 .25em;
         color: rgba(black, .5);
       }
     }
@@ -280,7 +286,7 @@ nav {
   }
 }
 
-.browse {
+.browse { /* browse view */
   .items {
     @include display(flex);
     @include justify-content(space-between);
@@ -292,6 +298,9 @@ nav {
     margin-bottom: 2em;
   }
 }
+
+/* Old collection show styles: */
+
 
 .gallery {
   .image {
@@ -323,12 +332,14 @@ nav {
 
 }
 
-$collections: 11 12 13 14 15 16 17 18;
 
-@each $collection in $collections{
 
-  #collection-#{$collection} {
-    header, .image{
+$collections: 11 12 13 14 15 16 17 18; /* collections containing header images */
+
+@each $collection in $collections{ /* assign header images to collections */
+
+  li#collection-#{$collection} {
+    .image{
       @include background-image(
         linear-gradient(hsla(270,50%, 25%,.75),hsla(270,50%, 25%,.75)),
         url(../images/collection-#{$collection}.jpg)
@@ -339,7 +350,9 @@ $collections: 11 12 13 14 15 16 17 18;
   }
 }
 
-.collection {
+
+/*
+.collection { /* collection show styles *
   header {
     min-height: 50vh;
     background-color: rgba($link-color,.75);
@@ -359,7 +372,7 @@ $collections: 11 12 13 14 15 16 17 18;
       margin-top: 0;
       font-weight: 100;
     }
-  }
+  } 
 
   .content {
     max-width: 900px;
@@ -392,7 +405,8 @@ $collections: 11 12 13 14 15 16 17 18;
     }
 
   }
-}
+} */
+
 
 @media screen and (min-width:800px) {
 
@@ -502,4 +516,3 @@ $collections: 11 12 13 14 15 16 17 18;
     margin-top:0;
   }
 }
-

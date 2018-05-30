@@ -1,0 +1,299 @@
+/* Start "collections/show" */
+
+/* Landing Page: */
+
+/* NB: 'my-collection' so isn't same as css/style.css's styles */
+.my-collection {
+	header {
+		height: 116.67vh;
+		position: relative;
+		z-index: 0; // for banner shadow
+		background-image: linear-gradient(to left, rgba(14, 147, 252, .7), rgba(75, 0, 153, .7)), linear-gradient(rgba(255,255,255,.7), rgba(0,0,0,.7)), /*url("noise.png"),*/ url("../images/newspaper-collage-1.png");
+		// v good purple: rgba(86, 29, 224, .7)
+		background-size: auto, auto, cover;
+		.small-diagonal {
+			position: absolute;
+			bottom: 0;
+			left: 0;
+			width: 33.33%;
+			height: 8.33vh;
+			background-image: linear-gradient(to bottom left, rgba(255,255,255,0) 50%, rgba(255,255,255,1) 50%);
+		}
+		.big-diagonal {
+			position: absolute;
+			bottom: 0;
+			right: 0;
+			width: 66.67%;
+			height: 16.67vh;
+			background-image: linear-gradient(to bottom right, rgba(255,255,255,0) 50%, rgba(255,255,255,1) 50%);
+		}
+		/* make color = gradient that's transparent where triangles meet and white elsewhere.
+		&::after {
+			content: '';
+			width: 100%;
+			height: 10px;
+			background-color: white;
+			display: block;
+			position: absolute;
+			bottom: -5px;
+		} */
+		@media screen and (min-width: 600px) {
+			height: 133.33vh;
+			.small-diagonal {
+				height: 16.67vh;
+			}
+			.big-diagonal {
+				height: 33.33vh;
+			}
+		}
+	}
+}
+
+.title {
+	span {
+		font-size: 1rem;
+		font-weight: bold;
+		color: white;
+		@media screen and (min-width: 400px) {
+			font-size: 1.5rem;
+		}
+	}
+	h1 {
+		font-weight: 700;
+		color: white;
+		font-size: 2.5rem;
+		line-height: 1;
+		//padding-top: 1px;
+		margin: 0;
+		display: inline;
+		@media screen and (min-width: 400px) {
+			font-size: 3rem;
+			line-height: 1.25;
+		}
+		@media screen and (min-width: 800px) {
+			font-size: 3.75rem;
+			line-height: 1.5;
+		}
+	}
+		position: absolute;
+		top: 16.67vh;
+		left: 4.167%;
+		max-width: 95.833%;
+		@media screen and (min-width: 600px) {
+			left: 8.33%;
+			max-width: 83.33%;
+		}
+}
+
+
+/* Main Styles: */
+
+.content {
+	position: relative;
+	background-color: white;
+}
+
+.line-wrapper {
+	display: grid;
+	grid-template-areas: "line"
+						 "stats";
+	//grid-template-rows: 25vh auto;
+	@media screen and (min-width: 768px) {
+		grid-template-areas: "line ....."
+							"line stats"
+							"line .....";
+		grid-template-rows: 12.5vh auto 12.5vh;
+		grid-template-columns: 33.33% 1fr;	
+	}
+	
+}
+
+.item-wrapper {
+	grid-area: line;
+	position: relative;
+	margin-bottom: 1em;
+	@media screen and (max-width:767.99px) {
+		height: 25vh;
+	}
+}
+
+.vertical-line {
+	margin-bottom: 3em;
+	position: absolute;
+	top: -2px;
+	left: calc(33.33% - 2px);
+	height: 100%;
+	width: 4px;
+	//background-image: linear-gradient(to bottom, rgba(56,51,147,1), rgba(51,26,77,1));
+	background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(56,51,147,1)), to(rgba(51,26,77,1)));
+	background-image: -webkit-linear-gradient(top, rgba(56,51,147,1), rgba(51,26,77,1));
+	background-image: -o-linear-gradient(top, rgba(56,51,147,1), rgba(51,26,77,1));
+	background-image: linear-gradient(to bottom, rgba(56,51,147,1), rgba(51,26,77,1));
+	&::after {
+		content: '';
+		display: block;
+		border-radius: 50%;
+		height: 16px;
+		width: 16px;
+		background-color: black;
+		position: absolute;
+		bottom: 0;
+		left: -16px;
+		transform: translate(10px, 50%);
+	}
+	@media screen and (min-width: 768px) {
+		left: calc(100% - 2px);
+	}
+}
+
+.collection-stats, .description {
+	position: relative;
+	left: 8.33%;
+	font-size: 1.25rem;
+	@media screen and (min-width: 600px) {
+		font-size: 1.5rem;
+	}
+	span {
+		font-family: "Open Sans", sans-serif;
+		color: rgba(255,255,255,1);
+		font-weight: bold;
+	}
+}
+
+.collection-stats {
+	grid-area: stats;
+	width: 83.33%;
+	margin: 3em 0;
+	padding: .5em;
+	border: 4px solid rgba(56,51,147,.9);
+	color: black;
+	font-family: "Inconsolata", monospace;
+	text-align: right;
+	span {
+		float: left;
+		color: rgba(56,51,147,1);
+		font-weight: 400;
+		font-family: "Inconsolata", monospace;
+	}
+	div {
+		text-transform: uppercase;
+		position: absolute;
+		top: -4px;
+		left: 0;
+		transform: translate(0, -100%);
+		font-family: "Open Sans", sans-serif;
+		color: black;
+		font-weight: bold;
+	}
+	@media screen and (min-width: 600px) {
+		width: 66.67%;
+		padding: 1em 1.5em;
+	}
+}
+
+.description {
+	color: rgba(42,38,112,1);
+	padding: 0;
+	margin: 0;
+	margin-top: 1em;
+	font-family: "Inconsolata", monospace;
+	width: 83.33%;
+	span {
+		color: black;
+		font-size: 2rem;
+		border-bottom: 1px solid black;
+	}
+	@media screen and (min-width: 768px) {
+		width: 58.33%;
+	}
+}
+
+.the-collection {
+	font-weight: 700;
+	font-size: 3.75em;
+	line-height: 1;
+	position: relative;
+	bottom: -6px;
+	z-index: 1;
+	color: rgba(75, 0, 153, .7);
+    margin-left: calc(12.5% + 16px);
+    margin-top: 1em;
+}
+
+/* Gallery: */
+
+.gallery-bg {
+	width: 100%;
+	position: relative;
+	background-color: rgba(0,0,0,.05);
+}
+
+.item-container {
+	columns: 1;
+	width: 100%;
+	margin: 0 auto;
+	padding: 1em;
+	padding-bottom: 0;
+	padding-top: 3em;
+	@media screen and (min-width: 600px) {
+		columns: 2;
+	}
+	@media screen and (min-width: 800px) {
+		columns: 3;
+		max-width: 800px;
+	}
+	@media screen and (min-width:1200px) {
+		//max-width: 66.66%;
+		max-width: 75%; // 2/3 width =/= jive w/ 3 col in 12 unit layout
+		columns: 3;
+		
+	}
+	@media screen and (min-width: 1600px) {
+		font-size: 2em;
+	}
+
+	.item {
+		background-color: white;
+		color: black;
+		font-family: "Raleway", sans-serif;
+		margin-bottom: 1em;
+		margin-top: 2px; // shadow doesn't wrap
+		min-height: 120px;
+		width: 100%;
+		display: inline-block;
+		padding: 1em 1em 1em 1em;
+		box-shadow: 0px 0px 2px .5px rgba(0, 0, 0, .05);
+		a.permalink {
+			text-decoration: none;
+			color: black;
+			display: block;
+		}
+		a.permalink {
+			margin-bottom: .5em;
+			padding-bottom: .5em;
+			border: 0px solid;
+			border-bottom-width: 1px;
+			border-image: linear-gradient(to right, rgba(51,26,77,.5) 20%, rgba(0,0,0,0) 20%) 1;
+			&:hover {
+				font-weight: bold;
+				text-decoration: underline;
+			}
+		}
+		a img {
+			max-height: 160px;
+			display: block;
+			border: 1px solid rgba(51,26,77,.1);
+			padding: 7px;
+			margin-top: .25em;
+			margin-bottom: 1em;
+		}
+
+		span {
+			color: rgba(77, 0, 153, 1);
+			font-weight: bold;
+			padding-right: 3px;
+			font-family: "Open Sans", sans-serif;
+		}
+	}
+}
+/* End "collections/show" */

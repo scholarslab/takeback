@@ -10,22 +10,10 @@
 <em class="eyebrow dc-date"><?php echo date('F j, Y', $date); ?></em>
 <?php endif; ?>
 
-<!-- Item title: -->
 <h1><?php echo metadata('item', array('Dublin Core', 'Title')); ?></h1>
-
-<!-- If description, display item description. -->
 <?php if ($description = metadata('item', array('Dublin Core', 'Description'))): ?>
 <?php echo $description; ?>
 <?php endif; ?>
-
-<!-- The following returns all of the files associated with an item. -->
-<?php if (metadata('item', 'has files')): ?>
-<div id="item-files" class="element"> <!-- id DNE -->
-    <h2><?php echo __('Files'); ?></h2>
-    <div class="element-text"><?php echo files_for_item(array('imageSize' => 'fullsize')); ?></div>
-</div>
-<?php endif; ?>
-
 <?php
 $fields = array(
   array('Dublin Core', 'Subject'),
@@ -34,14 +22,12 @@ $fields = array(
 ?>
 
 <table id="element-sets"> <!-- id DNE -->
-<!-- Tag list: -->
 <?php if (metadata('item', 'has tags')): ?>
 <tr id="item-tags" class="element"> <!-- id yes -->
     <th><?php echo __('Tags'); ?></th>
     <td class="element-text"><?php echo tag_string('item'); ?></td>
 </tr>
 <?php endif;?>
-<!-- Subject list: -->
 <?php foreach ($fields as $field) : ?>
   <?php if ($field_value = metadata('item', $field, array('all' => true))): ?>
     <tr>
@@ -51,6 +37,15 @@ $fields = array(
   <?php endif; ?>
 <?php endforeach; ?>
 </table>
+
+<div id="item-secondary"> <!-- id DNE -->
+<!-- The following returns all of the files associated with an item. -->
+<?php if (metadata('item', 'has files')): ?>
+<div id="item-files" class="element"> <!-- id DNE -->
+    <h2><?php echo __('Files'); ?></h2>
+    <div class="element-text"><?php echo files_for_item(array('imageSize' => 'fullsize')); ?></div>
+</div>
+<?php endif; ?>
 
 <!-- If the item belongs to a collection, the following creates a link to that collection. -->
 <?php if (metadata('item', 'Collection Name')): ?>

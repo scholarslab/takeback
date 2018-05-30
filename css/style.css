@@ -1,4 +1,3 @@
-@charset "UTF-8";
 @import url("//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css");
 html {
   box-sizing: border-box; }
@@ -6,6 +5,258 @@ html {
 *, *::after, *::before {
   box-sizing: inherit; }
 
+/* Start "collections/show" */
+/* Landing Page: */
+/* NB: 'my-collection' so isn't same as css/style.css's styles */
+.my-collection header {
+  height: 116.67vh;
+  position: relative;
+  z-index: 0;
+  background-image: linear-gradient(to left, rgba(14, 147, 252, 0.7), rgba(75, 0, 153, 0.7)), linear-gradient(rgba(255, 255, 255, 0.7), rgba(0, 0, 0, 0.7)), url("../images/newspaper-collage-1.png");
+  background-size: auto, auto, cover;
+  /* make color = gradient that's transparent where triangles meet and white elsewhere.
+  &::after {
+  	content: '';
+  	width: 100%;
+  	height: 10px;
+  	background-color: white;
+  	display: block;
+  	position: absolute;
+  	bottom: -5px;
+  } */ }
+  .my-collection header .small-diagonal {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 33.33%;
+    height: 8.33vh;
+    background-image: linear-gradient(to bottom left, rgba(255, 255, 255, 0) 50%, white 50%); }
+  .my-collection header .big-diagonal {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 66.67%;
+    height: 16.67vh;
+    background-image: linear-gradient(to bottom right, rgba(255, 255, 255, 0) 50%, white 50%); }
+  @media screen and (min-width: 600px) {
+    .my-collection header {
+      height: 133.33vh; }
+      .my-collection header .small-diagonal {
+        height: 16.67vh; }
+      .my-collection header .big-diagonal {
+        height: 33.33vh; } }
+
+.title {
+  position: absolute;
+  top: 16.67vh;
+  left: 4.167%;
+  max-width: 95.833%; }
+  .title span {
+    font-size: 1rem;
+    font-weight: bold;
+    color: white; }
+    @media screen and (min-width: 400px) {
+      .title span {
+        font-size: 1.5rem; } }
+  .title h1 {
+    font-weight: 700;
+    color: white;
+    font-size: 2.5rem;
+    line-height: 1;
+    margin: 0;
+    display: inline; }
+    @media screen and (min-width: 400px) {
+      .title h1 {
+        font-size: 3rem;
+        line-height: 1.25; } }
+    @media screen and (min-width: 800px) {
+      .title h1 {
+        font-size: 3.75rem;
+        line-height: 1.5; } }
+  @media screen and (min-width: 600px) {
+    .title {
+      left: 8.33%;
+      max-width: 83.33%; } }
+
+/* Main Styles: */
+.content {
+  position: relative;
+  background-color: white; }
+
+.line-wrapper {
+  display: grid;
+  grid-template-areas: "line" "stats"; }
+  @media screen and (min-width: 768px) {
+    .line-wrapper {
+      grid-template-areas: "line ....." "line stats" "line .....";
+      grid-template-rows: 12.5vh auto 12.5vh;
+      grid-template-columns: 33.33% 1fr; } }
+
+.item-wrapper {
+  grid-area: line;
+  position: relative;
+  margin-bottom: 1em; }
+  @media screen and (max-width: 767.99px) {
+    .item-wrapper {
+      height: 25vh; } }
+
+.vertical-line {
+  margin-bottom: 3em;
+  position: absolute;
+  top: -2px;
+  left: calc(33.33% - 2px);
+  height: 100%;
+  width: 4px;
+  background-image: -webkit-gradient(linear, left top, left bottom, from(#383393), to(#331a4d));
+  background-image: -webkit-linear-gradient(top, #383393, #331a4d);
+  background-image: -o-linear-gradient(top, #383393, #331a4d);
+  background-image: linear-gradient(to bottom, #383393, #331a4d); }
+  .vertical-line::after {
+    content: '';
+    display: block;
+    border-radius: 50%;
+    height: 16px;
+    width: 16px;
+    background-color: black;
+    position: absolute;
+    bottom: 0;
+    left: -16px;
+    transform: translate(10px, 50%); }
+  @media screen and (min-width: 768px) {
+    .vertical-line {
+      left: calc(100% - 2px); } }
+
+.collection-stats, .description {
+  position: relative;
+  left: 8.33%;
+  font-size: 1.25rem; }
+  @media screen and (min-width: 600px) {
+    .collection-stats, .description {
+      font-size: 1.5rem; } }
+  .collection-stats span, .description span {
+    font-family: "Open Sans", sans-serif;
+    color: white;
+    font-weight: bold; }
+
+.collection-stats {
+  grid-area: stats;
+  width: 83.33%;
+  margin: 3em 0;
+  padding: .5em;
+  border: 4px solid rgba(56, 51, 147, 0.9);
+  color: black;
+  font-family: "Inconsolata", monospace;
+  text-align: right; }
+  .collection-stats span {
+    float: left;
+    color: #383393;
+    font-weight: 400;
+    font-family: "Inconsolata", monospace; }
+  .collection-stats div {
+    text-transform: uppercase;
+    position: absolute;
+    top: -4px;
+    left: 0;
+    transform: translate(0, -100%);
+    font-family: "Open Sans", sans-serif;
+    color: black;
+    font-weight: bold; }
+  @media screen and (min-width: 600px) {
+    .collection-stats {
+      width: 66.67%;
+      padding: 1em 1.5em; } }
+
+.description {
+  color: #2a2670;
+  padding: 0;
+  margin: 0;
+  margin-top: 1em;
+  font-family: "Inconsolata", monospace;
+  width: 83.33%; }
+  .description span {
+    color: black;
+    font-size: 2rem;
+    border-bottom: 1px solid black; }
+  @media screen and (min-width: 768px) {
+    .description {
+      width: 58.33%; } }
+
+.the-collection {
+  font-weight: 700;
+  font-size: 3.75em;
+  line-height: 1;
+  position: relative;
+  bottom: -6px;
+  z-index: 1;
+  color: rgba(75, 0, 153, 0.7);
+  margin-left: calc(12.5% + 16px);
+  margin-top: 1em; }
+
+/* Gallery: */
+.gallery-bg {
+  width: 100%;
+  position: relative;
+  background-color: rgba(0, 0, 0, 0.05); }
+
+.item-container {
+  columns: 1;
+  width: 100%;
+  margin: 0 auto;
+  padding: 1em;
+  padding-bottom: 0;
+  padding-top: 3em; }
+  @media screen and (min-width: 600px) {
+    .item-container {
+      columns: 2; } }
+  @media screen and (min-width: 800px) {
+    .item-container {
+      columns: 3;
+      max-width: 800px; } }
+  @media screen and (min-width: 1200px) {
+    .item-container {
+      max-width: 75%;
+      columns: 3; } }
+  @media screen and (min-width: 1600px) {
+    .item-container {
+      font-size: 2em; } }
+  .item-container .item {
+    background-color: white;
+    color: black;
+    font-family: "Raleway", sans-serif;
+    margin-bottom: 1em;
+    margin-top: 2px;
+    min-height: 120px;
+    width: 100%;
+    display: inline-block;
+    padding: 1em 1em 1em 1em;
+    box-shadow: 0px 0px 2px 0.5px rgba(0, 0, 0, 0.05); }
+    .item-container .item a.permalink {
+      text-decoration: none;
+      color: black;
+      display: block; }
+    .item-container .item a.permalink {
+      margin-bottom: .5em;
+      padding-bottom: .5em;
+      border: 0px solid;
+      border-bottom-width: 1px;
+      border-image: linear-gradient(to right, rgba(51, 26, 77, 0.5) 20%, rgba(0, 0, 0, 0) 20%) 1; }
+      .item-container .item a.permalink:hover {
+        font-weight: bold;
+        text-decoration: underline; }
+    .item-container .item a img {
+      max-height: 160px;
+      display: block;
+      border: 1px solid rgba(51, 26, 77, 0.1);
+      padding: 7px;
+      margin-top: .25em;
+      margin-bottom: 1em; }
+    .item-container .item span {
+      color: #4d0099;
+      font-weight: bold;
+      padding-right: 3px;
+      font-family: "Open Sans", sans-serif; }
+
+/* End "collections/show" */
 * {
   -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
@@ -55,6 +306,9 @@ a {
     transition: background-color 0.5s; }
   h1 a, h2 a, h3 a {
     text-decoration: none; }
+  #item-tags a {
+    /* item show page tags */
+    display: inline-block; }
 
 table {
   border-collapse: collapse;
@@ -66,10 +320,13 @@ td {
   border-color: rgba(90, 90, 90, 0.2);
   vertical-align: top;
   padding: 1rem;
-  border-bottom: 1px solid rgba(90, 90, 90, 0.2); }
+  border-bottom: 1px solid rgba(90, 90, 90, 0.2);
+  /* show.php: lines across bottom */ }
   th:first-of-type,
   td:first-of-type {
+    /* show.php: styles all fields */
     width: 20%;
+    /* this applies to data and headings so splits in half - unintentional?? */
     color: #747474; }
 
 th {
@@ -100,8 +357,8 @@ nav ul {
 nav li {
   display: inline-block; }
   nav li + li:before {
-    content: " · ";
-    padding: 0 .25em; }
+    content: "\b7";
+    padding-right: .25em; }
 
 #banner {
   background-color: #331a4d;
@@ -188,7 +445,8 @@ nav li {
   .sort-links ul li {
     display: inline-block; }
     .sort-links ul li + li:before {
-      content: " · ";
+      content: "\b7";
+      padding: 0 .25em;
       color: rgba(0, 0, 0, 0.5); }
 
 .pagination_list,
@@ -213,30 +471,33 @@ nav li {
     .pagination_list a:hover, .pagination_list a:focus {
       background: rgba(51, 26, 77, 0.125); }
 
-.browse .items {
-  display: -webkit-box;
-  display: -moz-box;
-  display: box;
-  display: -webkit-flex;
-  display: -moz-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: justify;
-  -moz-box-pack: justify;
-  box-pack: justify;
-  -webkit-justify-content: space-between;
-  -moz-justify-content: space-between;
-  -ms-justify-content: space-between;
-  -o-justify-content: space-between;
-  justify-content: space-between;
-  -ms-flex-pack: justify;
-  -webkit-flex-flow: row wrap;
-  -moz-flex-flow: row wrap;
-  flex-flow: row wrap; }
-.browse .item {
-  width: 29%;
-  margin-bottom: 2em; }
+.browse {
+  /* browse view */ }
+  .browse .items {
+    display: -webkit-box;
+    display: -moz-box;
+    display: box;
+    display: -webkit-flex;
+    display: -moz-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+    -moz-box-pack: justify;
+    box-pack: justify;
+    -webkit-justify-content: space-between;
+    -moz-justify-content: space-between;
+    -ms-justify-content: space-between;
+    -o-justify-content: space-between;
+    justify-content: space-between;
+    -ms-flex-pack: justify;
+    -webkit-flex-flow: row wrap;
+    -moz-flex-flow: row wrap;
+    flex-flow: row wrap; }
+  .browse .item {
+    width: 29%;
+    margin-bottom: 2em; }
 
+/* Old collection show styles: */
 .gallery {
   display: -webkit-box;
   display: -moz-box;
@@ -274,49 +535,58 @@ nav li {
   .gallery a {
     text-decoration: none; }
 
-#collection-11 header, #collection-11 .image {
+/* collections containing header images */
+/* assign header images to collections */
+li#collection-11 .image {
   background-image: -webkit-linear-gradient(rgba(64, 32, 96, 0.75), rgba(64, 32, 96, 0.75)), url(../images/collection-11.jpg);
   background-image: linear-gradient(rgba(64, 32, 96, 0.75), rgba(64, 32, 96, 0.75)), url(../images/collection-11.jpg);
   background-size: cover;
   background-position: 50% 50%; }
 
-#collection-12 header, #collection-12 .image {
+/* assign header images to collections */
+li#collection-12 .image {
   background-image: -webkit-linear-gradient(rgba(64, 32, 96, 0.75), rgba(64, 32, 96, 0.75)), url(../images/collection-12.jpg);
   background-image: linear-gradient(rgba(64, 32, 96, 0.75), rgba(64, 32, 96, 0.75)), url(../images/collection-12.jpg);
   background-size: cover;
   background-position: 50% 50%; }
 
-#collection-13 header, #collection-13 .image {
+/* assign header images to collections */
+li#collection-13 .image {
   background-image: -webkit-linear-gradient(rgba(64, 32, 96, 0.75), rgba(64, 32, 96, 0.75)), url(../images/collection-13.jpg);
   background-image: linear-gradient(rgba(64, 32, 96, 0.75), rgba(64, 32, 96, 0.75)), url(../images/collection-13.jpg);
   background-size: cover;
   background-position: 50% 50%; }
 
-#collection-14 header, #collection-14 .image {
+/* assign header images to collections */
+li#collection-14 .image {
   background-image: -webkit-linear-gradient(rgba(64, 32, 96, 0.75), rgba(64, 32, 96, 0.75)), url(../images/collection-14.jpg);
   background-image: linear-gradient(rgba(64, 32, 96, 0.75), rgba(64, 32, 96, 0.75)), url(../images/collection-14.jpg);
   background-size: cover;
   background-position: 50% 50%; }
 
-#collection-15 header, #collection-15 .image {
+/* assign header images to collections */
+li#collection-15 .image {
   background-image: -webkit-linear-gradient(rgba(64, 32, 96, 0.75), rgba(64, 32, 96, 0.75)), url(../images/collection-15.jpg);
   background-image: linear-gradient(rgba(64, 32, 96, 0.75), rgba(64, 32, 96, 0.75)), url(../images/collection-15.jpg);
   background-size: cover;
   background-position: 50% 50%; }
 
-#collection-16 header, #collection-16 .image {
+/* assign header images to collections */
+li#collection-16 .image {
   background-image: -webkit-linear-gradient(rgba(64, 32, 96, 0.75), rgba(64, 32, 96, 0.75)), url(../images/collection-16.jpg);
   background-image: linear-gradient(rgba(64, 32, 96, 0.75), rgba(64, 32, 96, 0.75)), url(../images/collection-16.jpg);
   background-size: cover;
   background-position: 50% 50%; }
 
-#collection-17 header, #collection-17 .image {
+/* assign header images to collections */
+li#collection-17 .image {
   background-image: -webkit-linear-gradient(rgba(64, 32, 96, 0.75), rgba(64, 32, 96, 0.75)), url(../images/collection-17.jpg);
   background-image: linear-gradient(rgba(64, 32, 96, 0.75), rgba(64, 32, 96, 0.75)), url(../images/collection-17.jpg);
   background-size: cover;
   background-position: 50% 50%; }
 
-#collection-18 header, #collection-18 .image {
+/* assign header images to collections */
+li#collection-18 .image {
   background-image: -webkit-linear-gradient(rgba(64, 32, 96, 0.75), rgba(64, 32, 96, 0.75)), url(../images/collection-18.jpg);
   background-image: linear-gradient(rgba(64, 32, 96, 0.75), rgba(64, 32, 96, 0.75)), url(../images/collection-18.jpg);
   background-size: cover;
