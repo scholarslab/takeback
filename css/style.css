@@ -126,14 +126,14 @@ html {
     .vertical-line {
       left: calc(100% - 2px); } }
 
-.collection-stats, .description {
+.collection-stats, .collections.show .description {
   position: relative;
   left: 8.33%;
   font-size: 1.25rem; }
   @media screen and (min-width: 600px) {
-    .collection-stats, .description {
+    .collection-stats, .collections.show .description {
       font-size: 1.5rem; } }
-  .collection-stats span, .description span {
+  .collection-stats span, .collections.show .description span {
     font-family: "Open Sans", sans-serif;
     color: white;
     font-weight: bold; }
@@ -166,19 +166,19 @@ html {
       width: 66.67%;
       padding: 1em 1.5em; } }
 
-.description {
+.collections.show .description {
   color: #2a2670;
   padding: 0;
   margin: 0;
   margin-top: 1em;
   font-family: "Inconsolata", monospace;
   width: 83.33%; }
-  .description span {
+.collections.show .description span {
     color: black;
     font-size: 2rem;
     border-bottom: 1px solid black; }
   @media screen and (min-width: 768px) {
-    .description {
+    .collections.show .description {
       width: 58.33%; } }
 
 .the-collection {
