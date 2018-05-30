@@ -375,6 +375,37 @@ nav li {
 .collection .item h2 {
   margin-top: 0; }
 
+.exhibits {
+    display:flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.exhibits .image {
+    width: 195px;
+    float: left;
+    margin-right: 20px;
+    margin-bottom: 0;
+}
+
+.image img {
+    margin:0;
+}
+
+#homepage-text:after {
+    display:block;
+    content: " ";
+    height: .25rem;
+    width: 50px;
+    background: rgba(255, 128, 0, 0.75);
+    margin: 3rem auto;
+}
+
+
+.exhibit {
+    width: 48%;
+}
+
 @media screen and (min-width: 800px) {
   .browse-list-links {
     display: -webkit-box;
