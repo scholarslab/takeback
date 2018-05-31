@@ -645,20 +645,20 @@ li#collection-18 .image {
 .collection .item h2 {
   margin-top: 0; }
 
-.exhibits {
+#home .exhibits {
     display:flex;
     flex-wrap: wrap;
     justify-content: space-between;
 }
 
-.exhibits .image {
+#home .exhibits .image {
     width: 195px;
     float: left;
     margin-right: 20px;
     margin-bottom: 0;
 }
 
-.image img {
+#home .exhibits .image img {
     margin:0;
 }
 
