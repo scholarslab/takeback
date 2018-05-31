@@ -5,9 +5,20 @@
 <?php echo video_files_for_item(); ?>
 <?php endif; ?>
 
-<!-- If date, display date as "Month [D/DD, no leading 0], YYYY" -->
-<?php if($date = check_date_string(metadata('item', array('Dublin Core', 'Date')))): ?>
-<em class="eyebrow dc-date"><?php echo date('F j, Y', $date); ?></em>
+<?php
+
+$eyebrow = array();
+if($date = check_date_string(metadata('item', array('Dublin Core', 'Date')))) {
+    $eyebrow[] = date('F j, Y', $date);
+}
+
+if ($publisher = metadata('item', array('Dublin Core', 'Publisher'))) {
+    $eyebrow[] = '<i>'.$publisher.'</i>';
+}
+?>
+
+<?php if(!empty($eyebrow)): ?>
+<em class="eyebrow"><?php echo implode(" · ", $eyebrow); ?></em>
 <?php endif; ?>
 
 <!-- Item title: -->
