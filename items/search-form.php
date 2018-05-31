@@ -139,8 +139,11 @@ $formAttributes['method'] = 'GET';
         <?php echo $this->formLabel('tag-search', __('Search By Tags')); ?>
         <div class="inputs">
         <?php
-            echo $this->formText('tags', @$_REQUEST['tags'],
-                array('size' => '40', 'id' => 'tag-search')
+            echo $this->formSelect(
+                'tags',
+                @$_REQUEST['tags'],
+                array('id' => 'tag-search'),
+                label_table_options(get_tbta_tags_for_select())
             );
         ?>
         </div>

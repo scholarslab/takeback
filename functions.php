@@ -102,6 +102,17 @@ function get_tbta_public_tags($tagsonly=true) {
   return $tags;
 }
 
+function get_tbta_tags_for_select() {
+    $tags_for_select = array();
+    $tags = get_tbta_public_tags();
+
+    foreach ($tags as $tag) {
+        $tagname = $tag['name'];
+        $tags_for_select[$tagname] = $tagname;
+    }
+    return $tags_for_select;
+}
+
 /**
  * Utility to compare name keys in two arrays. Found at:
  * http://stackoverflow.com/questions/5653241/using-array-intersect-on-a-multi-dimensional-array
