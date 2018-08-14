@@ -800,3 +800,15 @@ div#figures figure:target {
   margin-left: auto;
   margin-right: auto;
 }
+
+#collaboratorbios .thumbnail {
+    float:right;
+    width: 200px;
+    margin: 2em 0 2em 2em;
+}
+
+#collaboratorbios main h1 ~ div {
+    margin-bottom:2em;
+    overflow:hidden;
+}
+
