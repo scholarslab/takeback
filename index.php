@@ -1,5 +1,9 @@
 <?php echo head(array('bodyid'=>'home')); ?>
 
+<div id="introduction">
+<p>Take Back the Archive is a public history project created by UVa faculty, students, librarians, and archivists. It is meant to preserve, visualize, and contextualize the history of rape and sexual violence at the University of Virginia, honoring individual stories and documenting systemic issues and trends.</p>
+</div>
+
 <?php if ($homepageText = get_theme_option('Homepage Text')): ?>
 <div id="homepage-text">
 <?php echo $homepageText; ?>

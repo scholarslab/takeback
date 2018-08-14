@@ -862,4 +862,27 @@ div#figures figure:target {
     overflow:hidden;
 }
 
+#introduction {
+    background-image: 
+    linear-gradient(rgba(64, 32, 96, 0.75), rgba(64, 32, 96, 0.75)),
+    url("../images/bg-large.jpg");
+    background-size: auto, auto, cover;
+    background-position: 0 0,50% 50%;
+    margin: -2rem -2rem 2rem;
+    padding: 4rem;
+    display:flex;
+    min-height: 60vh;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+#introduction p {
+    margin:0;
+    max-width: 40vw;
+    font-size: 1.25rem;
+    color: white;
+}
+
+
 
