@@ -12,7 +12,17 @@
 <?php foreach ($exhibits as $exhibit): ?>
     <div class="exhibit">
         <h2><?php echo exhibit_builder_link_to_exhibit($exhibit); ?></h2>
-        <?php if ($exhibitImage = record_image($exhibit)): ?>
+        <?php 
+        $exhibitImage = false;
+        
+        if ($exhibit->id == '4') {
+            $exhibitImage = '<img alt="" src="'.img('exhibit-4.jpg').'">';
+        } else {
+            $exhibitImage = record_image($exhibit);
+        }
+
+        ?>
+        <?php if ($exhibitImage): ?>
             <?php echo exhibit_builder_link_to_exhibit($exhibit, $exhibitImage, array('class' => 'image')); ?>
         <?php endif; ?>
         <?php if ($exhibitDescription = metadata($exhibit, 'description', array('no_escape' => true))): ?>
