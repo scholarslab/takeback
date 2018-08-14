@@ -812,3 +812,54 @@ div#figures figure:target {
     overflow:hidden;
 }
 
+
+.simple-pages-navigation ul {
+    margin:0;
+    padding:0;
+}
+
+.simple-pages-navigation li {
+    display:block;
+    border-bottom:1px solid rgba(0,0,0,0.125);
+}
+
+.simple-pages-navigation li:before {
+    content: "";
+    display:none;
+}
+
+.simple-pages-navigation a {
+    text-decoration:none;
+    font-weight:bold;
+    display:block;
+    line-height:3em;
+    padding: 0 1em;
+}
+
+.simple-pages-navigation a:hover,
+.simple-pages-navigation a:focus,
+.simple-pages-navigation a:active {
+    background: rgba(0,0,0,.0375);
+}
+
+.simple-pages-navigation .active a {
+    color: #333;
+}
+
+.simple-page .page-text {
+    float:left;
+    width: 65%;
+}
+
+.simple-page #simple-pages-navigation {
+    float:right;
+    width: 30%;
+    margin-top:1em;
+}
+
+
+.simple-page #primary {
+    overflow:hidden;
+}
+
+
