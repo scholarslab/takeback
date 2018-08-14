@@ -266,7 +266,9 @@ html,
 body {
   margin: 0;
   padding: 0; }
-
+html {
+  background: #331a4d;
+}
 body {
   font: 16px/1.375 "Open Sans", sans-serif;
   color: #5a5a5a;
@@ -406,8 +408,8 @@ nav li {
     padding: 0; }
 
 #main {
+  background: white;
   padding: 2rem;
-  max-width: 900px;
   margin-left: auto;
   margin-right: auto; }
   .collections.show #main {
@@ -762,3 +764,39 @@ li#collection-18 .image {
   margin: 0; }
   .eyebrow + h2 {
     margin-top: 0; }
+
+div#figures figure:not(:target) {
+  display:none !important;
+}
+
+div#figures figure:first-of-type {
+  display:block;
+}
+
+div#figures figure:target {
+  display:block;
+}
+
+.exhibits.show #exhibit-pages {
+  margin: -2rem -2rem 2rem;
+  padding: 2rem;
+  background: rgba(20,10,30,.025);
+  margin-bottom: 2rem;
+}
+
+#exhibit-pages ul {
+  margin:0;
+  padding:0;
+}
+
+#exhibit-pages li:before {
+  padding-left: .25em;
+}
+
+#homepage-text,
+#home .exhibits,
+.simple-page #primary {
+  max-width: 900px;
+  margin-left: auto;
+  margin-right: auto;
+}
