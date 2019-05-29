@@ -69,7 +69,7 @@ $years = array();
         <!-- Date -->
         <?php if($date = check_date_string(metadata('item', array('Dublin Core', 'Date')))): ?>
         <span><?php echo __('Date:'); ?></span>
-	   <div class="date"><?php echo date('F j, Y', $date); ?></div>
+	   <div class="date"><?php echo metadata('item', array('Dublin Core', 'Date')); ?></div>
 	   <?php $years[] = date('Y', $date); ?>
 	   <?php endif; ?>
     </div>
