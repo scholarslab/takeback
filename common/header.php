@@ -23,12 +23,7 @@
     <header role="banner" id="banner">
     <?php echo link_to_home_page('<span>Take Back</span> <span>the Archive</span>', array('id' => 'homelink')); ?>
     <nav id="primary-nav" role="navigation">
-      <ul>
-      <li><a href="<?php echo html_escape(url('/items/')); ?>">Browse Items</a></li>
-      <li><a href="<?php echo html_escape(url('/items/search')); ?>">Search Items</a></li>
-      <li><a href="<?php echo html_escape(url('/collections/')); ?>">Browse Collections</a></li>
-      <li><a href="<?php echo html_escape(url('/about/')); ?>">About the Archive</a></li>
-      </ul>
+      <?php echo public_nav_main(); ?>
     </nav>
     </header>
     <main id="main" role="main">
