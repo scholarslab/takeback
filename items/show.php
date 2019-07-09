@@ -6,10 +6,10 @@
 <?php endif; ?>
 
 <?php
-
+echo strtotime('emily');
 $eyebrow = array();
-if($date = check_date_string(metadata('item', array('Dublin Core', 'Date')))) {
-    $eyebrow[] = date('F j, Y', $date);
+if($date = prettify_date(metadata('item', array('Dublin Core', 'Date')))) {
+    $eyebrow[] = $date;
 }
 
 if ($publisher = metadata('item', array('Dublin Core', 'Publisher'))) {
@@ -53,8 +53,12 @@ $fields = array(
 </tr>
 <?php endif;?>
 <tr>
+      <th>Date Added</th>
+      <td><?php echo prettify_date(metadata('item', 'added')); ?></td>
+    </tr>
+<tr>
       <th>Date Modifed</th>
-      <td><?php echo metadata('item', 'modified'); ?></td>
+      <td><?php echo prettify_date(metadata('item', 'modified')); ?></td>
     </tr>
 <!-- Subject list: -->
 <?php foreach ($fields as $field) : ?>

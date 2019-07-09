@@ -174,3 +174,17 @@ function check_date_string($string)
     $date = ($time === false) ? false : $time;
     return $date;
 }
+
+
+/**
+ * Makes dates more human useful.
+ * 
+ * @return Date
+ */
+function prettify_date($date, $date_format="F j, Y")
+{
+  if ($date){
+    return date($date_format, check_date_string($date));
+  }
+  return false;
+}
