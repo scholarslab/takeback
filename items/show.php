@@ -52,6 +52,10 @@ $fields = array(
     <td class="element-text"><?php echo tag_string('item'); ?></td>
 </tr>
 <?php endif;?>
+<tr>
+      <th>Date Modifed</th>
+      <td><?php echo metadata('item', 'modified'); ?></td>
+    </tr>
 <!-- Subject list: -->
 <?php foreach ($fields as $field) : ?>
   <?php if ($field_value = metadata('item', $field, array('all' => true))): ?>
