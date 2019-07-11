@@ -327,14 +327,18 @@ td {
   th:first-of-type,
   td:first-of-type {
     /* show.php: styles all fields */
-    width: 20%;
+   
     /* this applies to data and headings so splits in half - unintentional?? */
     color: #747474; }
 
 th {
   text-align: left;
-  font-weight: 600; }
-
+  font-weight: 600; 
+  width: 20%;
+}
+td{
+  width: 80%;
+}
 /* Forms */
 input[type=text] {
   padding: 6px; }

@@ -6,7 +6,7 @@
 <?php endif; ?>
 
 <?php
-echo strtotime('emily');
+
 $eyebrow = array();
 if($date = prettify_date(metadata('item', array('Dublin Core', 'Date')))) {
     $eyebrow[] = $date;
@@ -37,14 +37,10 @@ if ($publisher = metadata('item', array('Dublin Core', 'Publisher'))) {
 </div>
 <?php endif; ?>
 
-<?php
-$fields = array(
-  array('Dublin Core', 'Subject'),
-  array('Item Type Metadata', 'URL')
-);
-?>
+<?php echo all_element_texts('item', array('partial' => 'common/item-metadata.php', 'show_element_set_headings' => false)); ?>
 
 <table id="element-sets"> <!-- id DNE -->
+
 <!-- Tag list: -->
 <?php if (metadata('item', 'has tags')): ?>
 <tr id="item-tags" class="element"> <!-- id yes -->
@@ -60,24 +56,16 @@ $fields = array(
       <th>Date Modifed</th>
       <td><?php echo prettify_date(metadata('item', 'modified')); ?></td>
     </tr>
-<!-- Subject list: -->
-<?php foreach ($fields as $field) : ?>
-  <?php if ($field_value = metadata('item', $field, array('all' => true))): ?>
-    <tr>
-      <th><?php echo $field[1]; ?></th>
-      <td><?php echo implode(', ', $field_value); ?></td>
-    </tr>
-  <?php endif; ?>
-<?php endforeach; ?>
-</table>
-
+    
 <!-- If the item belongs to a collection, the following creates a link to that collection. -->
 <?php if (metadata('item', 'Collection Name')): ?>
-<div id="item-collection" class="element"> <!-- id DNE -->
-    <h2><?php echo __('Collection'); ?></h2>
-    <div class="element-text"><p><?php echo link_to_collection_for_item(); ?></p></div>
-</div>
+<tr id="item-collection" class="element"> <!-- id DNE -->
+    <th><?php echo __('Collection'); ?></th>
+    <td><?php echo link_to_collection_for_item(); ?></td>
+</tr>
 <?php endif; ?>
+</table>
+
 <!-- END ITEM CONTENT-->
 
 <?php fire_plugin_hook('public_items_show', array('view' => $this, 'item' => $item)); ?>
