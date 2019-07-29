@@ -3,12 +3,15 @@ echo head(array(
     'title' => metadata('exhibit_page', 'title') . ' &middot; ' . metadata('exhibit', 'title'),
     'bodyclass' => 'exhibits show'));
 ?>
+
+<strong class="eyebrow"><?php echo exhibit_builder_link_to_exhibit($exhibit); ?></strong>
+<h1><span class="exhibit-page"><?php echo metadata('exhibit_page', 'title'); ?></span></h1>
+
 <nav id="exhibit-pages">
-    <strong><?php echo exhibit_builder_link_to_exhibit($exhibit); ?></strong>
     <?php echo exhibit_builder_page_tree($exhibit, $exhibit_page); ?>
 </nav>
+<div id="primary">
 
-<h1><span class="exhibit-page"><?php echo metadata('exhibit_page', 'title'); ?></span></h1>
 
 <div id="exhibit-blocks">
 <?php exhibit_builder_render_exhibit_page(); ?>
@@ -25,5 +28,6 @@ echo head(array(
     <?php echo $nextLink; ?>
     </div>
     <?php endif; ?>
+</div>
 </div>
 <?php echo foot(); ?>

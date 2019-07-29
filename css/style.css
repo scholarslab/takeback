@@ -781,20 +781,34 @@ div#figures figure:target {
   display:block;
 }
 
-.exhibits.show #exhibit-pages {
-  margin: -2rem -2rem 2rem;
-  padding: 2rem;
-  background: rgba(20,10,30,.025);
-  margin-bottom: 2rem;
+#exhibit-pages {
+ float:left;
+ width:30%;
+}
+
+.exhibits #primary{
+  float:right;
+  width:68%;
+}
+
+.exhibits #main{
+  overflow:hidden;
+  zoom:1;
 }
 
 #exhibit-pages ul {
-  margin:0;
-  padding:0;
+  margin: 0;
+  padding: 0;
+  list-style-type:disc;
+}
+
+#exhibit-pages li{
+  display:block;
 }
 
 #exhibit-pages li:before {
-  padding-left: .25em;
+  padding: 0;
+  content: "";
 }
 
 #homepage-text,
