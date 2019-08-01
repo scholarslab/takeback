@@ -40,7 +40,6 @@ $years = array();
             <?php if ($years): ?>
             <span>Year Range:</span> <?php echo min($years) . ' - ' . max($years); ?><br/> <!-- LOOP -->
             <?php endif; ?>
-            <span>Collection ID:</span> <?php echo $myId; ?>
         </div>
     </div> <!-- end ".line-wrapper" -->
     
