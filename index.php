@@ -23,7 +23,7 @@
     Exhibits
 </a>
 <a id="home-classroom" href="/classroom_use/">
-    <img src="/themes/takeback/images/home_classroom_image.png" alt="">
+    <img src="/themes/takeback/images/home_classroom_image.jpg" alt="">
     Classroom Use
 </a>
 </nav>
