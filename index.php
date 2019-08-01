@@ -22,7 +22,7 @@
     <img src="/themes/takeback/images/home_exhibits_image.jpg" alt="">
     Exhibits
 </a>
-<a id="home-classroom" href="/classroom/">
+<a id="home-classroom" href="/classroom_use/">
     <img src="/themes/takeback/images/home_classroom_image.png" alt="">
     Classroom Use
 </a>
