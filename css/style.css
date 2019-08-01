@@ -598,6 +598,13 @@ li#collection-18 .image {
   background-size: cover;
   background-position: 50% 50%; }
 
+/* assign header images to collections */
+li#collection-22 .image {
+  background-image: -webkit-linear-gradient(rgba(64, 32, 96, 0.75), rgba(64, 32, 96, 0.75)), url(../images/collection-22.jpg);
+  background-image: linear-gradient(rgba(64, 32, 96, 0.75), rgba(64, 32, 96, 0.75)), url(../images/collection-22.jpg);
+  background-size: cover;
+  background-position: 50% 50%; }
+
 .collection header {
   min-height: 50vh;
   background-color: rgba(51, 26, 77, 0.75);
@@ -902,5 +909,25 @@ div#figures figure:target {
     color: white;
 }
 
+#homepage-navigation {
+  display:flex;
+  flex-direction: row;
+  align-items:center;
+  justify-content: space-between;
+}
+
+#homepage-navigation a {
+  display:flex;
+  flex-direction: column;
+  align-items: center;
+  text-decoration:none;
+  width: 30%;
+  font-size: 1.25em;
+}
+
+#homepage-navigation img {
+  border: 5px solid rgba(64, 32, 96, 0.25);
+  margin-bottom: 1em;
+}
 
 
