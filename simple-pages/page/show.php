@@ -4,10 +4,12 @@ if ($is_home_page):
     $bodyclass .= ' simple-page-home';
 endif;
 
+$page_slug = metadata('simple_pages_page', 'slug');
+
 echo head(array(
     'title' => metadata('simple_pages_page', 'title'),
     'bodyclass' => $bodyclass,
-    'bodyid' => metadata('simple_pages_page', 'slug')
+    'bodyid' => $page_slug
 ));
 ?>
 
@@ -21,10 +23,11 @@ echo head(array(
     echo $this->shortcodes($text);
 ?>
 </div>
+<?php if ($page_slug != 'classroom_use'): ?>
     <nav id="simple-pages-navigation">
 <?php echo simple_pages_navigation(); ?>
     </nav>
-
+<?php endif;?>
 </div>
 
 <?php echo foot(); ?>
