@@ -2,45 +2,40 @@
 $title = __('Browse Exhibits');
 echo head(array('title' => $title, 'bodyclass' => 'exhibits browse'));
 ?>
-<h1><?php echo $title; ?> <?php echo __('(%s total)', $total_results); ?></h1>
+
+<h1><?php echo $title; ?></h1>
 <?php if (count($exhibits) > 0): ?>
+<div class="exhibits">
+    <div class="exhibit">
+        <h2><a href="/administrative-timeline/">Administrative Timeline</a></h2>
+        <a class="image" href="/administrative-timeline"><img alt="" src="/themes/takeback/images/administrative-timeline.png"></a>
+        <div class="description">
+        Expulsions. Vigils. Task forces. Policies. Protests. Excuses. This timeline charts administrative responses to reports of sexual violence from 1824, five years after the University’s founding, through 2015, in the aftermath of the Rolling Stone article, “A Rape on Campus.”
+        </div>
+     </div>
+<?php foreach ($exhibits as $exhibit): ?>
+    <div class="exhibit">
+        <h2><?php echo exhibit_builder_link_to_exhibit($exhibit); ?></h2>
+        <?php 
+        $exhibitImage = false;
+        
+        if ($exhibit->id == '4') {
+            $exhibitImage = '<img alt="" src="'.img('exhibit-4.jpg').'">';
+        } else {
+            $exhibitImage = record_image($exhibit);
+        }
 
-<nav class="navigation secondary-nav">
-    <?php echo nav(array(
-        array(
-            'label' => __('Browse All'),
-            'uri' => url('exhibits')
-        ),
-        array(
-            'label' => __('Browse by Tag'),
-            'uri' => url('exhibits/tags')
-        )
-    )); ?>
-</nav>
-
-<?php echo pagination_links(); ?>
-
-<?php $exhibitCount = 0; ?>
-<?php foreach (loop('exhibit') as $exhibit): ?>
-    <?php $exhibitCount++; ?>
-    <div class="exhibit <?php if ($exhibitCount%2==1) echo ' even'; else echo ' odd'; ?>">
-        <h2><?php echo link_to_exhibit(); ?></h2>
-        <?php if ($exhibitImage = record_image($exhibit)): ?>
+        ?>
+        <?php if ($exhibitImage): ?>
             <?php echo exhibit_builder_link_to_exhibit($exhibit, $exhibitImage, array('class' => 'image')); ?>
         <?php endif; ?>
-        <?php if ($exhibitDescription = metadata('exhibit', 'description', array('no_escape' => true))): ?>
+        <?php if ($exhibitDescription = metadata($exhibit, 'description', array('no_escape' => true))): ?>
         <div class="description"><?php echo $exhibitDescription; ?></div>
         <?php endif; ?>
-        <?php if ($exhibitTags = tag_string('exhibit', 'exhibits')): ?>
-        <p class="tags"><?php echo $exhibitTags; ?></p>
-        <?php endif; ?>
     </div>
+
 <?php endforeach; ?>
-
-<?php echo pagination_links(); ?>
-
-<?php else: ?>
-<p><?php echo __('There are no exhibits available yet.'); ?></p>
+</div>
 <?php endif; ?>
 
 <?php echo foot(); ?>
