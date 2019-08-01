@@ -13,7 +13,7 @@ function queue_theme_assets() {
     queue_js_file('modernizr.min');
     queue_js_file(array('respond.min', 'selectivizr.min'), 'javascripts', array('conditional' => 'lt IE 9'));
 
-    get_view()->headLink()->prependStylesheet('http://fonts.googleapis.com/css?family=Open+Sans:400,700|Inconsolata|Raleway');
+    get_view()->headLink()->prependStylesheet('//fonts.googleapis.com/css?family=Open+Sans:400,700|Inconsolata|Raleway');
     queue_css_file('style');
 }
 
