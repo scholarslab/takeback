@@ -17,7 +17,7 @@ echo head(array('title' => $title, 'bodyclass' => 'exhibits browse'));
         <h2><a href="/takeback-collection-map/">UVA Scholarship on Sexual Violence: Mapping the Collection</a></h2>
         <a class="image" href="/takeback-collection-map"><img alt="" src="/themes/takeback/images/collection-map.png"></a>
         <div class="description">
-        The Omeka Collection “UVA Scholarship on Sexual Violence, 1974-present” brings together the research and resources related to sexual violence created by UVA faculty and students, that are held in library collections at UVA. This visualization seeks to illustrate the breadth of this scholarship and highlight the key nodes of production.
+        The Omeka Collection “UVA Scholarship on Sexual Violence, 1974-present” brings together the research and resources related to sexual violence created by UVA faculty and students, that are held in library collections at UVA. This interactive visualization seeks to illustrate the breadth of this scholarship and highlight the key nodes of production.
         </div>
      </div>
 <?php foreach ($exhibits as $exhibit): ?>
